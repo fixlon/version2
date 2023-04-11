@@ -1,0 +1,25 @@
+{
+  "usersprofile": [
+    {
+      "username": "NANDHAGOPAL",
+      "password": "Nasa@123",
+      "confirmpassword": "111111",
+      "email": "nandhavignesh85@gmail.com",
+      "id": 1
+    },
+    {
+      "username": "Nandha",
+      "email": "2k19ece050@kiot.ac.in",
+      "password": "Nandha@123",
+      "confirmpassword": "Nandha@123",
+      "id": 2
+    }
+  ],
+  "admin": [
+    {
+      "username": "NANDHAGOPAL",
+      "password": "admin@fixlon",
+      "email": "admin@gmail.com"
+    }
+  ]
+}

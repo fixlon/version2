@@ -1,0 +1,30 @@
+/*video*/
+.video{
+  padding: 7rem 1rem 1rem 1rem;
+  margin-bottom: 10px;
+}
+
+.vservice{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 70vh;
+  margin-top: 15px;
+}
+
+.vservice .vs{
+  position: relative;
+  width: 24%;
+  height: 70vh;
+  margin: 5px;
+ border: 2px solid var(--first-color);
+}
+
+.vservice .vs video{
+position: absolute;
+width: 100%;
+height: 70vh;
+object-fit: cover;
+
+}
+/* VIDEO END */

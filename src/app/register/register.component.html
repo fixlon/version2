@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="container">
+        <h1>GET IN TOUCH WITH US</h1>
+        <!-- <form action="https://sheetdb.io/api/v1/ai6a34invy38k" method="post" id="sheetdb-form" onsubmit="return validatephone()"> -->
+            <form action="" [formGroup]="loginform1" (submit)="adduser()" >
+            <div class="row">
+                <div class="column">
+                    <label for="uname">Username</label>
+                    <input type="text" id="uname"name="username" formControlName="username" placeholder="Enter Username here" >
+                </div>
+                <div *ngIf="loginform1.controls['username'].invalid&&loginform1.controls['username'].touched" style="color: whitesmoke;font-size: 20px;">
+                  <small *ngIf="loginform1.controls['username'].errors?.['required']">please enter username</small>
+                  <small *ngIf="loginform1.controls['username'].errors?.['minlength']">please enter username with atleast 3 char</small>
+                 </div>
+
+                <div class="column">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email" placeholder="your email here" formControlName="email" >
+                </div>
+                <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: white;font-size: 20px;">
+                  <small *ngIf="loginform1.controls['email'].errors?.['required']" >please enter email ID</small>
+                  <small *ngIf="loginform1.controls['email'].errors?.['pattern']" >please enter Valid email ID</small>
+                 </div>
+
+                <div class="column">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" formControlName="password" placeholder="Enter your password"  >
+                </div>
+                <div *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" style="color: white;font-size: 20px;">
+                  <small *ngIf="loginform1.controls['password'].errors?.['required']" >please enter Password</small>
+                  <small *ngIf="loginform1.controls['password'].errors?.['pattern']" >Password must contain more than 8 characters,
+                     1 upper case letter, and 1 special character</small>
+                 </div>
+
+                <div class="column">
+                    <label for="re-password">Confirm Password</label>
+                    <input type="password" id="Re-password" name="confirmpassword" placeholder="Re-Enter your password" formControlName="confirmpassword" >
+                </div>
+                <div *ngIf="loginform1.controls['confirmpassword'].invalid&&loginform1.controls['confirmpassword'].touched" style="color: white;font-size: 20px;">
+                  <small *ngIf="loginform1.controls['confirmpassword'].errors?.['required']" >Confirm Password is Reqired</small>
+
+                  <small *ngIf="loginform1.controls['confirmpassword'].errors?.['Confirmvalidator'] ">please Match the Password</small>
+                 </div>
+
+            </div>
+            <div class="button">
+                <button  [disabled]="!loginform1.valid" >Submit</button>
+            </div>
+            <br><hr><br>
+            <a routerLink="/login" id="exist">Existing User?</a>
+        </form>
+    </div>
+  </body>
