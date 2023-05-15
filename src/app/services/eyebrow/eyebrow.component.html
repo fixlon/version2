@@ -13,87 +13,15 @@
 
       <div class="services__content__descripion container">
 
-                  <div class="box">
+                  <div class="box" *ngFor="let item of eyebrowlist">
 
                       <div class="inner">
-                          <a target="_blank" href=""><img src="/assets/services/eye-brow1.jpg" alt="Simple" title="Simple">
-                          <p>Simple</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 199</i></a>
+                          <a href=""><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                          <p>{{item.Name}}</p>
+                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i></a>
                       </div>
 
                   </div>
-
-                  <div class="box">
-
-                      <div class="inner">
-                          <a target="_blank" href=""><img src="/assets/services/eye-brow2.jpg" alt="Classic Bow" title="Classic Bow">
-                          <p>Classic Bow</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 299</i></a>
-                      </div>
-
-                  </div>
-
-                  <div class="box">
-
-                      <div class="inner">
-
-                          <a target="_blank" href=""><img src="/assets/services/eye-brow3.jpg" alt="Winter Tones" title="Winter Tones">
-                          <p>Winter Tones</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 299</i></a>
-                      </div>
-
-                  </div>
-
-                  <div class="box">
-
-                      <div class="inner">
-                          <a target="_blank" href=""><img src="/assets/services/eye-brow4.jpg" alt="Scissor Styles" title="Scissor Styles" >
-                          <p>Scissor Styles</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 699</i></a>
-                      </div>
-
-                  </div>
-
-                  <div class="box">
-
-                    <div class="inner">
-                        <a target="_blank" href=""><img src="/assets/services/eye-brow5.jpg" alt="Elegant Seed" title="Elegant Seed">
-                        <p>Elegant Seed</p>
-                        <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 399</i></a>
-                    </div>
-
-                </div>
-
-                <div class="box">
-
-                    <div class="inner">
-                        <a target="_blank" href=""><img src="/assets/services/eye-brow6.jpg" alt="Custom Styles" title="Custom Styles">
-                        <p>Custom Styles</p>
-                        <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 499</i></a>
-                    </div>
-
-                </div>
-
-                <div class="box">
-
-                    <div class="inner">
-
-                        <a target="_blank" href=""><img src="/assets/services/eye-brow7.jpg" alt="Classic Threading" title="Classic Threading">
-                        <p>Classic Threading</p>
-                        <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 599</i></a>
-                    </div>
-
-                </div>
-
-                <div class="box">
-
-                    <div class="inner">
-                        <a target="_blank" href=""><img src="/assets/services/eye-brow8.jpg" alt="Cool tone" title="Cool tone" >
-                        <p>Cool tone</p>
-                        <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> 499</i></a>
-                    </div>
-
-                </div>
 
 
       </div>

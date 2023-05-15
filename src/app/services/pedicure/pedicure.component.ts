@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
   selector: 'app-pedicure',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedicure.component.css']
 })
 export class PedicureComponent implements OnInit {
-
-  constructor() { }
+pedicurelist:any;
+  constructor(public service:BserviceService) { }
 
   ngOnInit() {
+    this.service.pedicure().subscribe((data=>{
+      this.pedicurelist=data;
+    }))
   }
 
 }

@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { PackagesComponent } from './packages/packages.component';
 import { RegisterComponent } from './register/register.component';
 import { ServicesComponent } from './services/services.component';
-import { AuthGuard } from './auth.guard';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PedicureComponent } from './services/pedicure/pedicure.component';
@@ -20,6 +19,9 @@ import { MakeupComponent } from './services/makeup/makeup.component';
 import { WaxingComponent } from './services/waxing/waxing.component';
 import { SkincleaningComponent } from './services/skincleaning/skincleaning.component';
 import { ManicureComponent } from './services/manicure/manicure.component';
+import { AuthGuard } from './auth.guard';
+import { AddComponent } from './add/add.component';
+import { DeleteComponent } from './delete/delete.component';
 
 
 const routes: Routes = [
@@ -28,24 +30,51 @@ const routes: Routes = [
   },
   {
     path:"about",
-    component:AboutComponent
+    component:AboutComponent,
   },
   {
     path:"services",
     component:ServicesComponent,
-    canActivate: [AuthGuard],
+
+  },
+  {
+    path:'',
+    children:[{
+      path:"services/add",
+      component:AddComponent,
+    },
+    {
+      path:"services/delete",
+      component:DeleteComponent,
+    }
+  ]
+
+  },
+  {
+    path:'',
+    children:[{
+      path:"gallery/add",
+      component:AddComponent,
+    },
+    {
+      path:"gallery/delete",
+      component:DeleteComponent,
+    }
+  ]
+
   },
 
 {
   path:'',
+  canActivate:[AuthGuard],
     children:[
       {
        path:'services/manicure',
-      component:ManicureComponent
+      component:ManicureComponent,
     },
     {
       path:'services/pedicure',
-      component:PedicureComponent
+      component:PedicureComponent,
     },
     {
       path:'services/eyebrow',
@@ -74,8 +103,8 @@ const routes: Routes = [
   },
   {
     path:"packages",
+    canActivate:[AuthGuard],
     component:PackagesComponent,
-    canActivate: [AuthGuard],
     children:[
       {
         path:':check',
@@ -89,6 +118,15 @@ const routes: Routes = [
 
   },
   {
+    path:'',
+    canActivate:[AuthGuard],
+    children:[{
+      path:"gallery/galleryfull",
+      component:GalleryfullComponent,
+    }]
+
+  },
+  {
     path:"login",
     component:LoginComponent
   },
@@ -97,11 +135,7 @@ const routes: Routes = [
     component:RegisterComponent
   },
 
-  {
-    path:"galleryfull",
-    component:GalleryfullComponent,
-    // canActivate: [AuthGuard],
-  },
+
   {
     path:"forgot-password",
     component:ForgotPasswordComponent
@@ -120,6 +154,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: []
 })
 export class AppRoutingModule { }

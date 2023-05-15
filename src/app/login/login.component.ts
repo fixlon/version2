@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Route, Router, RouteReuseStrategy } from '@angular/router';
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit{
   url:any="http://localhost:3000/usersprofile";
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
-  constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router) {}
+  returl:any;
+  constructor(private fb:FormBuilder,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
+    activeroute.queryParamMap.subscribe(data=>{
+this.returl=data.get("retUrl")
+    })
+  }
 
   ngOnInit() {
     this.password = 'password';
@@ -48,6 +54,7 @@ export class LoginComponent implements OnInit{
      });
      if(admin){
       alert("admin login success");
+      this.loginservice.adminloggedin();
       this.loginform1.reset();
       this.router.navigate(['gallery']);
      }
@@ -56,44 +63,35 @@ export class LoginComponent implements OnInit{
      else{
       this.http.get(this.url)
       .subscribe((data: any)=>{
+        var email;
+        var password;
        const user = data.find((a:any)=>{
-        return a.email === this.loginform1.value.email && a.password===this.loginform1.value.password
+        if(a.email === this.loginform1.value.email){
+          email=a.email;
+          password=a.password;
+        }
        });
-       if(user){
+       if(email==null||email==""){
+        alert("No user found");
+       }
+       else if(password===this.loginform1.value.password){
         alert("login success");
         this.loginform1.reset();
-        this.router.navigate(['services']);
+        this.loginservice.userloggedin(email,password)
+        if(this.returl==null){
+          this.router.navigate(['services']);
+        }
+        else{
+          this.router.navigate([this.returl]);
+        }
        }
-      //  user password incorrect
        else{
-        this.http.get(this.url)
-      .subscribe((data: any)=>{
-       const user = data.find((a:any)=>{
-        return a.email === this.loginform1.value.email && a.password!==this.loginform1.value.password
-       });
-       if(user){
-        alert("Password is incorrect");
+        alert("password incorrect")
        }
-      //  user not found
-       else{
-        alert("user not found");
-       }
-      })
-
-      }});}
+    });}
     })
 
 
   }
-
-  // isAuthenticate: boolean = false;
-
-  // login(email: string, password: string): Observable<boolean> {
-  //   if (email === 'admin@gmail.com' && password === 'admin') {
-  //     this.isAuthenticate = true;
-  //     return of(true);
-  //   }
-  //   return of(false);
-  // }
 
 }

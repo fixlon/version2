@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
   selector: 'app-skincleaning',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skincleaning.component.css']
 })
 export class SkincleaningComponent implements OnInit {
-
-  constructor() { }
+skinlist:any;
+  constructor(public service:BserviceService) { }
 
   ngOnInit() {
+    this.service.skincleaning().subscribe(data=>{
+      this.skinlist=data;
+    })
   }
 
 }

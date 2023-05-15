@@ -6,14 +6,19 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   url:any="http://localhost:3000/usersprofile";
+  url1:any="http://localhost:3000/services";
   getuser: any;
 
 constructor(private http:HttpClient) { }
 adduser(body:any){
 return this.http.post(this.url,body);
 }
-deleteuser(id:any){
-  return this.http.delete(this.url,id);
+
+addservice(body:any){
+  return this.http.post(this.url1,body);
+  }
+deleteservice(id:any){
+  return this.http.delete(this.url1+"/"+id);
 }
 retriveuser(){
   return this.http.get(this.url);

@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="container">
+        <h1>GET IN TOUCH WITH US</h1>
+        <!-- <form action="https://sheetdb.io/api/v1/ai6a34invy38k" method="post" id="sheetdb-form" onsubmit="return validatephone()"> -->
+            <form action="" [formGroup]="loginform" (submit)="addservice()" >
+            <div class="row">
+                <div class="column">
+                    <label for="uname">ID</label>
+                    <input type="text" id="id"name="id" formControlName="id" placeholder="Enter id here" >
+                </div>
+                <div *ngIf="loginform.controls['id'].invalid&&loginform.controls['id'].touched" style="color: whitesmoke;font-size: 20px;">
+                 </div>
+
+                <div class="column">
+                    <label for="service">Service Name</label>
+                    <input type="text" id="service" name="service" placeholder="your service here" formControlName="service" >
+                </div>
+                <div *ngIf="loginform.controls['service'].invalid&&loginform.controls['service'].touched" style="color: white;font-size: 20px;">
+                 </div>
+
+                <div class="column">
+                    <label for="image">image</label>
+                    <input type="text" id="image" formControlName="image" placeholder="Enter your image"  >
+                </div>
+                <div *ngIf="loginform.controls['image'].invalid&&loginform.controls['image'].touched" style="color: white;font-size: 20px;">
+                </div>
+
+                <div class="column">
+                  <label for="link">link</label>
+                  <input type="text" id="link" formControlName="link" placeholder="Enter your link"  >
+              </div>
+              <div *ngIf="loginform.controls['link'].invalid&&loginform.controls['link'].touched" style="color: white;font-size: 20px;">
+              </div>
+            </div>
+            <div class="button">
+                <button  [disabled]="!loginform.valid" >Submit</button>
+                <a routerLink="/services"><button >Back</button></a>
+            </div>
+        </form>
+    </div>
+  </body>

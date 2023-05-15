@@ -3,6 +3,7 @@ body{
   font-size: var(--normal-font-size);
   font-family: var(--body-font);
   overflow-x: hidden;
+  z-index: -3;
 }
 ul{
   list-style: none;
@@ -54,6 +55,7 @@ a{
 }
 .home .home__img{
     display: none;
+    width: 300px;
 }
 .home .home__content{
     width: 100%;
@@ -236,7 +238,7 @@ a{
   .home .home__img{
       display: block;
   }
-  .home .home__img, .home .home__content{
+  .home .home__img,.home .home__content{
       width: 50%;
       height: 99vh;
   }

@@ -17,11 +17,20 @@ import { AuthGuard } from './auth.guard';
 import { LoginService } from './login.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-
+import { ManicureComponent } from './services/manicure/manicure.component';
+import { PedicureComponent } from './services/pedicure/pedicure.component';
+import { EyebrowComponent } from './services/eyebrow/eyebrow.component';
+import { MakeupComponent } from './services/makeup/makeup.component';
+import { HaircutComponent } from './services/haircut/haircut.component';
+import { HairstyleComponent } from './services/hairstyle/hairstyle.component';
+import { WaxingComponent } from './services/waxing/waxing.component';
+import { SkincleaningComponent } from './services/skincleaning/skincleaning.component';
+import { AddComponent } from './add/add.component';
+import { DeleteComponent } from './delete/delete.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
       AboutComponent,
       ServicesComponent,
@@ -33,7 +42,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
       RegisterComponent,
       GalleryfullComponent,
       ForgotPasswordComponent,
-      ChangePasswordComponent
+      ChangePasswordComponent,
+      ManicureComponent,PedicureComponent,SkincleaningComponent,EyebrowComponent,MakeupComponent,HaircutComponent,HairstyleComponent,WaxingComponent,
+      AddComponent,
+      DeleteComponent
    ],
   imports: [
     BrowserModule,

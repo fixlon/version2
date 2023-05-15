@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
   selector: 'app-galleryfull',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./galleryfull.component.css']
 })
 export class GalleryfullComponent implements OnInit {
-
-  constructor() { }
+videolist:any;
+  constructor(private service:BserviceService) { }
 
   ngOnInit() {
+    this.service.galleryvideo().subscribe((data=>{
+      this.videolist=data;
+    }))
   }
 
 }

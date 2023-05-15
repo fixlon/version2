@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
   selector: 'app-waxing',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./waxing.component.css']
 })
 export class WaxingComponent implements OnInit {
-
-  constructor() { }
+waxinglist:any;
+  constructor(public service: BserviceService) { }
 
   ngOnInit() {
+    this.service.waxing().subscribe(data=>{
+      this.waxinglist=data;
+    })
   }
 
 }

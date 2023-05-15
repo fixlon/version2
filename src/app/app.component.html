@@ -19,8 +19,9 @@
                   <li class="nav__item"><a routerLink="packages" routerLinkActive="active" class="nav__link">Packages</a></li>
                   <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" class="nav__link">Gallery</a></li>
                   <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
-                  <a routerLink="login"><button class="logout">Login</button></a>
-              </ul>
+                  <a routerLink="login" *ngIf="!service.isuserloggedin() && !service.isadmin"><button class="logout" >Login</button></a>
+                  <a (click)="logoutuser()"  (click)="logoutadmin()" *ngIf="service.isuserloggedin() || service.isadmin"><button class="logout" >Logout</button></a>
+                </ul>
           </div>
         </nav>
           <div class="nav__toggle" id="toggle">

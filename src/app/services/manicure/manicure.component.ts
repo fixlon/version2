@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
+
 
 @Component({
   selector: 'app-manicure',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manicure.component.css']
 })
 export class ManicureComponent implements OnInit {
-
-  constructor() { }
+manicurelist:any;
+  constructor(private service:BserviceService) { }
 
   ngOnInit() {
+this.service.manicureservice().subscribe((data=>{
+  this.manicurelist=data;
+}))
   }
 
 }

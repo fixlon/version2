@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
   selector: 'app-eyebrow',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eyebrow.component.css']
 })
 export class EyebrowComponent implements OnInit {
-
-  constructor() { }
+eyebrowlist:any;
+  constructor(private service:BserviceService) { }
 
   ngOnInit() {
+    this.service.eyebrowservice().subscribe((data=>{
+      this.eyebrowlist=data;
+    }))
   }
 
 }

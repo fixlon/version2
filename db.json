@@ -17,9 +17,508 @@
   ],
   "admin": [
     {
+      "id": 1,
       "username": "NANDHAGOPAL",
       "password": "admin@fixlon",
       "email": "admin@gmail.com"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "Name": "Manicure",
+      "image": "/assets/img/services/manicure.png",
+      "link": "manicure"
+    },
+    {
+      "id": 2,
+      "Name": "pedicure",
+      "image": "/assets/img/services/pedicure.png",
+      "link": "pedicure"
+    },
+    {
+      "id": 3,
+      "Name": "makeup",
+      "image": "/assets/img/services/makeup.png",
+      "link": "makeup"
+    },
+    {
+      "id": 4,
+      "Name": "hairstyle",
+      "image": "/assets/img/services/hairstyle.png",
+      "link": "hairstyle"
+    },
+    {
+      "id": 5,
+      "Name": "hair cut",
+      "image": "/assets/img/services/haircut.png",
+      "link": "haircut"
+    },
+    {
+      "id": 6,
+      "Name": "eyebrow",
+      "image": "/assets/img/services/eyebrow.png",
+      "link": "eyebrow"
+    },
+    {
+      "id": 7,
+      "Name": "waxing",
+      "image": "/assets/img/services/waxing.png",
+      "link": "waxing"
+    },
+    {
+      "id": 8,
+      "Name": "skin cleaning",
+      "image": "/assets/img/services/skincleaning.png",
+      "link": "skincleaning"
+    },
+    {
+      "id": "9",
+      "service": "shaving",
+      "image": "/assets/img/services/shave.png",
+      "link": "shaving"
+    }
+  ],
+  "eyebrow": [
+    {
+      "id": 1,
+      "Name": "Simple",
+      "image": "/assets/services/eye-brow1.jpg",
+      "price": 199
+    },
+    {
+      "id": 2,
+      "Name": "Classic Bow",
+      "image": "/assets/services/eye-brow2.jpg",
+      "price": 299
+    },
+    {
+      "id": 3,
+      "Name": "Winter Tones",
+      "image": "/assets/services/eye-brow3.jpg",
+      "price": 399
+    },
+    {
+      "id": 4,
+      "Name": "Scissor Styles",
+      "image": "/assets/services/eye-brow4.jpg",
+      "price": 699
+    },
+    {
+      "id": 5,
+      "Name": "Elegant Seed",
+      "image": "/assets/services/eye-brow5.jpg",
+      "price": 399
+    },
+    {
+      "id": 6,
+      "Name": "Custom Styles",
+      "image": "/assets/services/eye-brow1.jpg",
+      "price": 499
+    },
+    {
+      "id": 7,
+      "Name": "Classic Threading",
+      "image": "/assets/services/eye-brow7.jpg",
+      "price": 599
+    },
+    {
+      "id": 8,
+      "Name": "Cool tone",
+      "image": "/assets/services/eye-brow8.jpg",
+      "price": 499
+    }
+  ],
+  "manicure": [
+    {
+      "id": 1,
+      "Name": "French traditional",
+      "image": "/assets/services/manicure1.jpg",
+      "price": 399
+    },
+    {
+      "id": 2,
+      "Name": "Acralic Nails",
+      "image": "/assets/services/manicure2.jpg",
+      "price": 599
+    },
+    {
+      "id": 3,
+      "Name": "Winter Tones",
+      "image": "/assets/services/manicure3.jpg",
+      "price": 899
+    },
+    {
+      "id": 4,
+      "Name": "Custom Styles",
+      "image": "/assets/services/manicure4.jpg",
+      "price": 1899
+    },
+    {
+      "id": 5,
+      "Name": "Mustard Matte",
+      "image": "/assets/services/manicure5.jpg",
+      "price": 399
+    },
+    {
+      "id": 6,
+      "Name": "Nature Nails",
+      "image": "/assets/services/manicure6.jpg",
+      "price": 499
+    },
+    {
+      "id": 7,
+      "Name": "Child bunny",
+      "image": "/assets/services/manicure7.jpg",
+      "price": 599
+    },
+    {
+      "id": 8,
+      "Name": "Cool tone",
+      "image": "/assets/services/manicure8.jpg",
+      "price": 499
+    }
+  ],
+  "haircut": [
+    {
+      "id": 1,
+      "Name": "Taper Cut",
+      "image": "/assets/services/haircut1.jpg",
+      "price": 1199
+    },
+    {
+      "id": 2,
+      "Name": "Bowl Cut",
+      "image": "/assets/services/haircut2.jpg",
+      "price": 2299
+    },
+    {
+      "id": 3,
+      "Name": "Box Cut",
+      "image": "/assets/services/haircut3.jpg",
+      "price": 1299
+    },
+    {
+      "id": 4,
+      "Name": "Quiff",
+      "image": "/assets/services/haircut4.jpg",
+      "price": 1699
+    },
+    {
+      "id": 5,
+      "Name": "Under Cut",
+      "image": "/assets/services/haircut5.jpg",
+      "price": 2399
+    },
+    {
+      "id": 6,
+      "Name": "Mullet Cut",
+      "image": "/assets/services/haircut6.jpg",
+      "price": 1499
+    },
+    {
+      "id": 7,
+      "Name": "Custom Style",
+      "image": "/assets/services/haircut7.jpg",
+      "price": 2999
+    },
+    {
+      "id": 8,
+      "Name": "One Side Under Cut",
+      "image": "/assets/services/haircut8.jpg",
+      "price": 2499
+    },
+    {
+      "id": 9,
+      "Name": "Fire Cut",
+      "image": "/assets/services/haircut9.jpg",
+      "price": 2499
+    },
+    {
+      "id": 10,
+      "Name": "One Side Box",
+      "image": "/assets/services/haircut10.jpg",
+      "price": 1499
+    },
+    {
+      "id": 11,
+      "Name": "Caesar Cut",
+      "image": "/assets/services/haircut11.jpg",
+      "price": 1499
+    },
+    {
+      "id": 12,
+      "Name": "Mohawk Style",
+      "image": "/assets/services/haircut12.jpg",
+      "price": 3499
+    }
+  ],
+  "hairstyle": [
+    {
+      "id": 1,
+      "Name": "Straighten",
+      "image": "/assets/services/hairstyle1.jpg",
+      "price": 7599
+    },
+    {
+      "id": 2,
+      "Name": "Chignon",
+      "image": "/assets/services/hairstyle2.jpg",
+      "price": 2299
+    },
+    {
+      "id": 3,
+      "Name": "Braid",
+      "image": "/assets/services/hairstyle3.jpg",
+      "price": 2299
+    },
+    {
+      "id": 4,
+      "Name": "Custom Styles",
+      "image": "/assets/services/hairstyle4.jpg",
+      "price": 3699
+    },
+    {
+      "id": 5,
+      "Name": "Retro Hairstyles",
+      "image": "/assets/services/hairstyle5.jpg",
+      "price": 3399
+    },
+    {
+      "id": 6,
+      "Name": "French Twist",
+      "image": "/assets/services/hairstyle6.jpg",
+      "price": 1899
+    },
+    {
+      "id": 7,
+      "Name": "Korean",
+      "image": "/assets/services/hairstyle7.jpg",
+      "price": 599
+    },
+    {
+      "id": 8,
+      "Name": "Unicorn",
+      "image": "/assets/services/hairstyle8.jpeg",
+      "price": 5499
+    }
+  ],
+  "makeup": [
+    {
+      "id": 1,
+      "Name": "Bridal",
+      "image": "/assets/services/makeup1.jpg",
+      "price": 18999
+    },
+    {
+      "id": 2,
+      "Name": "Face Pack",
+      "image": "/assets/services/makeup2.jpg",
+      "price": 499
+    },
+    {
+      "id": 3,
+      "Name": "Celebrity Makeup",
+      "image": "/assets/services/makeup3.jpg",
+      "price": 25299
+    },
+    {
+      "id": 4,
+      "Name": "Matte Makeup",
+      "image": "/assets/services/makeup4.jpg",
+      "price": 28999
+    },
+    {
+      "id": 5,
+      "Name": "North Indian",
+      "image": "/assets/services/makeup5.jpg",
+      "price": 21199
+    },
+    {
+      "id": 6,
+      "Name": "Chinese",
+      "image": "/assets/services/makeup6.jpg",
+      "price": 10599
+    },
+    {
+      "id": 7,
+      "Name": "Dewy Makeup",
+      "image": "/assets/services/makeup7.jpg",
+      "price": 8599
+    },
+    {
+      "id": 8,
+      "Name": "Cool tones",
+      "image": "/assets/services/makeup8.jpg",
+      "price": 5499
+    }
+  ],
+  "pedicure": [
+    {
+      "id": 1,
+      "Name": "Japanese traditional",
+      "image": "/assets/services/pedicure1.jpg",
+      "price": 2999
+    },
+    {
+      "id": 2,
+      "Name": "Acralic Nails",
+      "image": "/assets/services/pedicure2.jpg",
+      "price": 599
+    },
+    {
+      "id": 3,
+      "Name": "Nature Nails",
+      "image": "/assets/services/pedicure3.jpg",
+      "price": 899
+    },
+    {
+      "id": 4,
+      "Name": "Custom Styles",
+      "image": "/assets/services/pedicure4.jpg",
+      "price": 1699
+    },
+    {
+      "id": 5,
+      "Name": "Paraffin",
+      "image": "/assets/services/pedicure5.jpg",
+      "price": 2399
+    },
+    {
+      "id": 6,
+      "Name": "Winter Tones",
+      "image": "/assets/services/pedicure6.jpg",
+      "price": 1899
+    },
+    {
+      "id": 7,
+      "Name": "Child bunny",
+      "image": "/assets/services/pedicure7.jpg",
+      "price": 599
+    },
+    {
+      "id": 8,
+      "Name": "Royal Touch",
+      "image": "/assets/services/pedicure8.jpg",
+      "price": 2499
+    }
+  ],
+  "skincleaning": [
+    {
+      "id": 1,
+      "Name": "Purer Pores",
+      "image": "/assets/services/skincleaning1.jpeg",
+      "price": 1199
+    },
+    {
+      "id": 2,
+      "Name": "Blissful Skin",
+      "image": "/assets/services/skincleaning2.jpeg",
+      "price": 1299
+    },
+    {
+      "id": 3,
+      "Name": "Botanic Beauty",
+      "image": "/assets/services/skincleaning3.jpg",
+      "price": 2199
+    },
+    {
+      "id": 4,
+      "Name": "Gold Skin Studio",
+      "image": "/assets/services/skincleaning4.jpg",
+      "price": 2899
+    }
+  ],
+  "waxing": [
+    {
+      "id": 1,
+      "Name": "Strip Waxing",
+      "image": "/assets/services/waxing1.jpg",
+      "price": 1299
+    },
+    {
+      "id": 2,
+      "Name": "Cream Waxing",
+      "image": "/assets/services/waxing2.jpg",
+      "price": 1199
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "image": "/assets/img/img-insta/photo1.png"
+    },
+    {
+      "id": 2,
+      "image": "/assets/img/img-insta/img1.jpeg"
+    },
+    {
+      "id": 3,
+      "image": "/assets/img/img-insta/photo3.png"
+    },
+    {
+      "id": 4,
+      "image": "/assets/img/img-insta/img2.jpeg"
+    },
+    {
+      "id": 5,
+      "image": "/assets/img/img-insta/photo5.png"
+    },
+    {
+      "id": 6,
+      "image": "/assets/img/img-insta/photo6.png"
+    },
+    {
+      "id": 7,
+      "image": "/assets/img/img-insta/img3.jpeg"
+    },
+    {
+      "id": 8,
+      "image": "/assets/img/img-insta/photo8.png"
+    }
+  ],
+  "review": [
+    {
+      "id": 1,
+      "name": "Catrina are",
+      "image": "/assets/img/Testimonials/test1.png",
+      "description": "It was relaxing experience for us when we visited this place.Staff is good and well trained. Overall good"
+    },
+    {
+      "id": 2,
+      "name": "Samantha",
+      "image": "/assets/img/Testimonials/test2.png",
+      "description": "Place is good for those who love natural spa. The rates are not expensive.Ambience was full of energetic."
+    },
+    {
+      "id": 3,
+      "name": "Rosy",
+      "image": "/assets/img/Testimonials/test3.jpeg",
+      "description": "Nice and good experience also I would recommend for everyone Who is looking for something new with hair"
+    },
+    {
+      "id": 4,
+      "name": "Nandha",
+      "image": "/assets/img/Testimonials/test4.jfif",
+      "description": "Good unisex salon providing decent services, while maintaining good levels of hygiene.The environment here was quiet relaxing."
+    }
+  ],
+  "video": [
+    {
+      "id": 1,
+      "videoclip": "/assets/gallery/v1.mp4"
+    },
+    {
+      "id": 2,
+      "videoclip": "/assets/gallery/v2.mp4"
+    },
+    {
+      "id": 1,
+      "videoclip": "/assets/gallery/v3.mp4"
+    },
+    {
+      "id": 1,
+      "videoclip": "/assets/gallery/v4.mp4"
     }
   ]
 }

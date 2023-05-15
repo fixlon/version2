@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BserviceService } from '../bservice.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-services',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
-
-  constructor() { }
+mservicelist:any;
+  constructor(private service:BserviceService,public loginservice:LoginService) { }
 
   ngOnInit() {
+    this.service.mservice().subscribe((data=>{
+      this.mservicelist=data;
+    }))
   }
 
 }
