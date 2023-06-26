@@ -13,6 +13,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit{
   show = false;
   password:any;
+
   url:any="http://localhost:3000/usersprofile";
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
@@ -78,6 +79,12 @@ this.returl=data.get("retUrl")
         alert("login success");
         this.loginform1.reset();
         this.loginservice.userloggedin(email,password)
+        let users = {
+          useremail:email
+        }
+        this.loginservice.sendemail("http://localhost:1999/sendEmail",users).subscribe(data=>{
+          console.log(data);
+        })
         if(this.returl==null){
           this.router.navigate(['services']);
         }

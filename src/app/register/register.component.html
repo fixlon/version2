@@ -14,6 +14,15 @@
                   <small *ngIf="loginform1.controls['username'].errors?.['minlength']">please enter username with atleast 3 char</small>
                  </div>
 
+                 <div class="column">
+                  <label for="phone">Phone Number</label>
+                  <input type="phone" id="phone" name="phone" placeholder="your phone here" formControlName="phone" >
+              </div>
+              <div *ngIf="loginform1.controls['phone'].invalid&&loginform1.controls['phone'].touched" style="color: white;font-size: 20px;">
+                <small *ngIf="loginform1.controls['phone'].errors?.['required']" >please enter Phone Number</small>
+                <small *ngIf="loginform1.controls['phone'].errors?.['pattern']" >please enter Valid Phone Number</small>
+               </div>
+
                 <div class="column">
                     <label for="email">Email ID</label>
                     <input type="email" id="email" name="email" placeholder="your email here" formControlName="email" >
@@ -39,7 +48,6 @@
                 </div>
                 <div *ngIf="loginform1.controls['confirmpassword'].invalid&&loginform1.controls['confirmpassword'].touched" style="color: white;font-size: 20px;">
                   <small *ngIf="loginform1.controls['confirmpassword'].errors?.['required']" >Confirm Password is Reqired</small>
-
                   <small *ngIf="loginform1.controls['confirmpassword'].errors?.['Confirmvalidator'] ">please Match the Password</small>
                  </div>
 

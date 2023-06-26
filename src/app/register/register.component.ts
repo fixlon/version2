@@ -22,6 +22,7 @@ export class RegisterComponent {
   loginform1=this.fb.group({
     username:["",[Validators.required,Validators.minLength(3)]],
     email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    phone:["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     password:["",[Validators.required,Validators.pattern(
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
     )]],

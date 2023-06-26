@@ -12,17 +12,20 @@ export class LoginService {
   url:any="http://localhost:3000/usersprofile";
   email:any="";
   password:any="";
-  constructor(){}
+  constructor(public http:HttpClient){}
   userloggedin(u:any,p:any):void{
     this.email=u;
     this.password=p;
-    this.isloggedin=true;
+    this.isloggedin=true;0
   }
 
   isuserloggedin(){
-   return (this.isloggedin); 
+   return (this.isloggedin);
   }
 
+  sendemail(url:any,data:any){
+return this.http.post(url,data);
+  }
   adminloggedin(){
     this.isadmin=true;
   }
