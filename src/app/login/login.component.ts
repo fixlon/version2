@@ -4,7 +4,7 @@ import { ActivatedRoute, Route, Router, RouteReuseStrategy } from '@angular/rout
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
-import { SessionStorageService } from '@ngx-pwa/local-storage';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit{
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
   returl:any;
-  constructor(private fb:FormBuilder,private sessionStorage:SessionStorageService,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
+  constructor(private fb:FormBuilder,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
 this.returl=data.get("retUrl")
     })
@@ -88,23 +88,23 @@ this.returl=data.get("retUrl")
         alert("login success");
         this.loginform1.reset();
 
-      //   this.loginservice.userloggedin(email,password)
-      //   if(this.returl==null){
-      //     this.router.navigate(['services']);
-      //   }
-      //   else{
-
-      //     this.router.navigate([this.returl]);
-      //   }
-      //  }
-      this.sessionStorage.setItem('user', { email, password }).subscribe(() => {
-        if (this.returl == null) {
+        this.loginservice.userloggedin(email,password)
+        if(this.returl==null){
           this.router.navigate(['services']);
-        } else {
+        }
+        else{
+
           this.router.navigate([this.returl]);
         }
-      });
-    }
+       }
+    //   this.sessionStorage.setItem('user', { email, password }).subscribe(() => {
+    //     if (this.returl == null) {
+    //       this.router.navigate(['services']);
+    //     } else {
+    //       this.router.navigate([this.returl]);
+    //     }
+    //   });
+    // }
        else{
         alert("password incorrect")
        }
