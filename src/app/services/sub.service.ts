@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SubService {
-
+  serviceName:any;
+  serviceImage:any;
+  serviceLink:any;
+  id:any;
 constructor(private client:HttpClient) { }
 
-manicureservice(){
-  return this.client.get("http://localhost:3000/manicure")
-}
+
 }

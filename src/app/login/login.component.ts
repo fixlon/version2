@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router, RouteReuseStrategy } from '@angular/rout
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
+import { SessionStorageService } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit{
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
   returl:any;
-  constructor(private fb:FormBuilder,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
+  constructor(private fb:FormBuilder,private sessionStorage:SessionStorageService,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
 this.returl=data.get("retUrl")
     })
@@ -46,22 +47,29 @@ this.returl=data.get("retUrl")
 
   // login value
   login(){
-
     //  adim login
     this.http.get(this.url1)
     .subscribe((data: any)=>{
      const admin = data.find((a:any)=>{
       return a.email === this.loginform1.value.email && a.password===this.loginform1.value.password
      });
+
      if(admin){
       alert("admin login success");
       this.loginservice.adminloggedin();
       this.loginform1.reset();
-      this.router.navigate(['gallery']);
+      if(this.returl==null){
+        this.router.navigate(['gallery']);
+      }
+      else{
+        this.router.navigate([this.returl]);
+      }
+
      }
 
     //  user login
      else{
+
       this.http.get(this.url)
       .subscribe((data: any)=>{
         var email;
@@ -76,22 +84,27 @@ this.returl=data.get("retUrl")
         alert("No user found");
        }
        else if(password===this.loginform1.value.password){
+
         alert("login success");
         this.loginform1.reset();
-        this.loginservice.userloggedin(email,password)
-        let users = {
-          useremail:email
-        }
-        this.loginservice.sendemail("http://localhost:1999/sendEmail",users).subscribe(data=>{
-          console.log(data);
-        })
-        if(this.returl==null){
+
+      //   this.loginservice.userloggedin(email,password)
+      //   if(this.returl==null){
+      //     this.router.navigate(['services']);
+      //   }
+      //   else{
+
+      //     this.router.navigate([this.returl]);
+      //   }
+      //  }
+      this.sessionStorage.setItem('user', { email, password }).subscribe(() => {
+        if (this.returl == null) {
           this.router.navigate(['services']);
-        }
-        else{
+        } else {
           this.router.navigate([this.returl]);
         }
-       }
+      });
+    }
        else{
         alert("password incorrect")
        }

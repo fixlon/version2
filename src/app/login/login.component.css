@@ -91,6 +91,10 @@ button:hover{
   color: whitesmoke;
 }
 a{
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
   text-decoration: none;
+}
+a:hover{
+  color: rgb(203, 199, 199);
+  text-decoration: underline;
 }

@@ -44,4 +44,10 @@ skincleaning(){
 waxing(){
   return this.client.get("http://localhost:3000/waxing")
 }
+stylist(){
+  return  this.client.get("http://localhost:3000/stylist")
+}
+userService(){
+  return this.client.get("http://localhost:3000/usersprofile");
+}
 }

@@ -2,32 +2,19 @@
   "usersprofile": [
     {
       "username": "NANDHAGOPAL",
-      "password": "Nasa@123",
-      "confirmpassword": "111111",
       "email": "nandhavignesh85@gmail.com",
+      "phone": "8525876050",
+      "password": "Nasa@123",
+      "confirmpassword": "Nasa@123",
       "id": 1
     },
     {
-      "username": "Nandha",
+      "username": "NANDHAGOPAL",
       "email": "2k19ece050@kiot.ac.in",
-      "password": "Nandha@123",
-      "confirmpassword": "Nandha@123",
+      "phone": "8525876050",
+      "password": "Nasa@123",
+      "confirmpassword": "Nasa@123",
       "id": 2
-    },
-    {
-      "username": "NANDHAGOPAL",
-      "phone": "8525876050",
-      "password": "Nandha@123",
-      "confirmpassword": "Nandha@123",
-      "id": 3
-    },
-    {
-      "username": "NANDHAGOPAL",
-      "email": "nangopvigesh@gmail.com",
-      "phone": "8525876050",
-      "password": "Nandha@123",
-      "confirmpassword": "Nandha@123",
-      "id": 4
     }
   ],
   "admin": [
@@ -88,10 +75,10 @@
       "link": "skincleaning"
     },
     {
-      "id": "9",
-      "service": "shaving",
+      "Name": "shaving",
       "image": "/assets/img/services/shave.png",
-      "link": "shaving"
+      "link": "shaving",
+      "id": 9
     }
   ],
   "eyebrow": [
@@ -458,6 +445,48 @@
       "price": 1199
     }
   ],
+  "stylist": [
+    {
+      "id": 1,
+      "Name": "Nandhagopal",
+      "image": "/assets/img/about/about-img9.jpg",
+      "expirence": "15 years",
+      "role": "Assistent Chief Stylist",
+      "Ratings": "5 Star"
+    },
+    {
+      "id": 2,
+      "Name": "Gopal",
+      "image": "/assets/img/about/about-img8.jpg",
+      "expirence": "15 years",
+      "role": "Fire Cut Specialist",
+      "Ratings": "4 Star"
+    },
+    {
+      "id": 3,
+      "Name": "Selva varshini",
+      "image": "/assets/img/about-img.jpg",
+      "role": "Skin Care Specialist",
+      "expirence": "15 years",
+      "Ratings": "4.5 Star"
+    },
+    {
+      "id": 4,
+      "Name": "Suvetha",
+      "image": "/assets/img/about/about-img2.jpg",
+      "role": "Head Ladies Specialist",
+      "expirence": "15 years",
+      "Ratings": "4 Star"
+    },
+    {
+      "id": 5,
+      "Name": "Gowsalya",
+      "image": "/assets/img/about/about-img4.jpg",
+      "role": "Head Ladies Specialist",
+      "expirence": "15 years",
+      "Ratings": "fa-solid fa-star"
+    }
+  ],
   "gallery": [
     {
       "id": 1,
@@ -535,5 +564,6 @@
       "id": 1,
       "videoclip": "/assets/gallery/v4.mp4"
     }
-  ]
+  ],
+  "payment": []
 }

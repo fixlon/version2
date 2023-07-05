@@ -26,11 +26,11 @@ import { HairstyleComponent } from './services/hairstyle/hairstyle.component';
 import { WaxingComponent } from './services/waxing/waxing.component';
 import { SkincleaningComponent } from './services/skincleaning/skincleaning.component';
 import { AddComponent } from './add/add.component';
-import { DeleteComponent } from './delete/delete.component';
-
+import { PaymentComponent } from './payment/payment.component';
+import { GaddComponent } from './gadd/gadd.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [	
     AppComponent,
       AboutComponent,
       ServicesComponent,
@@ -45,7 +45,8 @@ import { DeleteComponent } from './delete/delete.component';
       ChangePasswordComponent,
       ManicureComponent,PedicureComponent,SkincleaningComponent,EyebrowComponent,MakeupComponent,HaircutComponent,HairstyleComponent,WaxingComponent,
       AddComponent,
-      DeleteComponent
+      PaymentComponent,
+      GaddComponent
    ],
   imports: [
     BrowserModule,

@@ -14,21 +14,25 @@
 
                  <div class="column">
                   <label for="email">Email ID</label>
-                  <input type="email" id="email" name="email" placeholder="your email here" formControlName="email" >
-              </div>
-              <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: white;font-size: 20px;">
-                <small *ngIf="loginform1.controls['email'].errors?.['required']" >please enter email ID</small>
-                <small *ngIf="loginform1.controls['email'].errors?.['pattern']" >please enter Valid email ID</small>
-               </div>
+                  <input type="email" id="email" name="email" placeholder="Enter your email " formControlName="email" >
+
+                  <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: white;font-size: 17px;">
+                    <small *ngIf="loginform1.controls['email'].errors?.['required']" >please enter email ID</small>
+                    <small *ngIf="loginform1.controls['email'].errors?.['pattern']" >please enter Valid email ID</small>
+                   </div>
+                </div>
+
 
                 <div class="column">
                     <label for="password">Password</label>
                     <input [type]="password" id="password" placeholder="Enter your password" name="password" formControlName="password" >
-                </div>
-                <div *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" style="color: white;font-size: 20px;">
-                  <small *ngIf="loginform1.controls['password'].errors?.['required']" >please enter Password</small>
-                  <small *ngIf="loginform1.controls['password'].errors?.['minlength']" >please enter Password with atleast 6 char</small>
-                 </div>
+
+                    <div *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" style="color: white;font-size: 17px;">
+                      <small *ngIf="loginform1.controls['password'].errors?.['required']" >please enter Password</small>
+                      <small *ngIf="loginform1.controls['password'].errors?.['minlength']" >please enter Password with atleast 6 char</small>
+                     </div>
+                  </div>
+
 
 
             </div>
@@ -40,10 +44,10 @@
             <div class="button">
                 <button [disabled]="!loginform1.valid" style="font-size: 17px;letter-spacing: 2px;">Login</button>
             </div><br>
-            <a routerLink="/forgot-password">Forgot Password?</a>
+            <a class="link" routerLink="/forgot-password">Forgot Password?</a>
             <br><br>
             <hr><br>
-            <a  routerLink="/register">Create account</a>
+            <a class="link" routerLink="/register">Create account</a>
         </form>
     </div>
   </body>

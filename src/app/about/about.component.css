@@ -41,3 +41,128 @@
   color: var(--black-color);
 }
 /* ABOUT END */
+
+
+
+.services__content__descripion .box .inner img{
+  width: 350px;
+  height: 250px ;
+  margin-top: 50px;
+  border-radius: 40px;
+  box-shadow: 10px 10px 20px #888888;
+}
+
+.services{
+  width: 100%;
+  background-image: url('/assets/img/left-top.svg');
+  background-repeat: no-repeat;
+  background-position: top left;
+  z-index: -1;
+}
+
+.services__content__descripion{
+  width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.services__content__descripion .box{
+  padding: 20px 0px;
+}
+
+.services__content__descripion .box .inner h3{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  text-transform: capitalize;
+  color: var(--first-color);
+  position: relative;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 350px;
+  perspective: 10000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #f7e6df;
+  color: #75492b;
+  font-weight: bold;
+  transform: rotateY(180deg);
+}
+.flip-card-back h1 {
+  background-color: #75492b;
+  color: #f7e6df;
+  height: 50px;
+  padding-top: 5px;
+  text-decoration: underline;
+  text-align: center;
+  text-transform: capitalize;
+}
+.inner p{
+  justify-content: center;
+  text-align: justify;
+  font-size: 14px;
+}
+.inner{
+  padding: 10px;
+}
+/* MEDIA QUERY */
+@media (max-width: 960px){
+  .services__content__descripion{
+    grid-template-columns: repeat(1, 1fr);
+}
+}
+@media (min-width: 660px){
+  .services__content__descripion{
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 960px){
+  .services__content__descripion{
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (min-width: 1100px){
+  .services__content__descripion{
+    grid-template-columns: repeat(3, 1fr);
+}
+}
+
+/* END MEDIA QUERY */
+

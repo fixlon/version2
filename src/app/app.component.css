@@ -3,13 +3,14 @@
 }
 /* NAV */
 .l-header{
-  position: fixed;
+  position:absolute;
   width: 100%;
   height: var(--header-height);
   background-color: rgba(255, 255, 255, 0.4);
   z-index: 10;
   transition: all 400ms ease;
 }
+
 .navbar{
   display: flex;
   justify-content: space-between;
@@ -54,6 +55,16 @@
 .scroll-header{
   background-color: var(--white-color);
 }
-
-
-
+.fa-user{
+color: var(--main-color);
+}
+.brand button{
+  color: var(--first-color);
+  background-color: var(--first-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  margin: 5px;
+  z-index: 10;
+}

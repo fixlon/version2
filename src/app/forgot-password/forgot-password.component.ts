@@ -29,17 +29,19 @@ export class ForgotPasswordComponent implements OnInit {
        const user = data.find((a:any)=>{
         return a.email === this.loginform1.value.email });
        if(user){
-        alert("email sent");
+        localStorage.setItem('email',this.loginform1.value.email);
         this.loginform1.reset();
         this.router.navigate(['change-password']);
+
        }
+
       //  user not found
        else{
         alert("user not found");
        }
       })
       }
-      // back button 
+      // back button
       login1(){
         this.router.navigate(['login']);
       }

@@ -10,13 +10,13 @@
       <div class="services__content__descripion container">
           <div class="box" *ngFor="let item of mservicelist">
             <div class="inner" >
-                <a  routerLink="{{item.link}}"  title="manicure"><img src="{{item.image}}" alt="Manicure"></a>
+                <a  routerLink="{{item.link}}"  title="{{item.Name}}"><img src="{{item.image}}" alt="{{item.Name}}"></a>
                 <p>{{item.Name}}</p>
             </div>
         </div>
       </div>
       <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-plus" style="font-size: 50px; margin-left: 46%;margin-top:50px;color:#75492b" ></i></a>
-      <a routerLink="delete" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b" ></i></a>
+      <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b" ></i></a>
   </div>
 
 </section>

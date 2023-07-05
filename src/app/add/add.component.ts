@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { map } from 'rxjs/operators';
+import { SubService } from '../services/sub.service';
+import { BserviceService } from '../bservice.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -12,39 +15,68 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddComponent implements OnInit {
   url1:any="http://localhost:3000/services";
   returl:any;
-
-  constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute) {
+  mservicelist: any;
+  products:FormGroup=new FormGroup({})
+  constructor(private fb:FormBuilder,private service:BserviceService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute, private forms:FormsModule) {
     activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
   }
 
-  loginform=this.fb.group({
-    id:[""],
-    service:[""],
-    image:[""],
-    link:[""],
-  })
+  // loginform=this.fb.group({
+  //   service:[""],
+  //   image:[""],
+  //   link:[""],
+  // })
 
   ngOnInit() {
+    // this.fetchService();
+    this.service.mservice().subscribe((data=>{
+      this.mservicelist=data;
+    }));
+    this.products=this.fb.group({
+     Name:["",[Validators.required,Validators.minLength(6)]],
+     image:["",[Validators.required,Validators.minLength(6)]],
+     link:["",[Validators.required,Validators.minLength(6)]]
+    })
   }
-  addservice(){
-    this.http.get<any>(this.url1).subscribe(res => {
-      const admin = res.find((result: any) => {
-        return result.id === this.loginform.value.id;
-      });
 
-      if (admin) {
-        alert("id Already Exists");
-      }
+  // onServiceFetch(){
+  //   this.fetchService();
+  // }
 
-      else {
-        this.service.addservice(this.loginform.value).subscribe(data=>{
-          alert("data saved");
-          this.loginform.reset();
-          this.router.navigate([this.returl]);
-        })
-        }
-  });
+  onServiceCreate(products){
+    console.log(products);
+    this.http.post(this.url1,products).subscribe((res)=>{
+      console.log(res);
+      alert('New Service Created')
+      window.location.reload();
+    })
   }
+
+onDeleteService(id:any){
+  this.http.delete(this.url1+"/"+id).subscribe();
+  // alert(confirm("Are you sure want to delete"));
+  window.location.reload();
+}
+
+  // addservice(){
+  //   this.http.get<any>(this.url1).subscribe(res => {
+  //     const admin = res.find((result: any) => {
+  //       return result.id === this.loginform.value.id;
+  //     });
+
+  //     if (admin) {
+  //       alert("id Already Exists");
+  //     }
+
+  //     else {
+  //       this.service.addservice(this.loginform.value).subscribe(data=>{
+  //         alert("data saved");
+  //         this.loginform.reset();
+  //         this.router.navigate([this.returl]);
+  //       })
+  //       }
+  // });
+  // }
 }

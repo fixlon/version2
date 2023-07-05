@@ -19,3 +19,56 @@
       </div>
   </div>
 </section>
+
+<!-- stylist lists -->
+
+<section class="services section" id="services">
+  <div class="services__content">
+          <div class="row">
+                  <div class="section__title">
+                      <h1>Fixlon</h1><br>
+                      <span>OUR TEAM</span>
+                  </div>
+          </div>
+
+      <div class="services__content__descripion container">
+                  <div class="box" *ngFor="let item of stylistlist">
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="{{item.image}}" alt="{{item.Name}}" style="width:350px;height:350px;" title="{{item.Name}}">
+                        </div>
+                        <div class="flip-card-back">
+                          <img src="{{item.image}}" alt="{{item.Name}}" style="width:120px;height:100px;float: left;" title="{{item.Name}}">
+                          <h1 >{{item.Name}}</h1>
+                          <h2 style="padding-top: 10px;font-size: 20px;">{{item.role}}</h2><br>
+                          <h3 style="color: black;padding-top: 5px;">Experience: {{item.expirence}}</h3>
+                          <div class="inner">
+                            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                              Fuga corporis cumque necessitatibus deleniti porro. Deserunt fuga modi quos iste sequi
+                              quo inventore distinctio id! Pariatur aliquid enim omnis optio sint?</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                      <!-- <div class="inner">
+                          <h3  ><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                          <p style="margin-top: 15px;">{{item.Name}}</p>
+                          <p style="color: green;">Experience: {{item.expirence}}</p></h3>
+                      </div><br>
+                      <div class="inner">
+                        <p style="justify-content: center;text-align: justify;font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Fuga corporis cumque necessitatibus deleniti porro. Deserunt fuga modi quos iste sequi
+                          quo inventore distinctio id! Pariatur aliquid enim omnis optio sint?</p>
+                        </div> -->
+                  </div>
+
+      </div>
+
+
+
+  </div>
+
+</section>
+
+

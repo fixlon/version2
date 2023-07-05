@@ -21,17 +21,28 @@ import { SkincleaningComponent } from './services/skincleaning/skincleaning.comp
 import { ManicureComponent } from './services/manicure/manicure.component';
 import { AuthGuard } from './auth.guard';
 import { AddComponent } from './add/add.component';
-import { DeleteComponent } from './delete/delete.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AdminGuard } from './admin.guard';
+import { GaddComponent } from './gadd/gadd.component';
 
 
 const routes: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
+  // {
+  //   path:'',
+  //   component:HomeComponent,
+  // },
+  {
+    path:"home",
+    component:HomeComponent,
+  },
   {
     path:"about",
     component:AboutComponent,
   },
+
   {
     path:"services",
     component:ServicesComponent,
@@ -41,11 +52,8 @@ const routes: Routes = [
     path:'',
     children:[{
       path:"services/add",
+      canActivate:[AdminGuard],
       component:AddComponent,
-    },
-    {
-      path:"services/delete",
-      component:DeleteComponent,
     }
   ]
 
@@ -53,13 +61,16 @@ const routes: Routes = [
   {
     path:'',
     children:[{
-      path:"gallery/add",
+      path:"gallery/galleryfull/add",
       component:AddComponent,
     },
     {
-      path:"gallery/delete",
-      component:DeleteComponent,
-    }
+      path:"gallery/gadd",
+      canActivate:[AdminGuard],
+      component:GaddComponent,
+
+    },
+
   ]
 
   },
@@ -105,12 +116,15 @@ const routes: Routes = [
     path:"packages",
     canActivate:[AuthGuard],
     component:PackagesComponent,
-    children:[
-      {
-        path:':check',
-        component:PackagesComponent
-      }
-    ]
+  },
+  {
+    path:'',
+    children:[{
+      path:"packages/payment",
+      canActivate:[AuthGuard],
+      component:PaymentComponent
+    }]
+
   },
   {
     path:"gallery",

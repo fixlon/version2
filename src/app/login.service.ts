@@ -16,16 +16,20 @@ export class LoginService {
   userloggedin(u:any,p:any):void{
     this.email=u;
     this.password=p;
-    this.isloggedin=true;0
+    sessionStorage.setItem(this.email,this.password);
+    this.isloggedin=true;
   }
 
   isuserloggedin(){
+
    return (this.isloggedin);
+
   }
 
   sendemail(url:any,data:any){
-return this.http.post(url,data);
-  }
+    return this.http.post(url,data);
+      }
+
   adminloggedin(){
     this.isadmin=true;
   }

@@ -7,13 +7,16 @@ import { Observable } from 'rxjs';
 export class UserService {
   url:any="http://localhost:3000/usersprofile";
   url1:any="http://localhost:3000/services";
+  url2:any="http://localhost:3000/payment";
   getuser: any;
 
 constructor(private http:HttpClient) { }
 adduser(body:any){
 return this.http.post(this.url,body);
 }
-
+addservice1(body:any){
+  return this.http.post(this.url2,body);
+  }
 addservice(body:any){
   return this.http.post(this.url1,body);
   }

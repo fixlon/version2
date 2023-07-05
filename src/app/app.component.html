@@ -9,7 +9,14 @@
       <div class="navbar">
           <div class="brand">
               <a routerLink=""  style="color:#6F4E37;"><h1>FIXLON</h1></a>
+                <a  *ngIf="service.isadmin" style="color: #75492b;font-size: 20px;font-weight: bold;"><button ><i class="fa-solid fa-user" ></i></button>Nandha</a>
+                <!-- <label for="profile"></label>
+                <select name="profile" id="profile">
+                  <option value="profile">profile</option>
+                  <option value="logout">logout</option>
+                </select> -->
           </div>
+          <!-- *ngIf="service.isadmin" -->
           <nav>
           <div class="nav" id="nav">
               <ul class="nav__menu">
@@ -63,7 +70,9 @@
   </div>
 </footer>
 
+
   </body>
+
 
 
 

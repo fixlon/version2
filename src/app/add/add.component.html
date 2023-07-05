@@ -1,42 +1,80 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <body>
+    <div class="add">
+    <h1 style="align-items: center;">Manage Services</h1>
+    <div class="manage">
     <div class="container">
         <h1>GET IN TOUCH WITH US</h1>
-        <!-- <form action="https://sheetdb.io/api/v1/ai6a34invy38k" method="post" id="sheetdb-form" onsubmit="return validatephone()"> -->
-            <form action="" [formGroup]="loginform" (submit)="addservice()" >
+
+            <form   #serviceForm="ngForm" [formGroup]="products" (ngSubmit)="onServiceCreate(serviceForm.value)" >
             <div class="row">
                 <div class="column">
-                    <label for="uname">ID</label>
-                    <input type="text" id="id"name="id" formControlName="id" placeholder="Enter id here" >
-                </div>
-                <div *ngIf="loginform.controls['id'].invalid&&loginform.controls['id'].touched" style="color: whitesmoke;font-size: 20px;">
-                 </div>
-
-                <div class="column">
                     <label for="service">Service Name</label>
-                    <input type="text" id="service" name="service" placeholder="your service here" formControlName="service" >
-                </div>
-                <div *ngIf="loginform.controls['service'].invalid&&loginform.controls['service'].touched" style="color: white;font-size: 20px;">
-                 </div>
-
-                <div class="column">
-                    <label for="image">image</label>
-                    <input type="text" id="image" formControlName="image" placeholder="Enter your image"  >
-                </div>
-                <div *ngIf="loginform.controls['image'].invalid&&loginform.controls['image'].touched" style="color: white;font-size: 20px;">
+                    <input type="text" id="service" name="Name" placeholder="your service here" formControlName="Name" ngModel="">
+                    <div *ngIf="products.controls['Name'].invalid&&products.controls['Name'].touched" style="color: red;font-size: 17px;">
+                      <small *ngIf="products.controls['Name'].errors?.['required']" >please enter serviceName </small>
+                      <small *ngIf="products.controls['Name'].errors?.['minlength']" >please enter Valid serviceName </small>
+                     </div>
                 </div>
 
+
                 <div class="column">
+                    <label for="image">Image</label>
+                    <!-- <input type="file" id="img" name="image" accept="image/*"> -->
+                    <input type="text" id="image" name="image"  placeholder="Enter your image"  formControlName="image">
+                    <div *ngIf="products.controls['image'].invalid&&products.controls['image'].touched" style="color: red;font-size: 17px;">
+                      <small *ngIf="products.controls['image'].errors?.['required']" >please enter image address </small>
+                      <small *ngIf="products.controls['image'].errors?.['minlength']" >please enter Valid image address</small>
+                     </div>
+                </div>
+
+                <div class="column">
+                  <label for="link">Link</label>
+                  <!-- <input type="file" id="img" name="image" accept="image/*"> -->
+                  <input type="text" id="link" name="link"  placeholder="Enter your image"  formControlName="link">
+                  <div *ngIf="products.controls['link'].invalid&&products.controls['link'].touched" style="color: red;font-size: 17px;">
+                    <small *ngIf="products.controls['link'].errors?.['required']" >please enter link address </small>
+                    <small *ngIf="products.controls['link'].errors?.['minlength']" >please enter Valid link address</small>
+                   </div>
+              </div>
+                <!-- <div class="column">
                   <label for="link">link</label>
-                  <input type="text" id="link" formControlName="link" placeholder="Enter your link"  >
-              </div>
-              <div *ngIf="loginform.controls['link'].invalid&&loginform.controls['link'].touched" style="color: white;font-size: 20px;">
-              </div>
+                  <input type="text" id="link" name="link"  placeholder="Enter your link" formControlNamelink="link">
+                  <div *ngIf="products.controls['link'].invalid&&products.controls['link'].touched" style="color: red;font-size: 17px;">
+                    <small *ngIf="products.controls['link'].errors?.['required']" >please enter linkName </small>
+                    <small *ngIf="products.controls['link'].errors?.['minlength']" >please enter Valid linkName </small>
+                   </div>
+              </div> -->
+
             </div>
-            <div class="button">
-                <button  [disabled]="!loginform.valid" >Submit</button>
-                <a routerLink="/services"><button >Back</button></a>
+            <div class="button1">
+                <button style="margin-right: 2px;" [disabled]="!products.valid">Add</button>
+                <a routerLink="/services" style="margin-left: 2px;"><button >Back</button></a>
             </div>
         </form>
+
     </div>
+    <div class="productDisplay">
+      <table id="products">
+        <tr >
+          <th >#</th>
+          <th>sName</th>
+          <th>image</th>
+          <th>clear</th>
+        </tr>
+        <tr *ngFor="let prod of mservicelist;index as i" class="tr">
+          <td style="width: 20%;">{{i+1}}</td>
+          <td >{{prod.Name}}</td>
+          <td><img src="{{prod.image}}" alt=""></td>
+          <td style="width: 25%;"><button class="btn-delete" (click)="onDeleteService(prod.id)" >Delete</button></td>
+        </tr>
+      </table>
+      <hr>
+      <!-- <div class="button2">
+        <button>fetch</button>
+        <button class="btn-clear">clear</button>
+      </div> -->
+    </div>
+  </div>
+</div>
   </body>

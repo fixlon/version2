@@ -3,6 +3,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { BserviceService } from './bservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmailValidator } from '@angular/forms';
+import { Interpolation } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +12,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(public service:LoginService,private bservice:BserviceService,private router:Router) { }
-  ngOnInit() {}
+returl:any;
+  constructor(public service:LoginService,private bservice:BserviceService,private router:Router,public activeroute:ActivatedRoute) {
+  activeroute.queryParamMap.subscribe(data=>{
+    this.returl=data.get("retUrl")
+        })}
+  ngOnInit() {
+
+  }
 
   title = 'fixlon';
+
   logoutuser(){
 this.service.userloggedout();
-alert("Are you Want to Logout ")
+// alert(confirm("Are you Want to Logout "))
+
 this.router.navigate(['home']);
   }
   logoutadmin(){
     this.service.adminloggedout();
     this.router.navigate(['home']);
       }
+
 }
 
