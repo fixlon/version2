@@ -45,73 +45,70 @@ this.returl=data.get("retUrl")
     }
   }
 
+  
+
+
+
+
   // login value
-  login(){
-    //  adim login
-    this.http.get(this.url1)
-    .subscribe((data: any)=>{
-     const admin = data.find((a:any)=>{
-      return a.email === this.loginform1.value.email && a.password===this.loginform1.value.password
-     });
+  // login(){
+  //   //  adim login
+  //   this.http.get(this.url1)
+  //   .subscribe((data: any)=>{
+  //    const admin = data.find((a:any)=>{
+  //     return a.email === this.loginform1.value.email && a.password===this.loginform1.value.password
+  //    });
 
-     if(admin){
-      alert("admin login success");
-      this.loginservice.adminloggedin();
-      this.loginform1.reset();
-      if(this.returl==null){
-        this.router.navigate(['gallery']);
-      }
-      else{
-        this.router.navigate([this.returl]);
-      }
+  //    if(admin){
+  //     alert("admin login success");
+  //     this.loginservice.adminloggedin();
+  //     this.loginform1.reset();
+  //     if(this.returl==null){
+  //       this.router.navigate(['gallery']);
+  //     }
+  //     else{
+  //       this.router.navigate([this.returl]);
+  //     }
 
-     }
+  //    }
 
-    //  user login
-     else{
+  //   //  user login
+  //    else{
 
-      this.http.get(this.url)
-      .subscribe((data: any)=>{
-        var email;
-        var password;
-       const user = data.find((a:any)=>{
-        if(a.email === this.loginform1.value.email){
-          email=a.email;
-          password=a.password;
-        }
-       });
-       if(email==null||email==""){
-        alert("No user found");
-       }
-       else if(password===this.loginform1.value.password){
+  //     this.http.get(this.url)
+  //     .subscribe((data: any)=>{
+  //       var email;
+  //       var password;
+  //      const user = data.find((a:any)=>{
+  //       if(a.email === this.loginform1.value.email){
+  //         email=a.email;
+  //         password=a.password;
+  //       }
+  //      });
+  //      if(email==null||email==""){
+  //       alert("No user found");
+  //      }
+  //      else if(password===this.loginform1.value.password){
 
-        alert("login success");
-        this.loginform1.reset();
+  //       alert("login success");
+  //       this.loginform1.reset();
 
-        this.loginservice.userloggedin(email,password)
-        if(this.returl==null){
-          this.router.navigate(['services']);
-        }
-        else{
+  //       this.loginservice.userloggedin(email,password)
+  //       if(this.returl==null){
+  //         this.router.navigate(['services']);
+  //       }
+  //       else{
 
-          this.router.navigate([this.returl]);
-        }
-       }
-    //   this.sessionStorage.setItem('user', { email, password }).subscribe(() => {
-    //     if (this.returl == null) {
-    //       this.router.navigate(['services']);
-    //     } else {
-    //       this.router.navigate([this.returl]);
-    //     }
-    //   });
-    // }
-       else{
-        alert("password incorrect")
-       }
-    });}
-    })
+  //         this.router.navigate([this.returl]);
+  //       }
+  //      }
+  //      else{
+  //       alert("password incorrect")
+  //      }
+  //   });}
+  //   })
 
 
-  }
+  // }
 
 }
