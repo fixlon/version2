@@ -24,7 +24,7 @@ review(){
   return this.client.get("http://localhost:3000/review")
 }
 eyebrowservice(){
-  return this.client.get("http://localhost:3000/eyebrow")
+  return  this.client.get("http://localhost:3000/eyebrow")
 }
 haircutservice(){
   return this.client.get("http://localhost:3000/haircut")

@@ -1,0 +1,12 @@
+<div class="filter-container">
+  <span>filter:</span>
+
+  <input type="radio" name="filter" value="all" [(ngModel)]="selectedRadioButtonValue" (change)="onSelectedRadioButton()">
+  <span>{{'All Styles('+all+')'}}</span>
+
+  <input type="radio" name="filter" value="standard" [(ngModel)]="selectedRadioButtonValue" (change)="onSelectedRadioButton()">
+  <span>{{'Standard Styles('+standard+')'}}</span>
+
+  <input type="radio" name="filter" value="premium" [(ngModel)]="selectedRadioButtonValue" (change)="onSelectedRadioButton()">
+  <span>{{'premium styles('+premium+')'}}</span>
+</div>

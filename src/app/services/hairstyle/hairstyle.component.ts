@@ -8,7 +8,15 @@ import { BserviceService } from 'src/app/bservice.service';
 })
 export class HairstyleComponent implements OnInit {
 hairstylelist:any;
-  constructor(private service:BserviceService) { }
+adminButton;
+  constructor(private service:BserviceService) {
+    if(sessionStorage.getItem('admin')){
+      this.adminButton = true;
+    }
+     else {
+      this.adminButton = false;
+    }
+   }
 
   ngOnInit() {
     this.service.hairstyle().subscribe((data=>{

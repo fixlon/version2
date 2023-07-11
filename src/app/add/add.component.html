@@ -21,6 +21,7 @@
                 <div class="column">
                     <label for="image">Image</label>
                     <!-- <input type="file" id="img" name="image" accept="image/*"> -->
+                    <!-- <input type="file" accept="image/*"  id="image" name="image"  placeholder="Enter your image"  formControlName="image"> -->
                     <input type="text" id="image" name="image"  placeholder="Enter your image"  formControlName="image">
                     <div *ngIf="products.controls['image'].invalid&&products.controls['image'].touched" style="color: red;font-size: 17px;">
                       <small *ngIf="products.controls['image'].errors?.['required']" >please enter image address </small>

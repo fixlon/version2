@@ -1,4 +1,20 @@
-
+.btn1{
+  background-color:#f7e6df ;
+  width: 140px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight:500;
+  margin-top: 10px;
+}
+.btn1:hover{
+  background-color: #dfd6a7;
+}
+.row{
+  display: grid;
+}
 
 .services__content__descripion .box .inner img{
   width: 200px;
@@ -25,7 +41,6 @@
 
 .services__content__descripion .box{
   padding: 20px;
-  cursor: pointer;
 }
 
 .services__content__descripion .box .inner a{
@@ -35,8 +50,17 @@
   color: var(--first-color);
   padding: 15px;
   position: relative;
+  text-align: center;
 }
-
+.btn{
+  margin: 5% 0px 0px 40%;
+  background-color: rgb(145, 222, 145);
+  color: black;
+}
+.btn:hover{
+  color: white;
+  background-color: green;
+}
 /* MEDIA QUERY */
 @media (max-width: 960px){
   .services__content__descripion{

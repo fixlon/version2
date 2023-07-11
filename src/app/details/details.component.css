@@ -1,0 +1,51 @@
+img{
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
+}
+.book {
+  margin-top: 30px;
+  text-align: center;
+}
+.bookingButton{
+ background-color: orange;
+ width: 250px;
+ padding: 10px;
+ border-radius: 15px;
+ color: white;
+ font-size: 18px;
+ font-weight: bold;
+}
+.bookingButton:hover{
+  background-color: green;
+
+}
+.inner{
+  margin: 55px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 10px;
+}
+.innnerContent{
+  padding: 15px;
+}
+.innnerContent button{
+  margin: 12px;
+  width: 160px;
+  padding: 12px;
+  font-size: 18px;
+
+}
+.innnerContent p{
+  margin: 10px;
+}
+h1{
+  font-size: 40px;
+}
+span{
+  color: green;
+  font-weight: bold;
+}
+button{
+  cursor: pointer;
+}

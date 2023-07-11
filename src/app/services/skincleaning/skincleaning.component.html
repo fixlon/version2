@@ -18,13 +18,19 @@
                       <div class="inner">
                           <a  ><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
                           <p>{{item.Name}}</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i></a>
+                          <!-- <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i> -->
+
+                        </a>
+                        <button class="btn1" routerLink="{{item.id}}" *ngIf="!adminButton">show Details</button>
+                        <button class="btn1" routerLink="{{item.id}}" *ngIf="adminButton">Edit Details</button>
                       </div>
 
                   </div>
 
       </div>
-
+      <div  >
+        <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
+       </div>
   </div>
 
 </section>

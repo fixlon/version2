@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { BserviceService } from './bservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmailValidator } from '@angular/forms';
-import { Interpolation } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-root',
@@ -12,11 +10,27 @@ import { Interpolation } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  loginButton:boolean=true;
+  logoutButton:boolean=false;
 returl:any;
-  constructor(public service:LoginService,private bservice:BserviceService,private router:Router,public activeroute:ActivatedRoute) {
+userName:any;
+showHeader = false;
+adminButton:boolean=false;
+  constructor(public service:LoginService,private bservice:BserviceService,private router:Router,public activeroute:ActivatedRoute,) {
   activeroute.queryParamMap.subscribe(data=>{
     this.returl=data.get("retUrl")
-        })}
+        })
+        if(sessionStorage.getItem('email')||sessionStorage.getItem('admin')){
+          this.loginButton=false;
+          this.logoutButton=true;
+        }
+        else{
+          this.loginButton=true;
+          this.logoutButton=false;
+          this.adminButton=false;
+        }
+this.userName=sessionStorage.getItem('userName');
+      }
   ngOnInit() {
 
   }
@@ -24,15 +38,23 @@ returl:any;
   title = 'fixlon';
 
   logoutuser(){
-this.service.userloggedout();
-// alert(confirm("Are you Want to Logout "))
 
-this.router.navigate(['home']);
+this.service.userloggedout();
+if(confirm("Are you logout")){
+  sessionStorage.removeItem('email')
+  sessionStorage.removeItem('admin')
+  sessionStorage.removeItem('userName')
+  window.location.reload();
+}
+this.router.navigate([this.returl || '/']);
   }
-  logoutadmin(){
-    this.service.adminloggedout();
-    this.router.navigate(['home']);
-      }
+
+
+
+
+  toggleHeader(){
+    this.showHeader = !this.showHeader;
+  }
 
 }
 

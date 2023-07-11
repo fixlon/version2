@@ -1,0 +1,11 @@
+.filter-container{
+  margin: 10px 20px;
+  float: right;
+  text-transform: capitalize;
+  font-size: medium;
+  font-weight: bold;
+  color:lightsalmon;
+}
+input[type=radio]{
+  margin:0px 10px;
+}

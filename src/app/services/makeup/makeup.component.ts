@@ -8,7 +8,15 @@ import { BserviceService } from 'src/app/bservice.service';
 })
 export class MakeupComponent implements OnInit {
 makeuplist:any;
-  constructor(private service:BserviceService){ }
+adminButton;
+  constructor(private service:BserviceService){
+    if(sessionStorage.getItem('admin')){
+      this.adminButton = true;
+    }
+     else {
+      this.adminButton = false;
+    }
+  }
 
   ngOnInit() {
     this.service.makeup().subscribe(data=>{

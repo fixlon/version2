@@ -17,4 +17,11 @@ videolist:any;
     }))
   }
 
+  playVideo(videoElement: HTMLVideoElement) {
+    videoElement.play();
+  }
+
+  pauseVideo(videoElement: HTMLVideoElement) {
+    videoElement.pause();
+  }
 }

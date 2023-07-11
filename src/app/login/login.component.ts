@@ -14,101 +14,85 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit{
   show = false;
   password:any;
+userEmail:any;
+userName:any;
+adminEmail:any;
+adminName:any;
 
   url:any="http://localhost:3000/usersprofile";
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
   returl:any;
-  constructor(private fb:FormBuilder,private service:UserService,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
+  constructor(private fB:FormBuilder,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
 this.returl=data.get("retUrl")
     })
   }
 
   ngOnInit() {
-    this.password = 'password';
 
-  this.loginform1=this.fb.group({
-    email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-    password:["",[Validators.required,Validators.minLength(6)]],
-  })
+  // this.password = 'password';
+  this.loginform1 = this.fB.group({
+    email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    password: ["", [Validators.required, Validators.minLength(6)]],
+  });
+
   }
 
   // show password
   onClick() {
-    if (this.password === 'password') {
-      this.password = 'text';
-      this.show = true;
-    } else {
-      this.password = 'password';
+    if (this.show) {
       this.show = false;
+    } else {
+      this.show = true;
     }
   }
 
-  
+  login() {
 
+    this.http.get(this.url1)
+      .subscribe((data: any) => {
+        const admin = data.find((a: any) => {
+          this.adminEmail=a.email;
+                this.adminName=a.username;
+          return a.email === this.loginform1.value.email && a.password === this.loginform1.value.password;
+        });
 
+        if (admin) {
+          sessionStorage.setItem('admin',this.adminEmail);
+          sessionStorage.setItem('userName',this.adminName)
+          alert("Admin login success");
+          this.loginservice.adminloggedin();
+          // Navigate to the desired route
+                this.router.navigate([this.returl || '/']).then(()=>{
+                  window.location.reload()
+                });
+        } else {
+          this.http.get(this.url)
+            .subscribe((data: any) => {
+              const user = data.find((a: any) => {
+                this.userEmail=a.email;
+                this.userName=a.username;
+                return a.email === this.loginform1.value.email && a.password === this.loginform1.value.password;
+              });
 
+              if (user) {
+                sessionStorage.setItem('email',this.userEmail);
+                sessionStorage.setItem('userName',this.userName)
+                alert("Welcome Back "+this.userName);
+                this.loginservice.userloggedin(user.email, user.password);
+                this.router.navigate([this.returl || '/']).then(()=>{
+                  window.location.reload()
+                });
 
-  // login value
-  // login(){
-  //   //  adim login
-  //   this.http.get(this.url1)
-  //   .subscribe((data: any)=>{
-  //    const admin = data.find((a:any)=>{
-  //     return a.email === this.loginform1.value.email && a.password===this.loginform1.value.password
-  //    });
+                // Navigate to the desired route
 
-  //    if(admin){
-  //     alert("admin login success");
-  //     this.loginservice.adminloggedin();
-  //     this.loginform1.reset();
-  //     if(this.returl==null){
-  //       this.router.navigate(['gallery']);
-  //     }
-  //     else{
-  //       this.router.navigate([this.returl]);
-  //     }
-
-  //    }
-
-  //   //  user login
-  //    else{
-
-  //     this.http.get(this.url)
-  //     .subscribe((data: any)=>{
-  //       var email;
-  //       var password;
-  //      const user = data.find((a:any)=>{
-  //       if(a.email === this.loginform1.value.email){
-  //         email=a.email;
-  //         password=a.password;
-  //       }
-  //      });
-  //      if(email==null||email==""){
-  //       alert("No user found");
-  //      }
-  //      else if(password===this.loginform1.value.password){
-
-  //       alert("login success");
-  //       this.loginform1.reset();
-
-  //       this.loginservice.userloggedin(email,password)
-  //       if(this.returl==null){
-  //         this.router.navigate(['services']);
-  //       }
-  //       else{
-
-  //         this.router.navigate([this.returl]);
-  //       }
-  //      }
-  //      else{
-  //       alert("password incorrect")
-  //      }
-  //   });}
-  //   })
-
-
-  // }
+              } else {
+                alert("Invalid email or password");
+              }
+            });
+        }
+      });
+  }
 
 }

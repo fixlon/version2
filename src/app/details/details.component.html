@@ -1,0 +1,53 @@
+<section class="services section" id="services">
+  <div class="services__content" >
+
+          <div class="row">
+
+                  <div class="section__title">
+                      <h1>Services</h1>
+                      <span style="color: black;font-weight:400;">That we perform</span>
+                  </div>
+
+          </div>
+
+      <div class="services__content__descripion container">
+        <ng-container *ngIf="allservice">
+          <div class="box">
+            <div class="inner">
+              <div class="innerimg">
+                <img src="{{ allservice.image }}" alt="{{ allservice.Name }}" title="{{ allservice.Name }}">
+              </div>
+              <div class="innnerContent">
+                <h1 *ngIf="!editMode">{{ allservice.Name }}</h1>
+                <div *ngIf="editMode">
+                  <input  style="font-size: 20px;height: 35px;" type="text" [(ngModel)]="allservice.Name">
+                </div>
+                  <p>{{ allservice.type }}</p>
+                  <h2><i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{ allservice.price }}</i></h2>
+                  <button (click)="selectService('basic')" [disabled]="serviceType === 'standard' || serviceType === 'premium'">Basic Stylist</button>
+                  Service Charge <span>{{ allservice.basic }}</span>
+
+                  <button (click)="selectService('standard')" [disabled]="serviceType === 'basic' || serviceType === 'premium'">Standard Stylist</button>
+                  Service Charge <span>Rs.{{ allservice.standard }}</span>
+
+                  <button (click)="selectService('premium')" [disabled]="serviceType === 'basic' || serviceType === 'standard'">Premium Stylist</button>
+                  Service Charge <span>Rs.{{ allservice.premium }}</span>
+
+                  <button (click)="clearSelection()" [disabled]="!serviceType">Clear</button>
+                  <button (click)="appendquery()" [disabled]="editMode" *ngIf="adminButton">Edit</button>
+                  <button (click)="editMode=false" [disabled]="!editMode" routerLink='/services/:serviceType/{{allservice.id}}' *ngIf="adminButton">update</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+  </div>
+   <div class="book">
+        <a routerLink="booking">
+           <button class="bookingButton" *ngIf="!adminButton">BOOK NOW</button>
+          </a>
+      </div>
+
+
+</section>
+

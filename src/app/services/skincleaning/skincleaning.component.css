@@ -1,5 +1,26 @@
-
-
+.btn{
+  margin: 5% 0px 0px 40%;
+  background-color: rgb(145, 222, 145);
+  color: black;
+}
+.btn:hover{
+  color: white;
+  background-color: green;
+}
+.btn1{
+  background-color:#f7e6df ;
+  width: 180px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px;
+  cursor: pointer;
+  font-size: medium;
+  font-weight:500;
+  margin-top: 10px;
+}
+.btn1:hover{
+  background-color: #dfd6a7;
+}
 .services__content__descripion .box .inner img{
   width: 300px;
   height: 200px ;
@@ -25,7 +46,6 @@
 
 .services__content__descripion .box{
   padding: 20px;
-  cursor: pointer;
 }
 
 .services__content__descripion .box .inner a{

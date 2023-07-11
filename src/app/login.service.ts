@@ -16,14 +16,7 @@ export class LoginService {
   userloggedin(u:any,p:any):void{
     this.email=u;
     this.password=p;
-    sessionStorage.setItem(this.email,this.password);
     this.isloggedin=true;
-  }
-
-  isuserloggedin(){
-
-   return (this.isloggedin);
-
   }
 
   sendemail(url:any,data:any){
@@ -33,10 +26,9 @@ export class LoginService {
   adminloggedin(){
     this.isadmin=true;
   }
+
   userloggedout():void{
     this.isloggedin=false;
   }
-  adminloggedout():void{
-    this.isadmin=false;
-  }
+
 }

@@ -8,7 +8,15 @@ import { BserviceService } from 'src/app/bservice.service';
 })
 export class WaxingComponent implements OnInit {
 waxinglist:any;
-  constructor(public service: BserviceService) { }
+adminButton;
+  constructor(public service: BserviceService) {
+    if(sessionStorage.getItem('admin')){
+      this.adminButton = true;
+    }
+     else {
+      this.adminButton = false;
+    }
+   }
 
   ngOnInit() {
     this.service.waxing().subscribe(data=>{

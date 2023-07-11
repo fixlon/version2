@@ -1,39 +1,46 @@
 <html>
-  <style>
-    .active{
-    color:#75492b;
-}
-  </style>
   <body>
+
     <header class="l-header" id="header">
       <div class="navbar">
           <div class="brand">
-              <a routerLink=""  style="color:#6F4E37;"><h1>FIXLON</h1></a>
-                <a  *ngIf="service.isadmin" style="color: #75492b;font-size: 20px;font-weight: bold;"><button ><i class="fa-solid fa-user" ></i></button>Nandha</a>
-                <!-- <label for="profile"></label>
-                <select name="profile" id="profile">
-                  <option value="profile">profile</option>
-                  <option value="logout">logout</option>
-                </select> -->
+              <a routerLink=""  style="color:#6F4E37;"><h1><img src="../assets/logo.png" style="width: 55px; height: 55px;">FIXLON </h1></a>
+                <p *ngIf="!loginButton"><i class="fa-solid fa-user" ></i>{{userName}}</p>
           </div>
-          <!-- *ngIf="service.isadmin" -->
-          <nav>
+
+          <nav >
           <div class="nav" id="nav">
               <ul class="nav__menu">
-                <li class="nav__item"><a routerLink="home" routerLinkActive="active" class="nav__link">Home</a></li>
+
+                <li class="nav__item"><a routerLink="home" routerLinkActive="active"  class="nav__link">Home</a></li>
                   <li class="nav__item"><a routerLink="about" routerLinkActive="active" class="nav__link">About</a></li>
                   <li class="nav__item"><a routerLink="services" routerLinkActive="active" class="nav__link">Services</a></li>
                   <li class="nav__item"><a routerLink="packages" routerLinkActive="active" class="nav__link">Packages</a></li>
                   <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" class="nav__link">Gallery</a></li>
                   <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
-                  <a routerLink="login" *ngIf="!service.isuserloggedin() && !service.isadmin"><button class="logout" >Login</button></a>
-                  <a (click)="logoutuser()"  (click)="logoutadmin()" *ngIf="service.isuserloggedin() || service.isadmin"><button class="logout" >Logout</button></a>
+                  <a routerLink="login" *ngIf="loginButton"><button class="logout" >Login</button></a>
+                  <a (click)="logoutuser()" *ngIf="logoutButton"><button class="logout" >Logout</button></a>
                 </ul>
           </div>
         </nav>
-          <div class="nav__toggle" id="toggle">
-              <i class='bx bx-menu'></i>
-          </div>
+          <div class="nav__toggle" id="toggle" >
+              <i class='bx bx-menu' (click)="toggleHeader()"></i>
+            </div>
+            <!-- <div *ngIf="showHeader">
+              <div class="nav1" id="nav1">
+                <ul class="nav__menu">
+                  <li class="nav__item"><a routerLink="home" routerLinkActive="active" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a routerLink="about" routerLinkActive="active" class="nav__link">About</a></li>
+                    <li class="nav__item"><a routerLink="services" routerLinkActive="active" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a routerLink="packages" routerLinkActive="active" class="nav__link">Packages</a></li>
+                    <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" class="nav__link">Gallery</a></li>
+                    <a routerLink="login" *ngIf="loginButton"><button class="logout" >Login</button></a>
+                    <a (click)="logoutuser()" *ngIf="logoutButton"><button class="logout" >Logout</button></a>
+                  </ul>
+            </div>
+            </div> -->
+
+
       </div>
   </header>
 

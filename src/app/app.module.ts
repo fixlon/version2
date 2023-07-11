@@ -28,9 +28,14 @@ import { SkincleaningComponent } from './services/skincleaning/skincleaning.comp
 import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { GaddComponent } from './gadd/gadd.component';
+import { SearchComponent } from './search/search.component';
+import { FilterComponent } from './filter/filter.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
+import { DetailsComponent } from './details/details.component';
+import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       AboutComponent,
       ServicesComponent,
@@ -46,14 +51,18 @@ import { GaddComponent } from './gadd/gadd.component';
       ManicureComponent,PedicureComponent,SkincleaningComponent,EyebrowComponent,MakeupComponent,HaircutComponent,HairstyleComponent,WaxingComponent,
       AddComponent,
       PaymentComponent,
-      GaddComponent
+      GaddComponent,
+      SearchComponent,
+      FilterComponent,
+      BookingPageComponent,
+      DetailsComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,
     FormsModule,ReactiveFormsModule,
   ],
-  providers: [AuthGuard,LoginService],
+  providers: [AuthGuard,LoginService,CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

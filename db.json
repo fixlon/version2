@@ -4,6 +4,7 @@
       "username": "NANDHAGOPAL",
       "email": "nandhavignesh85@gmail.com",
       "phone": "8525876050",
+      "gender": "male",
       "password": "Nasa@123",
       "confirmpassword": "Nasa@123",
       "id": 1
@@ -20,7 +21,7 @@
   "admin": [
     {
       "id": 1,
-      "username": "NANDHAGOPAL",
+      "username": "ADMIN",
       "password": "admin@fixlon",
       "email": "admin@gmail.com"
     }
@@ -73,12 +74,6 @@
       "Name": "skin cleaning",
       "image": "/assets/img/services/skincleaning.png",
       "link": "skincleaning"
-    },
-    {
-      "Name": "shaving",
-      "image": "/assets/img/services/shave.png",
-      "link": "shaving",
-      "id": 9
     }
   ],
   "eyebrow": [
@@ -86,49 +81,81 @@
       "id": 1,
       "Name": "Simple",
       "image": "/assets/services/eye-brow1.jpg",
-      "price": 199
+      "type": "standard",
+      "price": 199,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 2,
       "Name": "Classic Bow",
       "image": "/assets/services/eye-brow2.jpg",
-      "price": 299
+      "type": "all",
+      "price": 299,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 3,
       "Name": "Winter Tones",
       "image": "/assets/services/eye-brow3.jpg",
-      "price": 399
+      "type": "all",
+      "price": 399,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 4,
       "Name": "Scissor Styles",
       "image": "/assets/services/eye-brow4.jpg",
-      "price": 699
+      "type": "premium",
+      "price": 699,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 5,
       "Name": "Elegant Seed",
       "image": "/assets/services/eye-brow5.jpg",
-      "price": 399
+      "type": "standard",
+      "price": 399,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 6,
       "Name": "Custom Styles",
       "image": "/assets/services/eye-brow1.jpg",
-      "price": 499
+      "type": "all",
+      "price": 499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 7,
       "Name": "Classic Threading",
       "image": "/assets/services/eye-brow7.jpg",
-      "price": 599
+      "type": "standard",
+      "price": 599,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 8,
       "Name": "Cool tone",
       "image": "/assets/services/eye-brow8.jpg",
-      "price": 499
+      "type": "premium",
+      "price": 499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     }
   ],
   "manicure": [
@@ -136,49 +163,73 @@
       "id": 1,
       "Name": "French traditional",
       "image": "/assets/services/manicure1.jpg",
-      "price": 399
+      "price": 399,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 2,
       "Name": "Acralic Nails",
       "image": "/assets/services/manicure2.jpg",
-      "price": 599
+      "price": 599,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 3,
       "Name": "Winter Tones",
       "image": "/assets/services/manicure3.jpg",
-      "price": 899
+      "price": 899,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 4,
       "Name": "Custom Styles",
       "image": "/assets/services/manicure4.jpg",
-      "price": 1899
+      "price": 1899,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 5,
       "Name": "Mustard Matte",
       "image": "/assets/services/manicure5.jpg",
-      "price": 399
+      "price": 399,
+      "basic": "free",
+      "standard":150,
+      "premium":250
     },
     {
       "id": 6,
       "Name": "Nature Nails",
       "image": "/assets/services/manicure6.jpg",
-      "price": 499
+      "price": 499,
+      "basic": "free",
+      "standard":250,
+      "premium":300
     },
     {
       "id": 7,
       "Name": "Child bunny",
       "image": "/assets/services/manicure7.jpg",
-      "price": 599
+      "price": 599,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 8,
       "Name": "Cool tone",
       "image": "/assets/services/manicure8.jpg",
-      "price": 499
+      "price": 499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     }
   ],
   "haircut": [
@@ -186,73 +237,109 @@
       "id": 1,
       "Name": "Taper Cut",
       "image": "/assets/services/haircut1.jpg",
-      "price": 1199
+      "price": 1199,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 2,
       "Name": "Bowl Cut",
       "image": "/assets/services/haircut2.jpg",
-      "price": 2299
+      "price": 2299,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 3,
       "Name": "Box Cut",
       "image": "/assets/services/haircut3.jpg",
-      "price": 1299
+      "price": 1299,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 4,
       "Name": "Quiff",
       "image": "/assets/services/haircut4.jpg",
-      "price": 1699
+      "price": 1699,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 5,
       "Name": "Under Cut",
       "image": "/assets/services/haircut5.jpg",
-      "price": 2399
+      "price": 2399,
+      "basic": "free",
+      "standard":250,
+      "premium":850
     },
     {
       "id": 6,
       "Name": "Mullet Cut",
       "image": "/assets/services/haircut6.jpg",
-      "price": 1499
+      "price": 1499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 7,
       "Name": "Custom Style",
       "image": "/assets/services/haircut7.jpg",
-      "price": 2999
+      "price": 2999,
+      "basic": "free",
+      "standard":250,
+      "premium":850
     },
     {
       "id": 8,
       "Name": "One Side Under Cut",
       "image": "/assets/services/haircut8.jpg",
-      "price": 2499
+      "price": 2499,
+      "basic": "free",
+      "standard":250,
+      "premium":850
     },
     {
       "id": 9,
       "Name": "Fire Cut",
       "image": "/assets/services/haircut9.jpg",
-      "price": 2499
+      "price": 2499,
+      "basic": "free",
+      "standard":250,
+      "premium":850
     },
     {
       "id": 10,
       "Name": "One Side Box",
       "image": "/assets/services/haircut10.jpg",
-      "price": 1499
+      "price": 1499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 11,
       "Name": "Caesar Cut",
       "image": "/assets/services/haircut11.jpg",
-      "price": 1499
+      "price": 1499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 12,
       "Name": "Mohawk Style",
       "image": "/assets/services/haircut12.jpg",
-      "price": 3499
+      "price": 3499,
+      "basic": "free",
+      "standard":250,
+      "premium":950
     }
   ],
   "hairstyle": [
@@ -260,49 +347,73 @@
       "id": 1,
       "Name": "Straighten",
       "image": "/assets/services/hairstyle1.jpg",
-      "price": 7599
+      "price": 7599,
+      "basic": "free",
+      "standard":250,
+      "premium":1350
     },
     {
       "id": 2,
       "Name": "Chignon",
       "image": "/assets/services/hairstyle2.jpg",
-      "price": 2299
+      "price": 2299,
+      "basic": "free",
+      "standard":250,
+      "premium":6350
     },
     {
       "id": 3,
       "Name": "Braid",
       "image": "/assets/services/hairstyle3.jpg",
-      "price": 2299
+      "price": 2299,
+      "basic": "free",
+      "standard":250,
+      "premium":650
     },
     {
       "id": 4,
       "Name": "Custom Styles",
       "image": "/assets/services/hairstyle4.jpg",
-      "price": 3699
+      "price": 3699,
+      "basic": "free",
+      "standard":250,
+      "premium":850
     },
     {
       "id": 5,
       "Name": "Retro Hairstyles",
       "image": "/assets/services/hairstyle5.jpg",
-      "price": 3399
+      "price": 3399,
+      "basic": "free",
+      "standard":250,
+      "premium":1350
     },
     {
       "id": 6,
       "Name": "French Twist",
       "image": "/assets/services/hairstyle6.jpg",
-      "price": 1899
+      "price": 1899,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 7,
       "Name": "Korean",
       "image": "/assets/services/hairstyle7.jpg",
-      "price": 599
+      "price": 599,
+      "basic": "free",
+      "standard":200,
+      "premium":300
     },
     {
       "id": 8,
       "Name": "Unicorn",
       "image": "/assets/services/hairstyle8.jpeg",
-      "price": 5499
+      "price": 5499,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     }
   ],
   "makeup": [
@@ -310,49 +421,73 @@
       "id": 1,
       "Name": "Bridal",
       "image": "/assets/services/makeup1.jpg",
-      "price": 18999
+      "price": 18999,
+      "basic": "free",
+      "standard":1250,
+      "premium":3350
     },
     {
       "id": 2,
       "Name": "Face Pack",
       "image": "/assets/services/makeup2.jpg",
-      "price": 499
+      "price": 499,
+      "basic": "free",
+      "standard":150,
+      "premium":300
     },
     {
       "id": 3,
       "Name": "Celebrity Makeup",
       "image": "/assets/services/makeup3.jpg",
-      "price": 25299
+      "price": 25299,
+      "basic": "free",
+      "standard":3250,
+      "premium":5350
     },
     {
       "id": 4,
       "Name": "Matte Makeup",
       "image": "/assets/services/makeup4.jpg",
-      "price": 28999
+      "price": 28999,
+      "basic": "free",
+      "standard":2250,
+      "premium":4350
     },
     {
       "id": 5,
       "Name": "North Indian",
       "image": "/assets/services/makeup5.jpg",
-      "price": 21199
+      "price": 21199,
+      "basic": "free",
+      "standard":2250,
+      "premium":4350
     },
     {
       "id": 6,
       "Name": "Chinese",
       "image": "/assets/services/makeup6.jpg",
-      "price": 10599
+      "price": 10599,
+      "basic": "free",
+      "standard":2250,
+      "premium":3500
     },
     {
       "id": 7,
       "Name": "Dewy Makeup",
       "image": "/assets/services/makeup7.jpg",
-      "price": 8599
+      "price": 8599,
+      "basic": "free",
+      "standard":1250,
+      "premium":1950
     },
     {
       "id": 8,
       "Name": "Cool tones",
       "image": "/assets/services/makeup8.jpg",
-      "price": 5499
+      "price": 5499,
+      "basic": "free",
+      "standard":1050,
+      "premium":1550
     }
   ],
   "pedicure": [
@@ -360,49 +495,73 @@
       "id": 1,
       "Name": "Japanese traditional",
       "image": "/assets/services/pedicure1.jpg",
-      "price": 2999
+      "price": 2999,
+      "basic": "free",
+      "standard":350,
+      "premium":550
     },
     {
       "id": 2,
       "Name": "Acralic Nails",
       "image": "/assets/services/pedicure2.jpg",
-      "price": 599
+      "price": 599,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 3,
       "Name": "Nature Nails",
       "image": "/assets/services/pedicure3.jpg",
-      "price": 899
+      "price": 899,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 4,
       "Name": "Custom Styles",
       "image": "/assets/services/pedicure4.jpg",
-      "price": 1699
+      "price": 1699,
+      "basic": "free",
+      "standard":350,
+      "premium":450
     },
     {
       "id": 5,
       "Name": "Paraffin",
       "image": "/assets/services/pedicure5.jpg",
-      "price": 2399
+      "price": 2399,
+      "basic": "free",
+      "standard":350,
+      "premium":450
     },
     {
       "id": 6,
       "Name": "Winter Tones",
       "image": "/assets/services/pedicure6.jpg",
-      "price": 1899
+      "price": 1899,
+      "basic": "free",
+      "standard":350,
+      "premium":450
     },
     {
       "id": 7,
       "Name": "Child bunny",
       "image": "/assets/services/pedicure7.jpg",
-      "price": 599
+      "price": 599,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 8,
       "Name": "Royal Touch",
       "image": "/assets/services/pedicure8.jpg",
-      "price": 2499
+      "price": 2499,
+      "basic": "free",
+      "standard":300,
+      "premium":450
     }
   ],
   "skincleaning": [
@@ -410,25 +569,37 @@
       "id": 1,
       "Name": "Purer Pores",
       "image": "/assets/services/skincleaning1.jpeg",
-      "price": 1199
+      "price": 1199,
+      "basic": "free",
+      "standard":300,
+      "premium":350
     },
     {
       "id": 2,
       "Name": "Blissful Skin",
       "image": "/assets/services/skincleaning2.jpeg",
-      "price": 1299
+      "price": 1299,
+      "basic": "free",
+      "standard":300,
+      "premium":350
     },
     {
       "id": 3,
       "Name": "Botanic Beauty",
       "image": "/assets/services/skincleaning3.jpg",
-      "price": 2199
+      "price": 2199,
+      "basic": "free",
+      "standard":300,
+      "premium":350
     },
     {
       "id": 4,
       "Name": "Gold Skin Studio",
       "image": "/assets/services/skincleaning4.jpg",
-      "price": 2899
+      "price": 2899,
+      "basic": "free",
+      "standard":250,
+      "premium":450
     }
   ],
   "waxing": [
@@ -436,13 +607,19 @@
       "id": 1,
       "Name": "Strip Waxing",
       "image": "/assets/services/waxing1.jpg",
-      "price": 1299
+      "price": 1299,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     },
     {
       "id": 2,
       "Name": "Cream Waxing",
       "image": "/assets/services/waxing2.jpg",
-      "price": 1199
+      "price": 1199,
+      "basic": "free",
+      "standard":250,
+      "premium":350
     }
   ],
   "stylist": [
@@ -557,11 +734,27 @@
       "videoclip": "/assets/gallery/v2.mp4"
     },
     {
-      "id": 1,
+      "id": 3,
       "videoclip": "/assets/gallery/v3.mp4"
     },
     {
+      "id": 4,
+      "videoclip": "/assets/gallery/v4.mp4"
+    },
+    {
       "id": 1,
+      "videoclip": "/assets/gallery/v1.mp4"
+    },
+    {
+      "id": 2,
+      "videoclip": "/assets/gallery/v2.mp4"
+    },
+    {
+      "id": 3,
+      "videoclip": "/assets/gallery/v3.mp4"
+    },
+    {
+      "id": 4,
       "videoclip": "/assets/gallery/v4.mp4"
     }
   ],

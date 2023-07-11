@@ -24,6 +24,9 @@ import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminGuard } from './admin.guard';
 import { GaddComponent } from './gadd/gadd.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
+import { DetailsComponent } from './details/details.component';
+import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
 
 
 const routes: Routes = [
@@ -61,11 +64,12 @@ const routes: Routes = [
   {
     path:'',
     children:[{
-      path:"gallery/galleryfull/add",
+      path:"gallery/fullgallery/add",
+      canActivate:[AdminGuard],
       component:AddComponent,
     },
     {
-      path:"gallery/gadd",
+      path:"gallery/galleryadd",
       canActivate:[AdminGuard],
       component:GaddComponent,
 
@@ -110,7 +114,18 @@ const routes: Routes = [
     {
       path:'services/skincleaning',
       component:SkincleaningComponent
-    }]
+    },
+    {
+      path:'services/:serviceType/:id',
+      component:DetailsComponent
+    },
+    //booking page routing
+    {
+      path: 'services/:serviceType/:id/booking',
+      component: BookingPageComponent
+    }
+
+  ]
   },
   {
     path:"packages",
@@ -119,9 +134,9 @@ const routes: Routes = [
   },
   {
     path:'',
+    canActivate:[AuthGuard],
     children:[{
       path:"packages/payment",
-      canActivate:[AuthGuard],
       component:PaymentComponent
     }]
 
@@ -135,17 +150,19 @@ const routes: Routes = [
     path:'',
     canActivate:[AuthGuard],
     children:[{
-      path:"gallery/galleryfull",
+      path:"gallery/fullgallery",
       component:GalleryfullComponent,
     }]
 
   },
+
   {
     path:"login",
     component:LoginComponent
   },
   {
     path:"register",
+    canDeactivate:[CanDeactivateGuardService],
     component:RegisterComponent
   },
 

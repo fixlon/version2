@@ -4,8 +4,6 @@ import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { map } from 'rxjs/operators';
-import { SubService } from '../services/sub.service';
 import { BserviceService } from '../bservice.service';
 @Component({
   selector: 'app-add',
@@ -16,11 +14,14 @@ export class AddComponent implements OnInit {
   url1:any="http://localhost:3000/services";
   returl:any;
   mservicelist: any;
+
+
   products:FormGroup=new FormGroup({})
   constructor(private fb:FormBuilder,private service:BserviceService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute, private forms:FormsModule) {
     activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
+
   }
 
   // loginform=this.fb.group({
@@ -41,10 +42,6 @@ export class AddComponent implements OnInit {
     })
   }
 
-  // onServiceFetch(){
-  //   this.fetchService();
-  // }
-
   onServiceCreate(products){
     console.log(products);
     this.http.post(this.url1,products).subscribe((res)=>{
@@ -52,7 +49,11 @@ export class AddComponent implements OnInit {
       alert('New Service Created')
       window.location.reload();
     })
+
   }
+
+
+
 
 onDeleteService(id:any){
   this.http.delete(this.url1+"/"+id).subscribe();
@@ -60,23 +61,4 @@ onDeleteService(id:any){
   window.location.reload();
 }
 
-  // addservice(){
-  //   this.http.get<any>(this.url1).subscribe(res => {
-  //     const admin = res.find((result: any) => {
-  //       return result.id === this.loginform.value.id;
-  //     });
-
-  //     if (admin) {
-  //       alert("id Already Exists");
-  //     }
-
-  //     else {
-  //       this.service.addservice(this.loginform.value).subscribe(data=>{
-  //         alert("data saved");
-  //         this.loginform.reset();
-  //         this.router.navigate([this.returl]);
-  //       })
-  //       }
-  // });
-  // }
 }

@@ -1,0 +1,28 @@
+.search-container{
+  float: right;
+  margin: 15px;
+  color: lightcoral;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+input[type='text']{
+  margin: 5px 5px 5px 8px;
+  border-radius: 8px;
+  outline: none;
+  border-color: lightcoral;
+  padding: 3px;
+  padding-right: 30px;
+  color: var(--first-color);
+}
+input[type='text']:focus{
+  outline: none;
+  border-color: lightcoral;
+}
+
+.search-container i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}

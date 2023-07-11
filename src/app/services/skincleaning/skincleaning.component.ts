@@ -8,7 +8,15 @@ import { BserviceService } from 'src/app/bservice.service';
 })
 export class SkincleaningComponent implements OnInit {
 skinlist:any;
-  constructor(public service:BserviceService) { }
+adminButton;
+  constructor(public service:BserviceService) {
+    if(sessionStorage.getItem('admin')){
+      this.adminButton = true;
+    }
+     else {
+      this.adminButton = false;
+    }
+  }
 
   ngOnInit() {
     this.service.skincleaning().subscribe(data=>{

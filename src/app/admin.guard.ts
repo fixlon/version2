@@ -11,9 +11,9 @@ export class AdminGuard  {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!this.adminService.isadmin) {
-        // this.router.navigate(["login"]),{queryParams:{retUrl:route.url}}
-        this.router.navigate(["login"],{queryParams:{retUrl:route.url}})
+      if (!sessionStorage.getItem('admin')) {
+        alert('you are not admin')
+        this.router.navigate(["home"],{queryParams:{retUrl:route.url}})
         return false;
       } else {
         // Redirect to login page

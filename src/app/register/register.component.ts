@@ -5,12 +5,14 @@ import { Confirmvalidator } from '../confirm.validator';
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
+import { IDeactivateComponent } from '../canDeactivate-gaurd.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit, IDeactivateComponent{
   returl:any;
 
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
@@ -21,8 +23,9 @@ export class RegisterComponent {
   url:any="http://localhost:3000/usersprofile";
 
   loginform1=this.fb.group({
-    username:["",[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
-    email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    username:["",[Validators.required,Validators.pattern("^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{3,15}$")]],
+    // email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,5}$")]],
+email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*\\.[^.]{1,4}\\.$)(?:[a-z0-9._%+-]+@(?:[a-z0-9-]+\\.)+(?:com|in|outlook\\.com|yahoo\\.com))$")]],
     phone:["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     password:["",[Validators.required,Validators.pattern(
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
@@ -32,11 +35,15 @@ export class RegisterComponent {
 
   },{validator:Confirmvalidator('password','confirmpassword')})
 
-
+name;
+email;
+phone;
+password;
 
   ngOnInit() {
 
   }
+
   get confirmpassword(){
     return this.loginform1.get('confirmpassword');
   }
@@ -57,8 +64,7 @@ export class RegisterComponent {
 
       else {
         this.service.adduser(this.loginform1.value).subscribe(data=>{
-          alert("Data saved and Confirmation send to your email");
-          this.loginform1.reset();
+          alert("Heartly Welcome "+body.name+"\nThank you for choosing us")
           this.router.navigate(['login']);
         })
         }
@@ -68,5 +74,11 @@ export class RegisterComponent {
   })
   }
 
+  canExit(){
+    if(this.name||this.email||this.phone||this.password){
+      return confirm('you have unsaved changes. Do you really want to discard these changes?');
+    }
+    return true;
+  }
 
 }

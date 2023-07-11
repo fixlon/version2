@@ -1,7 +1,7 @@
 /* SERVICES START */
 .services{
   width: 100%;
-  background-image: url('../../assets/img/left-top.svg');
+  background-image: url('/assets/img/left-top.svg');
   background-repeat: no-repeat;
   background-position: top left;
   z-index: -1;

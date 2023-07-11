@@ -253,7 +253,7 @@ a{
 }
 
 
-@media (min-width: 960px){
+@media (min-width: 960px ){
   .nav__menu{
       display: flex;
       align-items: center;

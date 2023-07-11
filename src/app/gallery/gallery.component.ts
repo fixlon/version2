@@ -10,6 +10,8 @@ import { LoginService } from '../login.service';
 export class GalleryComponent implements OnInit {
 gallerylist:any;
 reviewlist:any;
+
+
   constructor(private service:BserviceService,public loginservice:LoginService) { }
 
   ngOnInit() {
@@ -21,4 +23,5 @@ reviewlist:any;
     }));
   }
 
+  
 }

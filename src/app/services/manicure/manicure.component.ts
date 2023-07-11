@@ -9,7 +9,15 @@ import { BserviceService } from 'src/app/bservice.service';
 })
 export class ManicureComponent implements OnInit {
 manicurelist:any;
-  constructor(private service:BserviceService) { }
+adminButton;
+  constructor(private service:BserviceService) {
+    if(sessionStorage.getItem('admin')){
+      this.adminButton = true;
+    }
+     else {
+      this.adminButton = false;
+    }
+   }
 
   ngOnInit() {
 this.service.manicureservice().subscribe((data=>{

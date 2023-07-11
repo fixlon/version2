@@ -1,6 +1,9 @@
 <section class="services section" id="services">
-
-  <div class="services__content">
+  <div>
+    <app-filter [all]="getTotal()"
+    [standard]="getStandard()"   [premium]="getPremium()" (filterRadioButtonChanged)="filterEybrow($event)"></app-filter>
+  </div>
+  <div class="services__content" >
 
           <div class="row">
 
@@ -12,20 +15,26 @@
           </div>
 
       <div class="services__content__descripion container">
+                <ng-container *ngFor="let item of eyebrowlist">
+                  <div class="box" *ngIf="eyebrowValueChanged==='all' || eyebrowValueChanged==item.type ">
 
-                  <div class="box" *ngFor="let item of eyebrowlist">
+                    <div class="inner">
+                        <a ><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                        <p>{{item.Name}}</p>
+                        <!-- <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i> -->
+                      </a>
+                      <button class="btn1" routerLink="{{item.id}}" *ngIf="!adminButton">show Details</button>
+                      <button class="btn1" routerLink="{{item.id}}" *ngIf="adminButton">Edit Details</button>
+                     </div>
 
-                      <div class="inner">
-                          <a href=""><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
-                          <p>{{item.Name}}</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i></a>
-                      </div>
-
-                  </div>
+                </div>
+                </ng-container>
 
 
       </div>
-
+      <div  >
+       <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
+      </div>
   </div>
 
 </section>

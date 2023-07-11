@@ -1,19 +1,15 @@
-<section >
 
-  <div class="video">
-          <div class="section__title">
-              <h1>OUR WORKS</h1>
-          </div>
-      <div class="vservice" >
-
-          <div class="vs" *ngFor="let item of videolist">
-              <video src="{{item.videoclip}}"
-              type="video/mp4"  muted  loop class="clip" autoplay>
-              </video>
-          </div>
-
+  <section>
+    <div class="video">
+      <div class="section__title">
+        <h1>OUR WORKS</h1>
       </div>
-      <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-plus" style="font-size: 50px; margin-left: 46%;margin-top:50px;color:#75492b" ></i></a>
-      <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b" ></i></a>
-  </div>
+      <div class="vservice">
+        <div class="vs" *ngFor="let item of videolist">
+          <video #videoElement [src]="item.videoclip" type="video/mp4" (mouseenter)="playVideo(videoElement)" (mouseout)="pauseVideo(videoElement)" class="clip" muted loop ></video>
+        </div>
+      </div>
+      <!-- <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-plus" style="font-size: 50px; margin-left: 46%;margin-top:50px;color:#75492b"></i></a>
+      <a routerLink="add" *ngIf="loginservice.isadmin"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b"></i></a> -->
+    </div>
   </section>

@@ -1,31 +1,38 @@
 <section class="services section" id="services">
-
   <div class="services__content">
 
           <div class="row">
-
-                  <div class="section__title">
+                  <div class="section__title" >
                       <h1>Services</h1>
                       <span>That we perform</span>
-                  </div>
 
+                  </div>
+                  <div><app-search (searchedValue)="searchingValue($event)" ></app-search></div>
           </div>
+
 
       <div class="services__content__descripion container">
 
-                  <div class="box" *ngFor="let item of haircutlist">
+        <ng-container *ngFor="let item of haircutlist">
+              <div class="box" *ngIf="searchedValue==='' || item.Name.toLowerCase().includes(searchedValue)">
 
-                      <div class="inner">
-                          <a  href=""><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
-                          <p>{{item.Name}}</p>
-                          <i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{item.price}}</i></a>
-                      </div>
+                 <div class="inner">
+                    <a  ><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                   <p>{{item.Name}}</p>
+                   <!-- <i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{item.price}}</i> -->
+                  </a>
 
-                  </div>
+                  <button class="btn1" routerLink="{{item.id}}" *ngIf="!adminButton">show Details</button>
+                  <button class="btn1" routerLink="{{item.id}}" *ngIf="adminButton">Edit Details</button>
+                 </div>
 
-
+              </div>
+          </ng-container>
       </div>
 
+      <div  >
+        <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
+       </div>
   </div>
 
 </section>
