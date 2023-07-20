@@ -13,14 +13,20 @@ export class HeaderComponent implements OnInit {
   logoutButton:boolean=false;
   userName:any;
   isScrolled: boolean = false;
+  adminButton:boolean=false;
 
   constructor(public activeroute:ActivatedRoute,private router:Router,public service:LoginService,private renderer: Renderer2){
     activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
-          if(sessionStorage.getItem('email')||sessionStorage.getItem('admin')){
+          if(sessionStorage.getItem('email')){
             this.loginButton=false;
             this.logoutButton=true;
+          }
+          else if(sessionStorage.getItem('admin')){
+            this.loginButton=false;
+            this.logoutButton=true;
+            this.adminButton=true;
           }
           else{
             this.loginButton=true;
@@ -31,6 +37,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollHeader();
+
   }
 
   //logout user by removing the session storage
@@ -78,4 +85,6 @@ export class HeaderComponent implements OnInit {
       onScroll(): void {
         this.scrollHeader(); // Call the method to apply styles on scrolling
       }
+
+     
 }

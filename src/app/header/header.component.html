@@ -3,7 +3,6 @@
     <div class="navbar">
         <div class="brand">
             <a routerLink=""  style="color:#6F4E37;"><h1><img src="../assets/logo.png" style="width: 55px; height: 55px;">FIXLON </h1></a>
-              <p *ngIf="!loginButton"><i class="fa-solid fa-user" ></i>{{userName}}</p>
         </div>
 
         <nav >
@@ -16,8 +15,16 @@
                 <li class="nav__item"><a routerLink="packages" routerLinkActive="active" (click)="linkAction()" class="nav__link">Packages</a></li>
                 <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" (click)="linkAction()" class="nav__link">Gallery</a></li>
                 <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
-                <a routerLink="login" *ngIf="loginButton"><button class="btn" >Login</button></a>
-                <a (click)="logoutuser()" *ngIf="logoutButton"><button class="btn" >Logout</button></a>
+                <li><a routerLink="login" *ngIf="loginButton"><button class="btn" >Login</button></a></li>
+
+                <li><div class="dropdown" *ngIf="!loginButton">
+                  <span><i class="fa-solid fa-user" ></i><b> {{userName}}</b></span>
+                  <div class="dropdown-content">
+                  <li><a (click)="logoutuser()">Logout</a></li>
+                  <li><a routerLink="profile"></a></li>
+                  <li><a routerLink="bookingHistory">{{adminButton?'Transaction History':'Booking History'}}</a></li>
+                  </div>
+                </div></li>
               </ul>
 
         </div>
