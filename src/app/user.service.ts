@@ -10,7 +10,9 @@ export class UserService {
   url2:any="http://localhost:3000/payment";
   getuser: any;
 
-constructor(private http:HttpClient) { }
+constructor(private http:HttpClient) {
+
+ }
 adduser(body:any){
 return this.http.post(this.url,body);
 }
@@ -33,5 +35,13 @@ retriveoneuser(id:any){
 updateuser(id:any,data:any){
   return this.http.patch(this.url+"/"+id,data);
 }
-
+updateProfile(id:any,value:any){
+return this.http.put(this.url+id,value).subscribe();
+}
+// updateService(id:string,value:any){
+//   this.http.put(this.url1+"/"+id,value).subscribe;
+//  }
+getUser(id:any){
+  return this.http.get(this.url+"/"+id);
+}
 }

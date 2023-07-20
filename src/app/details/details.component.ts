@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -13,8 +14,15 @@ export class DetailsComponent implements OnInit, OnDestroy {
 allservice:any;
   editMode: boolean=false;
   adminButton:boolean=false;
+  totalPrice: number = 0;
+  CustomerName: string;
+  selectedTimeSlot: string;
+  bookedTimeSlots: string[] = [];
+  timeSlots: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM'];
+error: any;
 
-  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router) {
+
+  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router,private http:HttpClient) {
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
     }
@@ -23,7 +31,10 @@ allservice:any;
     }
    }
 
+   //choosing service type by dynamic
   ngOnInit(): void {
+
+
     this.serviceType = this.activatedRoute.snapshot.paramMap.get('serviceType');
 
     switch (this.serviceType) {
@@ -93,8 +104,6 @@ allservice:any;
       // Use the serviceType parameter for further processing or data retrieval
     });
     this.serviceType = null;
-
-    // this.editMode=Boolean(this.activatedRoute.snapshot.queryParamMap.get('edit'));
     this.activatedRoute.queryParamMap.subscribe((param)=>{
       this.editMode = Boolean(param.get('edit'));
     })
@@ -104,15 +113,100 @@ allservice:any;
     // Clean up any subscriptions or resources here
   }
 
+  //choosing the stylist by type standard or premium
   selectService(type: string): void {
     this.serviceType = type;
   }
 
+//clear the all selection
   clearSelection(): void {
     this.serviceType = null;
   }
 
-  appendquery(){
-    this.router.navigate(['services/:serviceType',this.allservice.id],{queryParams:{edit:true}})
+  //updating the data to db.json
+  updateData(): void {
+    this.editMode = false;
+
+    // Make a copy of the allservice object
+    const updatedData = Object.assign({}, this.allservice);
+
+    // Send the updated data to the server
+    this.service.updateServiceData(
+      this.activatedRoute.snapshot.paramMap.get('serviceType'),
+      +this.activatedRoute.snapshot.paramMap.get('id'),
+      updatedData
+    )
+    .subscribe(
+      response => {
+        // Update successful
+        console.log('Data updated successfully.');
+      },
+      error => {
+        // Handle error
+        console.error('Error occurred while updating data:', error);
+      }
+    );
+    console.log(updatedData);
+  }
+
+//choosing time slot
+  selectTimeSlot(slot: string): void {
+    this.selectedTimeSlot = slot;
+  }
+
+//calculate total amount
+  calculateTotalCost(): number {
+    let totalCost = 0;
+    if (this.serviceType === 'premium') {
+      totalCost =parseInt(document.getElementById('servicePrice').textContent.trim())+ this.allservice.premium;
+
+    } else if(this.serviceType === "standard"){
+      totalCost = parseInt(document.getElementById('servicePrice').textContent.trim()) + this.allservice.standard;
+
+    }
+    else{
+      totalCost=parseInt(document.getElementById('servicePrice').textContent.trim());
+    }
+    return totalCost;
+  }
+stylist(){
+  let stylist="";
+  if(this.serviceType==='premium'){
+    stylist="premium";
+  }
+  else if(this.serviceType === "standard"){
+    stylist="standard";
+  }
+  else{
+    stylist="basic";
+  }
+  return stylist;
+}
+
+  saveBooking(): void {
+    if (this.CustomerName && this.selectedTimeSlot) {
+      const totalCost = this.calculateTotalCost();//calling the method for storing the price  in service price
+      const stylist=this.stylist();
+      const booking = {
+        CustomerName: this.CustomerName,
+        serviceType: document.getElementById('serviceType').textContent,//get servicename by html id
+        servicePrice:totalCost,
+        stylist:stylist,
+        time: this.selectedTimeSlot,
+
+      };
+      this.bookedTimeSlots.push(this.selectedTimeSlot);
+      this.http.post('http://localhost:3000/timeSlots', booking).subscribe(() => {
+        console.log('Booking saved successfully');
+        alert("sucessfully Booked ")
+        console.log(booking)
+      });
+    } else {
+      console.log('Please fill in all fields');
+    }
+  }
+
+  clearTimeSlot(): void {
+    this.selectedTimeSlot = null;
   }
 }

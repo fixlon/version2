@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryfullComponent } from './gallery/galleryfull/galleryfull.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +26,9 @@ import { GaddComponent } from './gadd/gadd.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { DetailsComponent } from './details/details.component';
 import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
+import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
+import { TermsComponent } from './terms/terms.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,15 @@ const routes: Routes = [
 
   },
   {
+    path:"bookingHistory",
+    canActivate:[AuthGuard],
+    component:BookinghistoryComponent
+  },
+  {
+    path:"terms-of-service",
+    component:TermsComponent
+  },
+  {
     path:'',
     children:[{
       path:"gallery/fullgallery/add",
@@ -81,38 +92,46 @@ const routes: Routes = [
 
 {
   path:'',
-  canActivate:[AuthGuard],
+
     children:[
       {
        path:'services/manicure',
+       canActivate:[AuthGuard],
       component:ManicureComponent,
     },
     {
       path:'services/pedicure',
+      canActivate:[AuthGuard],
       component:PedicureComponent,
     },
     {
       path:'services/eyebrow',
+      canActivate:[AuthGuard],
       component:EyebrowComponent
     },
     {
       path:'services/haircut',
+      canActivate:[AuthGuard],
       component:HaircutComponent
     },
     {
       path:'services/hairstyle',
+      canActivate:[AuthGuard],
       component:HairstyleComponent
     },
     {
       path:'services/makeup',
+      canActivate:[AuthGuard],
       component:MakeupComponent
     },
     {
       path:'services/waxing',
+      canActivate:[AuthGuard],
       component:WaxingComponent
     },
     {
       path:'services/skincleaning',
+      canActivate:[AuthGuard],
       component:SkincleaningComponent
     },
     {
@@ -175,7 +194,11 @@ const routes: Routes = [
     path:"change-password",
     component:ChangePasswordComponent
   },
-
+  {
+  path:"profile",
+  canActivate:[AuthGuard],
+  component:ProfileComponent
+  },
   {
     path:"**",
     component:HomeComponent

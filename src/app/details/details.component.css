@@ -2,9 +2,9 @@ img{
   width: 350px;
   height: 350px;
   border-radius: 10px;
+  margin-top: 50px;
 }
 .book {
-  margin-top: 30px;
   text-align: center;
 }
 .bookingButton{
@@ -20,20 +20,24 @@ img{
   background-color: green;
 
 }
+.container{
+  margin: 0%;
+}
+.services__content__descripion{
+  margin: 0%;
+}
 .inner{
-  margin: 55px;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-gap: 10px;
+  margin:0px 40px;
+  display: flex;
 }
 .innnerContent{
-  padding: 15px;
+  padding: 10px;
 }
 .innnerContent button{
   margin: 12px;
-  width: 160px;
+  width: 140px;
   padding: 12px;
-  font-size: 18px;
+  font-size: 16px;
 
 }
 .innnerContent p{
@@ -48,4 +52,66 @@ span{
 }
 button{
   cursor: pointer;
+}
+.book button:disabled{
+  background-color:rgb(234, 209, 163) ;
+  color: black;
+  cursor: not-allowed;
+}
+.book button:disabled:hover{
+  background-color:rgb(234, 209, 163) ;
+  color: black;
+  cursor: not-allowed;
+}
+.details{
+  padding: 10px;
+}
+.form-group{
+  padding: 10px;
+}
+input[type=text]{
+  margin: 5px;
+  width: 200px;
+  height: 25px;
+}
+.services__content{
+  display: grid;
+  grid-template-columns:60% 40%;
+
+}
+.service-type__content{
+  font-size: 20px;
+  margin: 0%;
+}
+.timeSlot button{
+  width: 120px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 16px;
+}
+
+.clear-button{
+  width: 120px;
+  padding: 10px;
+  margin:20px;
+  font-size: 18px;
+  background-color: rgb(244, 96, 96);
+}
+
+@media (max-width :600px) {
+  .services__content{
+    display: grid;
+    grid-template-columns:100%;
+
+  }
+}
+@media (max-width :900px) {
+  .services__content{
+    display: grid;
+    grid-template-columns:100%;
+
+  }
+  .service-type__content{
+    margin: 40px;
+  }
 }

@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BserviceService {
-
+  private apiUrl = 'http://localhost:3000';
 constructor(private client:HttpClient) { }
 
 mservice(){
@@ -50,4 +51,17 @@ stylist(){
 userService(){
   return this.client.get("http://localhost:3000/usersprofile");
 }
+updateService(id:string,value:any){
+ return this.client.put("http://localhost:3000/services/"+id,value).subscribe();
+ }
+ 
+
+updateServiceData(serviceType: string, id: number, updatedData: any): Observable<any> {
+  return this.client.put(`http://localhost:3000/services/${serviceType}/${id}`, updatedData);
+}
+
+timeSlot(){
+  return this.client.get("http://localhost:3000/timeSlots")
+}
+
 }

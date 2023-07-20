@@ -46,16 +46,16 @@
       "link": "makeup"
     },
     {
-      "id": 4,
       "Name": "hairstyle",
       "image": "/assets/img/services/hairstyle.png",
-      "link": "hairstyle"
+      "link": "hairstyle",
+      "id": 4
     },
     {
-      "id": 5,
       "Name": "hair cut",
       "image": "/assets/img/services/haircut.png",
-      "link": "haircut"
+      "link": "haircut",
+      "id": 5
     },
     {
       "id": 6,
@@ -70,10 +70,10 @@
       "link": "waxing"
     },
     {
-      "id": 8,
       "Name": "skin cleaning",
       "image": "/assets/img/services/skincleaning.png",
-      "link": "skincleaning"
+      "link": "skincleaning",
+      "id": 8
     }
   ],
   "eyebrow": [
@@ -84,8 +84,8 @@
       "type": "standard",
       "price": 199,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 2,
@@ -94,8 +94,8 @@
       "type": "all",
       "price": 299,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 3,
@@ -104,8 +104,8 @@
       "type": "all",
       "price": 399,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 4,
@@ -114,8 +114,8 @@
       "type": "premium",
       "price": 699,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 5,
@@ -124,8 +124,8 @@
       "type": "standard",
       "price": 399,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 6,
@@ -134,8 +134,8 @@
       "type": "all",
       "price": 499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 7,
@@ -144,8 +144,8 @@
       "type": "standard",
       "price": 599,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 8,
@@ -154,8 +154,8 @@
       "type": "premium",
       "price": 499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     }
   ],
   "manicure": [
@@ -165,8 +165,8 @@
       "image": "/assets/services/manicure1.jpg",
       "price": 399,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 2,
@@ -174,8 +174,8 @@
       "image": "/assets/services/manicure2.jpg",
       "price": 599,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 3,
@@ -183,8 +183,8 @@
       "image": "/assets/services/manicure3.jpg",
       "price": 899,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 4,
@@ -192,8 +192,8 @@
       "image": "/assets/services/manicure4.jpg",
       "price": 1899,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 5,
@@ -201,8 +201,8 @@
       "image": "/assets/services/manicure5.jpg",
       "price": 399,
       "basic": "free",
-      "standard":150,
-      "premium":250
+      "standard": 150,
+      "premium": 250
     },
     {
       "id": 6,
@@ -210,8 +210,8 @@
       "image": "/assets/services/manicure6.jpg",
       "price": 499,
       "basic": "free",
-      "standard":250,
-      "premium":300
+      "standard": 250,
+      "premium": 300
     },
     {
       "id": 7,
@@ -219,8 +219,8 @@
       "image": "/assets/services/manicure7.jpg",
       "price": 599,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 8,
@@ -228,8 +228,8 @@
       "image": "/assets/services/manicure8.jpg",
       "price": 499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     }
   ],
   "haircut": [
@@ -239,8 +239,8 @@
       "image": "/assets/services/haircut1.jpg",
       "price": 1199,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 2,
@@ -248,8 +248,8 @@
       "image": "/assets/services/haircut2.jpg",
       "price": 2299,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 3,
@@ -257,8 +257,8 @@
       "image": "/assets/services/haircut3.jpg",
       "price": 1299,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 4,
@@ -266,8 +266,8 @@
       "image": "/assets/services/haircut4.jpg",
       "price": 1699,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 5,
@@ -275,8 +275,8 @@
       "image": "/assets/services/haircut5.jpg",
       "price": 2399,
       "basic": "free",
-      "standard":250,
-      "premium":850
+      "standard": 250,
+      "premium": 850
     },
     {
       "id": 6,
@@ -284,8 +284,8 @@
       "image": "/assets/services/haircut6.jpg",
       "price": 1499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 7,
@@ -293,8 +293,8 @@
       "image": "/assets/services/haircut7.jpg",
       "price": 2999,
       "basic": "free",
-      "standard":250,
-      "premium":850
+      "standard": 250,
+      "premium": 850
     },
     {
       "id": 8,
@@ -302,8 +302,8 @@
       "image": "/assets/services/haircut8.jpg",
       "price": 2499,
       "basic": "free",
-      "standard":250,
-      "premium":850
+      "standard": 250,
+      "premium": 850
     },
     {
       "id": 9,
@@ -311,8 +311,8 @@
       "image": "/assets/services/haircut9.jpg",
       "price": 2499,
       "basic": "free",
-      "standard":250,
-      "premium":850
+      "standard": 250,
+      "premium": 850
     },
     {
       "id": 10,
@@ -320,8 +320,8 @@
       "image": "/assets/services/haircut10.jpg",
       "price": 1499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 11,
@@ -329,8 +329,8 @@
       "image": "/assets/services/haircut11.jpg",
       "price": 1499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 12,
@@ -338,8 +338,8 @@
       "image": "/assets/services/haircut12.jpg",
       "price": 3499,
       "basic": "free",
-      "standard":250,
-      "premium":950
+      "standard": 250,
+      "premium": 950
     }
   ],
   "hairstyle": [
@@ -349,8 +349,8 @@
       "image": "/assets/services/hairstyle1.jpg",
       "price": 7599,
       "basic": "free",
-      "standard":250,
-      "premium":1350
+      "standard": 250,
+      "premium": 1350
     },
     {
       "id": 2,
@@ -358,8 +358,8 @@
       "image": "/assets/services/hairstyle2.jpg",
       "price": 2299,
       "basic": "free",
-      "standard":250,
-      "premium":6350
+      "standard": 250,
+      "premium": 6350
     },
     {
       "id": 3,
@@ -367,8 +367,8 @@
       "image": "/assets/services/hairstyle3.jpg",
       "price": 2299,
       "basic": "free",
-      "standard":250,
-      "premium":650
+      "standard": 250,
+      "premium": 650
     },
     {
       "id": 4,
@@ -376,8 +376,8 @@
       "image": "/assets/services/hairstyle4.jpg",
       "price": 3699,
       "basic": "free",
-      "standard":250,
-      "premium":850
+      "standard": 250,
+      "premium": 850
     },
     {
       "id": 5,
@@ -385,8 +385,8 @@
       "image": "/assets/services/hairstyle5.jpg",
       "price": 3399,
       "basic": "free",
-      "standard":250,
-      "premium":1350
+      "standard": 250,
+      "premium": 1350
     },
     {
       "id": 6,
@@ -394,8 +394,8 @@
       "image": "/assets/services/hairstyle6.jpg",
       "price": 1899,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 7,
@@ -403,8 +403,8 @@
       "image": "/assets/services/hairstyle7.jpg",
       "price": 599,
       "basic": "free",
-      "standard":200,
-      "premium":300
+      "standard": 200,
+      "premium": 300
     },
     {
       "id": 8,
@@ -412,8 +412,8 @@
       "image": "/assets/services/hairstyle8.jpeg",
       "price": 5499,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     }
   ],
   "makeup": [
@@ -423,8 +423,8 @@
       "image": "/assets/services/makeup1.jpg",
       "price": 18999,
       "basic": "free",
-      "standard":1250,
-      "premium":3350
+      "standard": 1250,
+      "premium": 3350
     },
     {
       "id": 2,
@@ -432,8 +432,8 @@
       "image": "/assets/services/makeup2.jpg",
       "price": 499,
       "basic": "free",
-      "standard":150,
-      "premium":300
+      "standard": 150,
+      "premium": 300
     },
     {
       "id": 3,
@@ -441,8 +441,8 @@
       "image": "/assets/services/makeup3.jpg",
       "price": 25299,
       "basic": "free",
-      "standard":3250,
-      "premium":5350
+      "standard": 3250,
+      "premium": 5350
     },
     {
       "id": 4,
@@ -450,8 +450,8 @@
       "image": "/assets/services/makeup4.jpg",
       "price": 28999,
       "basic": "free",
-      "standard":2250,
-      "premium":4350
+      "standard": 2250,
+      "premium": 4350
     },
     {
       "id": 5,
@@ -459,8 +459,8 @@
       "image": "/assets/services/makeup5.jpg",
       "price": 21199,
       "basic": "free",
-      "standard":2250,
-      "premium":4350
+      "standard": 2250,
+      "premium": 4350
     },
     {
       "id": 6,
@@ -468,8 +468,8 @@
       "image": "/assets/services/makeup6.jpg",
       "price": 10599,
       "basic": "free",
-      "standard":2250,
-      "premium":3500
+      "standard": 2250,
+      "premium": 3500
     },
     {
       "id": 7,
@@ -477,8 +477,8 @@
       "image": "/assets/services/makeup7.jpg",
       "price": 8599,
       "basic": "free",
-      "standard":1250,
-      "premium":1950
+      "standard": 1250,
+      "premium": 1950
     },
     {
       "id": 8,
@@ -486,8 +486,8 @@
       "image": "/assets/services/makeup8.jpg",
       "price": 5499,
       "basic": "free",
-      "standard":1050,
-      "premium":1550
+      "standard": 1050,
+      "premium": 1550
     }
   ],
   "pedicure": [
@@ -497,8 +497,8 @@
       "image": "/assets/services/pedicure1.jpg",
       "price": 2999,
       "basic": "free",
-      "standard":350,
-      "premium":550
+      "standard": 350,
+      "premium": 550
     },
     {
       "id": 2,
@@ -506,8 +506,8 @@
       "image": "/assets/services/pedicure2.jpg",
       "price": 599,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 3,
@@ -515,8 +515,8 @@
       "image": "/assets/services/pedicure3.jpg",
       "price": 899,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 4,
@@ -524,8 +524,8 @@
       "image": "/assets/services/pedicure4.jpg",
       "price": 1699,
       "basic": "free",
-      "standard":350,
-      "premium":450
+      "standard": 350,
+      "premium": 450
     },
     {
       "id": 5,
@@ -533,8 +533,8 @@
       "image": "/assets/services/pedicure5.jpg",
       "price": 2399,
       "basic": "free",
-      "standard":350,
-      "premium":450
+      "standard": 350,
+      "premium": 450
     },
     {
       "id": 6,
@@ -542,8 +542,8 @@
       "image": "/assets/services/pedicure6.jpg",
       "price": 1899,
       "basic": "free",
-      "standard":350,
-      "premium":450
+      "standard": 350,
+      "premium": 450
     },
     {
       "id": 7,
@@ -551,8 +551,8 @@
       "image": "/assets/services/pedicure7.jpg",
       "price": 599,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 8,
@@ -560,8 +560,8 @@
       "image": "/assets/services/pedicure8.jpg",
       "price": 2499,
       "basic": "free",
-      "standard":300,
-      "premium":450
+      "standard": 300,
+      "premium": 450
     }
   ],
   "skincleaning": [
@@ -571,8 +571,8 @@
       "image": "/assets/services/skincleaning1.jpeg",
       "price": 1199,
       "basic": "free",
-      "standard":300,
-      "premium":350
+      "standard": 300,
+      "premium": 350
     },
     {
       "id": 2,
@@ -580,8 +580,8 @@
       "image": "/assets/services/skincleaning2.jpeg",
       "price": 1299,
       "basic": "free",
-      "standard":300,
-      "premium":350
+      "standard": 300,
+      "premium": 350
     },
     {
       "id": 3,
@@ -589,8 +589,8 @@
       "image": "/assets/services/skincleaning3.jpg",
       "price": 2199,
       "basic": "free",
-      "standard":300,
-      "premium":350
+      "standard": 300,
+      "premium": 350
     },
     {
       "id": 4,
@@ -598,8 +598,8 @@
       "image": "/assets/services/skincleaning4.jpg",
       "price": 2899,
       "basic": "free",
-      "standard":250,
-      "premium":450
+      "standard": 250,
+      "premium": 450
     }
   ],
   "waxing": [
@@ -609,8 +609,8 @@
       "image": "/assets/services/waxing1.jpg",
       "price": 1299,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     },
     {
       "id": 2,
@@ -618,8 +618,8 @@
       "image": "/assets/services/waxing2.jpg",
       "price": 1199,
       "basic": "free",
-      "standard":250,
-      "premium":350
+      "standard": 250,
+      "premium": 350
     }
   ],
   "stylist": [
@@ -703,24 +703,44 @@
       "id": 1,
       "name": "Catrina are",
       "image": "/assets/img/Testimonials/test1.png",
+      "star": "fa-solid fa-star",
+      "star1": "fa-solid fa-star",
+      "star2": "fa-solid fa-star",
+      "star3": "fa-solid fa-star",
+      "star4": "fa-regular fa-star",
       "description": "It was relaxing experience for us when we visited this place.Staff is good and well trained. Overall good"
     },
     {
       "id": 2,
       "name": "Samantha",
       "image": "/assets/img/Testimonials/test2.png",
+      "star": "fa-solid fa-star",
+      "star1": "fa-solid fa-star",
+      "star2": "fa-solid fa-star",
+      "star3": "fa-regular fa-star",
+      "star4": "fa-regular fa-star",
       "description": "Place is good for those who love natural spa. The rates are not expensive.Ambience was full of energetic."
     },
     {
       "id": 3,
       "name": "Rosy",
       "image": "/assets/img/Testimonials/test3.jpeg",
+      "star": "fa-solid fa-star",
+      "star1": "fa-solid fa-star",
+      "star2": "fa-solid fa-star",
+      "star3": "fa-solid fa-star",
+      "star4": "fa-regular fa-star",
       "description": "Nice and good experience also I would recommend for everyone Who is looking for something new with hair"
     },
     {
       "id": 4,
       "name": "Nandha",
       "image": "/assets/img/Testimonials/test4.jfif",
+      "star": "fa-solid fa-star",
+      "star1": "fa-solid fa-star",
+      "star2": "fa-solid fa-star",
+      "star3": "fa-solid fa-star",
+      "star4": "fa-solid fa-star",
       "description": "Good unisex salon providing decent services, while maintaining good levels of hygiene.The environment here was quiet relaxing."
     }
   ],
@@ -742,21 +762,68 @@
       "videoclip": "/assets/gallery/v4.mp4"
     },
     {
-      "id": 1,
-      "videoclip": "/assets/gallery/v1.mp4"
+      "id": 5,
+      "videoclip": "/assets/gallery/v5.mp4"
     },
     {
-      "id": 2,
-      "videoclip": "/assets/gallery/v2.mp4"
+      "id": 6,
+      "videoclip": "/assets/gallery/v6.mp4"
     },
     {
-      "id": 3,
-      "videoclip": "/assets/gallery/v3.mp4"
+      "id": 7,
+      "videoclip": "/assets/gallery/v7.mp4"
     },
     {
-      "id": 4,
-      "videoclip": "/assets/gallery/v4.mp4"
+      "id": 8,
+      "videoclip": "/assets/gallery/v8.mp4"
     }
   ],
-  "payment": []
+  "payment": [],
+  "timeSlots": [
+    {
+      "CustomerName": "Nandhagopal vignesh A",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 849,
+      "time": "10:00 AM",
+      "id": 1
+    },
+    {
+      "CustomerName": "A.Nandhagopal vignesh",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 849,
+      "time": "10:00 AM",
+      "id": 2
+    },
+    {
+      "CustomerName": "Nandhagopal vignesh A",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 849,
+      "time": "11:00 AM",
+      "id": 3
+    },
+    {
+      "CustomerName": "A.Nandhagopal vignesh",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 849,
+      "stylist": 849,
+      "time": "9:00 AM",
+      "id": 4
+    },
+    {
+      "CustomerName": "END",
+      "serviceType": "Acralic Nails",
+      "servicePrice": "standard",
+      "stylist": "standard",
+      "time": "11:00 AM",
+      "id": 5
+    },
+    {
+      "CustomerName": "Nandhagopal vignesh A",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 849,
+      "stylist": "standard",
+      "time": "12:00 PM",
+      "id": 6
+    }
+  ]
 }

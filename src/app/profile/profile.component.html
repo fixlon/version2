@@ -1,0 +1,22 @@
+<body>
+  <div class="section">
+    <div class="profile-container">
+      <div class="profile-picture" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+        <img *ngIf="profileImage" [src]="profileImage" alt="Profile Picture">
+        <div *ngIf="!profileImage" class="drag-text">
+          <span style="margin: 28px 10px; font-size: 12px;"> Drag and drop or</span>
+          <label for="profileUpload" class="upload-label">Click to browse</label>
+        </div>
+      </div>
+      <input type="file" id="profileUpload" (change)="onFileChange($event)" accept="image/*" >
+      <div class="profile-info">
+        <h1 id="Name">{{userName}}</h1>
+        <p id="email"><b>Email:</b> {{ email }}</p>
+        <p id="phone"><b>Phone:</b> {{phone}}</p>
+        <!-- Other profile information goes here -->
+      </div>
+      <button>Edit</button>
+    </div>
+
+  </div>
+</body>

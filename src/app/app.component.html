@@ -1,83 +1,8 @@
-<html>
+
   <body>
-
-    <header class="l-header" id="header">
-      <div class="navbar">
-          <div class="brand">
-              <a routerLink=""  style="color:#6F4E37;"><h1><img src="../assets/logo.png" style="width: 55px; height: 55px;">FIXLON </h1></a>
-                <p *ngIf="!loginButton"><i class="fa-solid fa-user" ></i>{{userName}}</p>
-          </div>
-
-          <nav >
-          <div class="nav" id="nav">
-              <ul class="nav__menu">
-
-                <li class="nav__item"><a routerLink="home" routerLinkActive="active"  class="nav__link">Home</a></li>
-                  <li class="nav__item"><a routerLink="about" routerLinkActive="active" class="nav__link">About</a></li>
-                  <li class="nav__item"><a routerLink="services" routerLinkActive="active" class="nav__link">Services</a></li>
-                  <li class="nav__item"><a routerLink="packages" routerLinkActive="active" class="nav__link">Packages</a></li>
-                  <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" class="nav__link">Gallery</a></li>
-                  <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
-                  <a routerLink="login" *ngIf="loginButton"><button class="logout" >Login</button></a>
-                  <a (click)="logoutuser()" *ngIf="logoutButton"><button class="logout" >Logout</button></a>
-                </ul>
-          </div>
-        </nav>
-          <div class="nav__toggle" id="toggle" >
-              <i class='bx bx-menu' (click)="toggleHeader()"></i>
-            </div>
-            <!-- <div *ngIf="showHeader">
-              <div class="nav1" id="nav1">
-                <ul class="nav__menu">
-                  <li class="nav__item"><a routerLink="home" routerLinkActive="active" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a routerLink="about" routerLinkActive="active" class="nav__link">About</a></li>
-                    <li class="nav__item"><a routerLink="services" routerLinkActive="active" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a routerLink="packages" routerLinkActive="active" class="nav__link">Packages</a></li>
-                    <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" class="nav__link">Gallery</a></li>
-                    <a routerLink="login" *ngIf="loginButton"><button class="logout" >Login</button></a>
-                    <a (click)="logoutuser()" *ngIf="logoutButton"><button class="logout" >Logout</button></a>
-                  </ul>
-            </div>
-            </div> -->
-
-
-      </div>
-  </header>
-
-<router-outlet></router-outlet>
-
-<footer class="footer" id="contact">
-  <div class="footer__list section container">
-      <div class="footer__data">
-          <h1 title="FIXLON"><a href="#" style="color:#6F4E37;">FIXLON</a></h1>
-          <div class="footer__data-social">
-              <a href="https://www.facebook.com/profile.php?id=100089905761823" target="_blank" title="Facebook"><i class='bx bxl-facebook social__icon'></i></a>
-              <a href="https://instagram.com/fixlon_style?igshid=ZDdkNTZiNTM=" target="_blank" title="Instagram"><i class='bx bxl-instagram social__icon' ></i></a>
-              <a href="https://wa.me/8525876050" target="_blank"><i class='bx bxl-whatsapp social__icon' title="Whatsapp"></i></a>
-              <a href="mailto:fixlon2001@gmail.com" target="_blank"><i class='bx bx-envelope social__icon' title="Gmail"></i></a>
-          </div>
-      </div>
-      <div class="footer__data">
-         <h2> Our Address</h2>
-         <p><a href="https://goo.gl/maps/2SYJPKpSrTAJbaJ4A" target="_blank"><i class="fa-solid fa-location-dot"></i>Bridal Street, 123<br>Salem-10</a></p>
-      </div>
-      <div class="footer__data">
-          <h2>Our Schedule</h2>
-          <p>Monday to Friday<br><br> from 09:00am to 08:00pm</p>
-      </div>
-      <div class="footer__data">
-          <h2>Contact</h2>
-          <p>+91 9876543210</p><br>
-          <p>+91 8765432109</p>
-      </div>
-  </div>
-<div class="copy">
-      <p>&copy All rights reserved</p>
-      <!-- <span>Made with 🤎 by Nandha</span> -->
-  </div>
-</footer>
-
-
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </body>
 
 

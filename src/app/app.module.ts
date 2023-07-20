@@ -33,6 +33,11 @@ import { FilterComponent } from './filter/filter.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { DetailsComponent } from './details/details.component';
 import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
+import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
+import { TermsComponent } from './terms/terms.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,12 @@ import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
       SearchComponent,
       FilterComponent,
       BookingPageComponent,
-      DetailsComponent
+      DetailsComponent,
+      BookinghistoryComponent,
+      TermsComponent,
+      ProfileComponent,
+      HeaderComponent,
+      FooterComponent
    ],
   imports: [
     BrowserModule,

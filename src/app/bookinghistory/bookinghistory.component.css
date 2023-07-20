@@ -1,0 +1,31 @@
+/* Set a fixed height for the table container */
+.tableContainer {
+  max-height: 800px;
+  margin: 150px 50px;
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+/* Optional: Add some styling to the table for better readability */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #75492b;
+  color: antiquewhite;
+}
+
+tr.even-row {
+  background-color: #f2f2f2; /* Set your custom even row color here */
+}
+
+tr.odd-row {
+  background-color: #ffffff; /* Set your custom odd row color here */
+}

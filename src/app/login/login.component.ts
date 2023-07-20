@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router, RouteReuseStrategy } from '@angular/router';
 import { UserService } from '../user.service';
@@ -9,7 +9,7 @@ import { LoginService } from '../login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit{
   show = false;
@@ -23,6 +23,7 @@ adminName:any;
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
   returl:any;
+  phone: any;
   constructor(private fB:FormBuilder,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
 this.returl=data.get("retUrl")
@@ -55,6 +56,7 @@ this.returl=data.get("retUrl")
         const admin = data.find((a: any) => {
           this.adminEmail=a.email;
                 this.adminName=a.username;
+
           return a.email === this.loginform1.value.email && a.password === this.loginform1.value.password;
         });
 
@@ -73,12 +75,14 @@ this.returl=data.get("retUrl")
               const user = data.find((a: any) => {
                 this.userEmail=a.email;
                 this.userName=a.username;
+                this.phone=a.phone;
                 return a.email === this.loginform1.value.email && a.password === this.loginform1.value.password;
               });
 
               if (user) {
                 sessionStorage.setItem('email',this.userEmail);
-                sessionStorage.setItem('userName',this.userName)
+                sessionStorage.setItem('userName',this.userName);
+                sessionStorage.setItem('phone',this.phone);
                 alert("Welcome Back "+this.userName);
                 this.loginservice.userloggedin(user.email, user.password);
                 this.router.navigate([this.returl || '/']).then(()=>{

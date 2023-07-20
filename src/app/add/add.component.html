@@ -1,81 +1,64 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+
   <body>
     <div class="add">
     <h1 style="align-items: center;">Manage Services</h1>
     <div class="manage">
     <div class="container">
         <h1>GET IN TOUCH WITH US</h1>
-
-            <form   #serviceForm="ngForm" [formGroup]="products" (ngSubmit)="onServiceCreate(serviceForm.value)" >
-            <div class="row">
-                <div class="column">
-                    <label for="service">Service Name</label>
-                    <input type="text" id="service" name="Name" placeholder="your service here" formControlName="Name" ngModel="">
-                    <div *ngIf="products.controls['Name'].invalid&&products.controls['Name'].touched" style="color: red;font-size: 17px;">
-                      <small *ngIf="products.controls['Name'].errors?.['required']" >please enter serviceName </small>
-                      <small *ngIf="products.controls['Name'].errors?.['minlength']" >please enter Valid serviceName </small>
-                     </div>
-                </div>
-
-
-                <div class="column">
-                    <label for="image">Image</label>
-                    <!-- <input type="file" id="img" name="image" accept="image/*"> -->
-                    <!-- <input type="file" accept="image/*"  id="image" name="image"  placeholder="Enter your image"  formControlName="image"> -->
-                    <input type="text" id="image" name="image"  placeholder="Enter your image"  formControlName="image">
-                    <div *ngIf="products.controls['image'].invalid&&products.controls['image'].touched" style="color: red;font-size: 17px;">
-                      <small *ngIf="products.controls['image'].errors?.['required']" >please enter image address </small>
-                      <small *ngIf="products.controls['image'].errors?.['minlength']" >please enter Valid image address</small>
-                     </div>
-                </div>
-
-                <div class="column">
-                  <label for="link">Link</label>
-                  <!-- <input type="file" id="img" name="image" accept="image/*"> -->
-                  <input type="text" id="link" name="link"  placeholder="Enter your image"  formControlName="link">
-                  <div *ngIf="products.controls['link'].invalid&&products.controls['link'].touched" style="color: red;font-size: 17px;">
-                    <small *ngIf="products.controls['link'].errors?.['required']" >please enter link address </small>
-                    <small *ngIf="products.controls['link'].errors?.['minlength']" >please enter Valid link address</small>
-                   </div>
-              </div>
-                <!-- <div class="column">
-                  <label for="link">link</label>
-                  <input type="text" id="link" name="link"  placeholder="Enter your link" formControlNamelink="link">
-                  <div *ngIf="products.controls['link'].invalid&&products.controls['link'].touched" style="color: red;font-size: 17px;">
-                    <small *ngIf="products.controls['link'].errors?.['required']" >please enter linkName </small>
-                    <small *ngIf="products.controls['link'].errors?.['minlength']" >please enter Valid linkName </small>
-                   </div>
-              </div> -->
-
+        <form #serviceForm="ngForm" (ngSubmit)="onServiceCreate(serviceForm.value)">
+          <div class="row">
+            <div class="column">
+              <label for="service">Service Name</label>
+              <input type="text" id="service" name="Name" placeholder="Your service here" ngModel required #name="ngModel">
+              <div *ngIf="name.invalid && name.touched" class="error-message">Service Name is required.</div>
             </div>
-            <div class="button1">
-                <button style="margin-right: 2px;" [disabled]="!products.valid">Add</button>
-                <a routerLink="/services" style="margin-left: 2px;"><button >Back</button></a>
+
+            <div class="column">
+              <label for="image">Image</label>
+              <input type="text" id="image" name="image" placeholder="Enter your image" ngModel required #image="ngModel">
+              <div *ngIf="image.invalid && image.touched" class="error-message">Image is required.</div>
             </div>
+
+            <div class="column">
+              <label for="link">Link</label>
+              <input type="text" id="link" name="link" placeholder="Enter your link" ngModel required #link="ngModel">
+              <div *ngIf="link.invalid && link.touched" class="error-message">Link is required.</div>
+            </div>
+          </div>
+
+          <div class="button1">
+            <button style="margin-right: 2px;" *ngIf="!editMode" [disabled]="serviceForm.invalid">Add</button>
+            <button *ngIf="editMode" [disabled]="serviceForm.invalid">Update</button>
+            <a routerLink="/services" style="margin-left: 2px;"><button>Back</button></a>
+          </div>
         </form>
+
 
     </div>
     <div class="productDisplay">
       <table id="products">
-        <tr >
-          <th >#</th>
-          <th>sName</th>
+        <thead >
+          <th>#</th>
+          <th>ServiceName</th>
           <th>image</th>
           <th>clear</th>
-        </tr>
-        <tr *ngFor="let prod of mservicelist;index as i" class="tr">
-          <td style="width: 20%;">{{i+1}}</td>
+          <th>Edit</th>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let prod of mservicelist;index as i" class="tr" >
+          <td style="width: 10%;">{{i+1}}</td>
           <td >{{prod.Name}}</td>
           <td><img src="{{prod.image}}" alt=""></td>
-          <td style="width: 25%;"><button class="btn-delete" (click)="onDeleteService(prod.id)" >Delete</button></td>
+          <td ><i (click)="onDeleteService(prod.id)" class="fa-solid fa-trash"></i></td>
+          <td ><i (click)="onEditService(prod.id)" class="fa-solid fa-pen-to-square"></i> </td>
         </tr>
+      </tbody>
       </table>
       <hr>
-      <!-- <div class="button2">
-        <button>fetch</button>
-        <button class="btn-clear">clear</button>
-      </div> -->
     </div>
   </div>
 </div>
+
   </body>

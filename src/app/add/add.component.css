@@ -98,7 +98,6 @@ input:focus{
   display: grid;
   grid-template-columns: repeat(2,1fr);
   justify-content: space-evenly;
-  margin-top: 15px;
   align-items: center;
   padding: 5px 120px;
   grid-gap: 5rem;
@@ -117,48 +116,45 @@ th{
   top: 0px;
   font-size: 20px;
   color: white;
+
 }
 .tr:hover {
   background-color: #a87b5f8d;
 }
-.productDisplay table{
+.productDisplay {
   margin-top: 2px;
+  overflow:scroll;
+  height:70vh;
 }
 table{
   border-radius: 10px 5px 0px 0px;
   border : 3px solid #75492b;
   border-collapse: collapse;
-  overflow-y:scroll;
-  height:68vh;
-  display:block;
+  width: 100%;
   background-color: #f7e6df;
+  border-bottom: none;
 
 }
-.btn-delete{
-color: white;
-width: 130px;
-background-color: red;
-border-radius: 5px;
+
+.fa-trash{
+/* color: white; */
+color: red;
 padding: 10px 10px;
 font-weight: bold;
-font-size: 16px;
+font-size: 18px;
 cursor: pointer;
 }
-.button2{
-  display: flex;
-  justify-content: space-evenly;
-}
-.button2 button{
-  color: white;
-  width: 140px;
-  background-color: orange;
-  border-radius: 5px;
+
+.fa-pen-to-square{
+  /* color: black; */
+  color: orange;
   padding: 10px 20px;
   font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
   cursor: pointer;
   }
+
 img{
   width: 30px;
   height: 30px;

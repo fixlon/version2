@@ -1,0 +1,27 @@
+<body>
+<div class="tableContainer">
+    <table>
+     <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>ServiceName</th>
+        <th>Stylist</th>
+        <th>TimeSlot</th>
+        <th>TotalAmount</th>
+     </thead>
+    <ng-container *ngFor="let history of bookingHistoryList;index as i ">
+      <tbody >
+        <tr class="{{ i % 2 === 0 ? 'even-row' : 'odd-row' }}">
+          <td>{{i+1}}</td>
+          <td>{{history.CustomerName}}</td>
+          <td>{{history.serviceType}}</td>
+          <td>{{history.stylist}}</td>
+          <td>{{history.time}}</td>
+          <td>{{history.servicePrice}}</td>
+        </tr>
+      </tbody>
+    </ng-container>
+    </table>
+
+</div>
+</body>
