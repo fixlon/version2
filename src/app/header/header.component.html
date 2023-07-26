@@ -17,14 +17,14 @@
                 <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
                 <li><a routerLink="login" *ngIf="loginButton"><button class="btn" >Login</button></a></li>
 
-                <li><div class="dropdown" *ngIf="!loginButton">
-                  <span><i class="fa-solid fa-user" ></i><b> {{userName}}</b></span>
+                <div class="dropdown" *ngIf="!loginButton">
+                  <span style="cursor: pointer;"><i class="fa-solid fa-user" ></i><b> {{userName}}</b></span>
                   <div class="dropdown-content">
                   <li><a (click)="logoutuser()">Logout</a></li>
                   <li><a routerLink="profile"></a></li>
                   <li><a routerLink="bookingHistory">{{adminButton?'Transaction History':'Booking History'}}</a></li>
                   </div>
-                </div></li>
+                </div>
               </ul>
 
         </div>

@@ -19,7 +19,8 @@ sservice(){
   return this.client.get("http://localhost:3000/gallery")
 }
 galleryvideo(){
-return this.client.get("http://localhost:3000/video")
+return this.client.get("http://localhost:3000/video");
+
 }
 review(){
   return this.client.get("http://localhost:3000/review")
@@ -54,14 +55,14 @@ userService(){
 updateService(id:string,value:any){
  return this.client.put("http://localhost:3000/services/"+id,value).subscribe();
  }
- 
+
 
 updateServiceData(serviceType: string, id: number, updatedData: any): Observable<any> {
-  return this.client.put(`http://localhost:3000/services/${serviceType}/${id}`, updatedData);
+  return this.client.put("http://localhost:3000/services/"+serviceType, updatedData);
 }
 
-timeSlot(){
-  return this.client.get("http://localhost:3000/timeSlots")
+payment(){
+  return this.client.get("http://localhost:3000/payment")
 }
 
 }

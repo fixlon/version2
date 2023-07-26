@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router, RouteReuseStrategy } from '@angular/router';
-import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
 

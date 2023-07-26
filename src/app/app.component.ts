@@ -1,4 +1,5 @@
-import { Component, OnInit , HostListener, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 
 
 @Component({
@@ -6,9 +7,20 @@ import { Component, OnInit , HostListener, Renderer2 } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit{
+displayLoading:boolean=false;
+  constructor(private router:Router) {}
 
-  constructor() {}
+  ngOnInit(): void {
+  //   this.router.events.subscribe((routerEvent:Event)=>{
+  //     if(routerEvent instanceof NavigationStart){
+  //       this.displayLoading=true;
+  //     }
+  //     if(routerEvent instanceof NavigationEnd||NavigationCancel||NavigationError){
+  //       this.displayLoading=false
+  //     }
 
+  //   })
+  }
 }
 

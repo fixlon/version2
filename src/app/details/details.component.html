@@ -1,8 +1,8 @@
-<section class="services section" id="services">
+<section class="services section" id="services" *ngIf="proceed">
     <div class="row">
       <div class="section__title">
         <h1>Services</h1>
-        <span style="color: black;font-weight:400;">That we perform</span>
+        <span style="color: black;font-weight:400;">Booking Information</span>
       </div>
     </div>
 
@@ -13,15 +13,15 @@
           <div class="box">
             <div class="inner">
               <div class="innerimg">
-                <img src="{{ allservice.image }}" alt="{{ allservice.Name }}" title="{{ allservice.Name }}">
+                <img src="{{ allservice.image }}" alt="{{ allservice?.Name }}" title="{{ allservice?.Name }}">
               </div>
               <div class="innnerContent">
-                <h1 *ngIf="!editMode">{{ allservice.Name }}</h1>
+                <h1 *ngIf="!editMode">{{ allservice?.Name }}</h1>
                 <div *ngIf="editMode">
                   <input  style="font-size: 20px;height: 35px;" type="text" [(ngModel)]="allservice.Name">
                 </div>
                   <!-- <p>{{ allservice.type }}</p> -->
-                  <h2 id="servicePrice"><i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{ allservice.price }}</i></h2>
+                  <h2 id="servicePrice"><i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{ allservice?.price }} </i></h2>
                   <button id="stylist" (click)="selectService('basic')" [disabled]="serviceType === 'standard' || serviceType === 'premium' ||adminButton">Basic Stylist</button>
                   Service Charge <span *ngIf="!editMode" id="basic">{{ allservice.basic }}</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="allservice.basic"></span><br>
@@ -60,11 +60,11 @@
                   </div>
 
                   <div class="form-group">
-                    <p > Service Type: <b id="serviceType">{{ allservice.Name }}</b></p>
+                    <p > Service Type: <b id="serviceType">{{ allservice?.Name }}</b></p>
                   </div>
 
-                  <div class="timeSlot" >
-                      <button class="time" *ngFor="let slot of timeSlots" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ slot }}</button>
+                  <div class="timeSlot">
+                      <button class="time"  *ngFor="let slot of timeSlots" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)"  >{{ slot }}</button>
                   </div>
 
                 <button class="clear-button" (click)="clearTimeSlot()">Clear</button>
@@ -75,15 +75,48 @@
     </div>
   <!-- booking end  -->
 
-
   <div class="book">
     <div class="form-group">
       <h3>Total Price:</h3>
       <h2 id="servicePrice"><i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{ calculateTotalCost() }}</i></h2>
     </div>
-    <!-- <a routerLink="booking"> -->
-       <button class="bookingButton" *ngIf="!adminButton" [disabled]="" (click)="saveBooking()" [disabled]="!CustomerName  || !selectedTimeSlot">Proceed Payment</button>
-      <!-- </a> -->
+       <button class="bookingButton" *ngIf="!adminButton" (click)="pay()" >Proceed Payment</button>
   </div>
 </section>
 
+<!-- payment page -->
+
+<section class="payment section" id="payment" *ngIf="proceed">
+
+  <div class="row">
+    <div class="section__title">
+      <h1>Payment</h1>
+      <span style="color: black;font-weight:400;">Payment Details</span>
+    </div>
+  </div>
+
+  <div class="section__title">
+    <form action="">
+      <div class="form-group">
+        <label for="">CardName</label>
+        <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+      <div class="form-group">
+        <label for="">Account Number</label>
+        <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+      <div class="form-group">
+        <label for="">Exp date:</label>
+        <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+      <div class="form-group">
+        <label for="">Cvv</label>
+        <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+      </div>
+    </form>
+
+  </div>
+
+<button (click)="back()">back</button>
+<button (click)="saveBooking()" >confirm </button>
+</section>

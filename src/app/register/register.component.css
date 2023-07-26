@@ -100,3 +100,7 @@ button:hover{
   border-color: green;
   border-width: 2px;
 }
+.errors{
+  background-color: white;
+  color: rgb(251, 5, 5);font-size: 17px;
+}

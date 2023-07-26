@@ -44,13 +44,13 @@ export class HeaderComponent implements OnInit {
   logoutuser(){
 
     this.service.userloggedout();
-    if(confirm("Are you logout")){
+    if(confirm("Are you want to logout")){
       sessionStorage.removeItem('email')
       sessionStorage.removeItem('admin')
       sessionStorage.removeItem('userName')
       window.location.reload();
     }
-    this.router.navigate([this.returl || '/']);
+    this.router.navigate([this.returl]);
       }
 
       //show menu
@@ -86,5 +86,5 @@ export class HeaderComponent implements OnInit {
         this.scrollHeader(); // Call the method to apply styles on scrolling
       }
 
-     
+
 }

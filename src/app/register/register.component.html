@@ -8,7 +8,7 @@
                 <div class="column" >
                     <label for="uname">Username</label>
                     <input type="text" id="uname"name="username" formControlName="username" placeholder="Enter Username here" [(ngModel)]="name">
-                    <div *ngIf="loginform1.controls['username'].invalid&&loginform1.controls['username'].touched" style="color: whitesmoke;font-size: 16px;">
+                    <div class="errors" *ngIf="loginform1.controls['username'].invalid&&loginform1.controls['username'].touched" >
                       <small *ngIf="loginform1.controls['username'].errors?.['required']" style="margin-left: 3px;">please enter username</small>
                       <small *ngIf="loginform1.controls['username'].errors?.['pattern']" style="margin-left: 3px;">please enter valid username </small>
                      </div>
@@ -19,7 +19,7 @@
                   <label for="phone">Phone Number</label>
                   <input type="phone" id="phone" name="phone" placeholder="Enter your Phone number" formControlName="phone" [(ngModel)]="phone" >
 
-                  <div *ngIf="loginform1.controls['phone'].invalid&&loginform1.controls['phone'].touched" style="color: white;font-size: 16px; ">
+                  <div class="errors" *ngIf="loginform1.controls['phone'].invalid&&loginform1.controls['phone'].touched" >
                     <small *ngIf="loginform1.controls['phone'].errors?.['required']" style="margin-left: 3px;">please enter Phone Number</small>
                     <small *ngIf="loginform1.controls['phone'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid Phone Number</small>
                    </div>
@@ -30,7 +30,7 @@
                     <label for="email">Email ID</label>
                     <input type="email" id="email" name="email" placeholder="Your email here" formControlName="email" [(ngModel)]="email">
 
-                    <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: white;font-size: 16px;">
+                    <div class="errors" *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" >
                       <small *ngIf="loginform1.controls['email'].errors?.['required']" style="margin-left: 3px;">please enter email ID</small>
                       <small *ngIf="loginform1.controls['email'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid email ID</small>
                      </div>
@@ -40,7 +40,7 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" formControlName="password" placeholder="Enter your password" [(ngModel)]="password" >
 
-                    <div *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" style="color: white;font-size: 16px;">
+                    <div class="errors" *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" >
                       <small *ngIf="loginform1.controls['password'].errors?.['required']" style="margin-left: 3px;">please enter Password</small>
                       <small *ngIf="loginform1.controls['password'].errors?.['pattern']" style="margin-left: 3px;">Password must contain more than 8 characters,
                          1 upper case letter, and 1 special character</small>
@@ -51,7 +51,7 @@
                     <label for="re-password">Confirm Password</label>
                     <input type="password" id="Re-password" name="confirmpassword" placeholder="Re-Enter your password" formControlName="confirmpassword" >
 
-                    <div *ngIf="loginform1.controls['confirmpassword'].invalid&&loginform1.controls['confirmpassword'].touched" style="color: white;font-size: 16px;">
+                    <div class="errors" *ngIf="loginform1.controls['confirmpassword'].invalid&&loginform1.controls['confirmpassword'].touched" >
                       <!-- <small *ngIf="loginform1.controls['confirmpassword'].errors?.['required']" >Confirm Password is Reqired</small> -->
                       <small *ngIf="loginform1.controls['confirmpassword'].errors?.['Confirmvalidator'] " style="margin-left: 3px;">please Match the Password</small>
                      </div>

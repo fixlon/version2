@@ -14,6 +14,10 @@ import { IDeactivateComponent } from '../canDeactivate-gaurd.service';
 })
 export class RegisterComponent implements OnInit, IDeactivateComponent{
   returl:any;
+  name;
+  email;
+  phone;
+  password;
 
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
@@ -35,10 +39,7 @@ email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*
 
   },{validator:Confirmvalidator('password','confirmpassword')})
 
-name;
-email;
-phone;
-password;
+
 
   ngOnInit() {
 

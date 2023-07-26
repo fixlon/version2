@@ -10,6 +10,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
+  border: 1px solid gray;
 }
 
 th, td {

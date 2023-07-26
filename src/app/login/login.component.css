@@ -98,3 +98,8 @@ a:hover{
   color: rgb(203, 199, 199);
   text-decoration: underline;
 }
+.errors{
+  background-color: white;
+  width: 160px;
+  color: rgb(251, 5, 5);font-size: 17px;
+}

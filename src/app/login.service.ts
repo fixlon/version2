@@ -25,7 +25,7 @@ export class LoginService {
 
   adminloggedin(){
     this.isadmin=true;
-  }
+  } 
 
   userloggedout():void{
     this.isloggedin=false;

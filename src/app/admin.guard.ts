@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { LoginService } from './login.service';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard  {
-  constructor(private adminService: LoginService, private router: Router) {}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!sessionStorage.getItem('admin')) {
-        alert('you are not admin')
-        this.router.navigate(["home"],{queryParams:{retUrl:route.url}})
-        return false;
-      } else {
-        // Redirect to login page
-        return true;
-      }
+  constructor( private router: Router) {}
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    if (sessionStorage.getItem('admin')) {
+      // User is an admin, allow access to the route
+      return true;
+    } else {
+      // User is not an admin, show the alert and redirect to the home page
+      alert('You are not an admin');
+      this.router.navigate(['home']);
+      return false;
+    }
   }
 
 }

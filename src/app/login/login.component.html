@@ -7,7 +7,7 @@
                   <label for="email">Email ID</label>
                   <input type="email" id="email" name="email" placeholder="Enter your email " formControlName="email" >
 
-                  <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: white;font-size: 17px;">
+                  <div class="errors" *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" >
                     <small *ngIf="loginform1.controls['email'].errors?.['required']" >please enter email ID</small>
                     <small *ngIf="loginform1.controls['email'].errors?.['pattern']" >please enter Valid email ID</small>
                    </div>
@@ -18,7 +18,7 @@
                     <label for="password">Password</label>
                     <input type="{{ show ? 'text' : 'password' }}" id="password" placeholder="Enter your password" name="password" formControlName="password" >
 
-                    <div *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched" style="color: white;font-size: 17px;">
+                    <div class="errors" *ngIf="loginform1.controls['password'].invalid&&loginform1.controls['password'].touched">
                       <small *ngIf="loginform1.controls['password'].errors?.['required']" >please enter Password</small>
                       <small *ngIf="loginform1.controls['password'].errors?.['minlength']" >please enter correct Password </small>
                      </div>

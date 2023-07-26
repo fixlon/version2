@@ -91,61 +91,56 @@ const routes: Routes = [
   },
 
 {
-  path:'',
 
+  path:'',
+  canActivate:[AuthGuard],
     children:[
       {
-       path:'services/manicure',
-       canActivate:[AuthGuard],
+       path:"services/manicure",
       component:ManicureComponent,
     },
     {
-      path:'services/pedicure',
-      canActivate:[AuthGuard],
+      path:"services/pedicure",
       component:PedicureComponent,
     },
     {
-      path:'services/eyebrow',
-      canActivate:[AuthGuard],
+      path:"services/eyebrow",
       component:EyebrowComponent
     },
     {
-      path:'services/haircut',
-      canActivate:[AuthGuard],
+      path:"services/haircut",
       component:HaircutComponent
     },
     {
-      path:'services/hairstyle',
-      canActivate:[AuthGuard],
+      path:"services/hairstyle",
       component:HairstyleComponent
     },
     {
-      path:'services/makeup',
-      canActivate:[AuthGuard],
+      path:"services/makeup",
       component:MakeupComponent
     },
     {
-      path:'services/waxing',
-      canActivate:[AuthGuard],
+      path:"services/waxing",
       component:WaxingComponent
     },
     {
-      path:'services/skincleaning',
-      canActivate:[AuthGuard],
+      path:"services/skincleaning",
       component:SkincleaningComponent
     },
     {
-      path:'services/:serviceType/:id',
+      path:"services/:serviceType/:id",
+      canDeactivate:[CanDeactivateGuardService],
       component:DetailsComponent
     },
     //booking page routing
     {
-      path: 'services/:serviceType/:id/booking',
+      path: "services/:serviceType/:id/booking",
       component: BookingPageComponent
     }
 
   ]
   },
+
   {
     path:"packages",
     canActivate:[AuthGuard],

@@ -778,51 +778,40 @@
       "videoclip": "/assets/gallery/v8.mp4"
     }
   ],
-  "payment": [],
-  "timeSlots": [
+  "payment": [
     {
       "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Acralic Nails",
-      "servicePrice": 849,
-      "time": "10:00 AM",
+      "serviceType": "Nature Nails",
+      "servicePrice": 1149,
+      "stylist": "standard",
+      "time": "9:00 AM",
       "id": 1
     },
     {
-      "CustomerName": "A.Nandhagopal vignesh",
+      "CustomerName": "g",
       "serviceType": "Acralic Nails",
       "servicePrice": 849,
-      "time": "10:00 AM",
+      "stylist": "standard",
+      "time": "9:00 AM",
+      "email": "nandhavignesh85@gmail.com",
       "id": 2
     },
     {
-      "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Acralic Nails",
-      "servicePrice": 849,
-      "time": "11:00 AM",
       "id": 3
     },
     {
-      "CustomerName": "A.Nandhagopal vignesh",
-      "serviceType": "Acralic Nails",
-      "servicePrice": 849,
-      "stylist": 849,
-      "time": "9:00 AM",
       "id": 4
     },
     {
-      "CustomerName": "END",
-      "serviceType": "Acralic Nails",
-      "servicePrice": "standard",
-      "stylist": "standard",
-      "time": "11:00 AM",
       "id": 5
     },
     {
       "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Acralic Nails",
-      "servicePrice": 849,
+      "serviceType": "Celebrity Makeup",
+      "servicePrice": 28549,
       "stylist": "standard",
-      "time": "12:00 PM",
+      "time": "11:00 AM",
+      "email": "nandhavignesh85@gmail.com",
       "id": 6
     }
   ]
