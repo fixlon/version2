@@ -21,11 +21,11 @@ export class LoginService {
 
   sendemail(url:any,data:any){
     return this.http.post(url,data);
-      }
+    }
 
   adminloggedin(){
     this.isadmin=true;
-  } 
+  }
 
   userloggedout():void{
     this.isloggedin=false;

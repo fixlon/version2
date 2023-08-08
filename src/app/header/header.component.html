@@ -15,14 +15,16 @@
                 <li class="nav__item"><a routerLink="packages" routerLinkActive="active" (click)="linkAction()" class="nav__link">Packages</a></li>
                 <li class="nav__item"><a routerLink="gallery" routerLinkActive="active" (click)="linkAction()" class="nav__link">Gallery</a></li>
                 <!-- <li class="nav__item"><a routerLink="contact" routerLinkActive="active" class="nav__link">Contact</a></li> -->
-                <li><a routerLink="login" *ngIf="loginButton"><button class="btn" >Login</button></a></li>
+                <li><a routerLink="login" *ngIf="loginButton"><button class="butn" >Login</button></a></li>
 
                 <div class="dropdown" *ngIf="!loginButton">
                   <span style="cursor: pointer;"><i class="fa-solid fa-user" ></i><b> {{userName}}</b></span>
                   <div class="dropdown-content">
-                  <li><a (click)="logoutuser()">Logout</a></li>
-                  <li><a routerLink="profile"></a></li>
-                  <li><a routerLink="bookingHistory">{{adminButton?'Transaction History':'Booking History'}}</a></li>
+                    <a (click)="logoutuser()"><li>Logout</li></a>
+                  <!-- <li><a routerLink="profile">profile</a></li> -->
+                  <a routerLink="bookingHistory"><li>{{adminButton?'Transaction History':'Booking History'}}</li></a>
+                  <!-- <li></li> -->
+                  <a routerLink="packages/membership"><li>{{adminButton?'Packages Booked':'Membership'}}</li></a>
                   </div>
                 </div>
               </ul>

@@ -45,6 +45,7 @@ img{
 }
 h1{
   font-size: 40px;
+  padding-left: 10px;
 }
 span{
   color: green;
@@ -98,14 +99,18 @@ input[type=text]{
   background-color: rgb(244, 96, 96);
 }
 
-@media (max-width :600px) {
+@media (max-width :500px) {
   .services__content{
     display: grid;
     grid-template-columns:100%;
-
+  }
+  span{
+    color: green;
+    font-weight: bold;
+    margin: 2px;
   }
 }
-@media (max-width :900px) {
+@media(max-width :900px) {
   .services__content{
     display: grid;
     grid-template-columns:100%;
@@ -116,5 +121,4 @@ input[type=text]{
   }
 }
 
-/* payment */
 

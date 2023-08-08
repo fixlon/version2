@@ -26,3 +26,30 @@ input[type='text']:focus{
   right: 10px;
   transform: translateY(-50%);
 }
+/* Add your custom styles here */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdown ul li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown ul li:hover {
+  background-color: #e0e0e0;
+}

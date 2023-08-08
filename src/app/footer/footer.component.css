@@ -5,6 +5,7 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid var(--first-color);
+  grid-gap: 10px;
 }
 
 .footer__data-social .social__icon{
@@ -66,7 +67,7 @@
 /*media query*/
 @media (min-width: 960px ){
   .footer__list{
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
   }
 
 }

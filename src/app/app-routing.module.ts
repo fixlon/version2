@@ -23,12 +23,14 @@ import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminGuard } from './admin.guard';
 import { GaddComponent } from './gadd/gadd.component';
-import { BookingPageComponent } from './booking-page/booking-page.component';
 import { DetailsComponent } from './details/details.component';
 import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
 import { TermsComponent } from './terms/terms.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentserviceComponent } from './paymentservice/paymentservice.component';
+import { MembershipComponent } from './membership/membership.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 
 const routes: Routes = [
@@ -90,6 +92,7 @@ const routes: Routes = [
 
   },
 
+
 {
 
   path:'',
@@ -129,13 +132,13 @@ const routes: Routes = [
     },
     {
       path:"services/:serviceType/:id",
-      canDeactivate:[CanDeactivateGuardService],
       component:DetailsComponent
     },
     //booking page routing
     {
-      path: "services/:serviceType/:id/booking",
-      component: BookingPageComponent
+      path: "services/:serviceType/:id/payment",
+      canDeactivate:[CanDeactivateGuardService],
+      component: PaymentserviceComponent
     }
 
   ]
@@ -151,8 +154,13 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     children:[{
       path:"packages/payment",
+      canDeactivate:[CanDeactivateGuardService],
       component:PaymentComponent
-    }]
+    },
+    {
+      path:"packages/membership",
+      component:MembershipComponent
+    },]
 
   },
   {
@@ -169,6 +177,7 @@ const routes: Routes = [
     }]
 
   },
+
 
   {
     path:"login",
@@ -193,6 +202,10 @@ const routes: Routes = [
   path:"profile",
   canActivate:[AuthGuard],
   component:ProfileComponent
+  },
+  {
+    path:"privacy-policy",
+    component:PrivacyPolicyComponent
   },
   {
     path:"**",

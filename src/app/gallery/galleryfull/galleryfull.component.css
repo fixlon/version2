@@ -26,3 +26,28 @@ object-fit: cover;
 
 }
 /* VIDEO END */
+
+@media (min-width:360px){
+  .vservice{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+@media (min-width:660px){
+  .vservice{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (min-width:960px){
+  .vservice{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media (min-width:1060px){
+  .vservice{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+

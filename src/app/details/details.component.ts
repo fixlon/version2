@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,7 +23,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   proceed:boolean=true;
   booking:any;
 
-  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private http:HttpClient) {
+  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private http:HttpClient,private router:Router) {
+
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
     }
@@ -118,25 +119,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.serviceType = null;
   }
 
-  //updating the data to db.json
-  updateData(): void {
-    this.editMode = false;
-    // Make a copy of the allservice object
-    const updatedData = Object.assign({}, this.allservice);
-
-    // Send the updated data to the server
-    this.service.updateServiceData(
-      this.activatedRoute.snapshot.paramMap.get('serviceType'),
-      +this.activatedRoute.snapshot.paramMap.get('id'),
-      updatedData
-    ).subscribe()
-    console.log(updatedData);
-  }
-// In your component class
-
-
-
-
 //choosing time slot
   selectTimeSlot(slot: string): void {
     this.selectedTimeSlot = slot;
@@ -169,52 +151,42 @@ stylist(){
   return stylist;
 }
 
-  saveBooking(): void {//send data to db.json
-    this.http.post('http://localhost:3000/payment', this.booking).subscribe(() => {
-        console.log('Booking saved successfully');
-        alert("sucessfully Booked ")
-        console.log(this.booking)
-      });
-  }
-
   clearTimeSlot(): void {
     this.selectedTimeSlot = null;
   }
 
   pay(){
-    this.proceed=false;
+    // this.proceed=false;
     if (this.CustomerName && this.selectedTimeSlot) {
       const cemail= sessionStorage.getItem('email');
       const totalCost = this.calculateTotalCost();//calling the method for storing the price  in service price
       const stylist=this.stylist();
+      const now=new Date();
       this.booking = {
         CustomerName: this.CustomerName,
         serviceType: document.getElementById('serviceType').textContent,//get servicename by html id
         servicePrice:totalCost,
         stylist:stylist,
         time: this.selectedTimeSlot,
-        email:cemail
+        email:cemail,
+        bookingdate:now.toLocaleDateString(),
 
       };
-      this.bookedTimeSlots.push(this.selectedTimeSlot);
+      console.log(this.booking)
 
+      sessionStorage.setItem('booking1', JSON.stringify(this.booking));
+      this.router.navigate(['services/'+this.activatedRoute.snapshot.paramMap.get('serviceType')+'/'+this.activatedRoute.snapshot.paramMap.get('id')+'/'+'payment']);
     } else {
       console.log('Please fill in all fields');
     }
   }
 
-  back(){
-    this.proceed=true;
 
-  }
-  canExit(){
-    if(this.CustomerName|| this.timeslot||this.allservice.standard||this.allservice.premium){
-      return confirm('you have unsaved changes. Do you really want to discard these changes?');
-    }
-    return true;
-  }
+
 
   ngOnDestroy(): void {
     // Clean up any subscriptions or resources here
   }
 }
+
+

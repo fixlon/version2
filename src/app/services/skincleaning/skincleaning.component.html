@@ -16,7 +16,7 @@
                   <div class="box" *ngFor="let item of skinlist">
 
                       <div class="inner">
-                          <a  ><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                        <a  routerLink="{{item.id}}"><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
                           <p>{{item.Name}}</p>
                           <!-- <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i> -->
 
@@ -28,9 +28,9 @@
                   </div>
 
       </div>
-      <div  >
+      <!-- <div  >
         <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
-       </div>
+       </div> -->
   </div>
 
 </section>

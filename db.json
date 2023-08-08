@@ -781,38 +781,55 @@
   "payment": [
     {
       "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Nature Nails",
-      "servicePrice": 1149,
-      "stylist": "standard",
-      "time": "9:00 AM",
+      "serviceType": "Blissful Skin",
+      "servicePrice": 1649,
+      "stylist": "premium",
+      "time": "12:00 PM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "8/3/2023",
       "id": 1
     },
     {
-      "CustomerName": "g",
-      "serviceType": "Acralic Nails",
-      "servicePrice": 849,
-      "stylist": "standard",
+      "CustomerName": "Nandhagopal vignesh A",
+      "serviceType": "Celebrity Makeup",
+      "servicePrice": 30649,
+      "stylist": "premium",
       "time": "9:00 AM",
       "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "8/3/2023",
       "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
     },
     {
       "CustomerName": "Nandhagopal vignesh A",
       "serviceType": "Celebrity Makeup",
       "servicePrice": 28549,
       "stylist": "standard",
-      "time": "11:00 AM",
+      "time": "10:00 AM",
       "email": "nandhavignesh85@gmail.com",
-      "id": 6
+      "bookingdate": "8/3/2023",
+      "id": 3
+    }
+  ],
+  "package": [
+    {
+      "name": "NANDHAGOPAL",
+      "phone": "8525876050",
+      "email": "nandhavignesh5@gmail.com",
+      "date": "8/2/2023",
+      "packageName": "Silver",
+      "price": "Rs.5000",
+      "cemail": "nandhavignesh85@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "NANDHAGOPAL",
+      "phone": "8525876050",
+      "email": "nandhavignesh85@gmail.com",
+      "date": "8/2/2023",
+      "packageName": "Diamond",
+      "price": "Rs.10000",
+      "cemail": "nandhavignesh85@gmail.com",
+      "id": 2
     }
   ]
 }

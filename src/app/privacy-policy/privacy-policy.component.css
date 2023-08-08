@@ -22,9 +22,16 @@ p {
   margin-bottom: 20px;
 }
 
-ul {
-  list-style: disc;
-  margin-left: 20px;
+.container {
+  border: 1px solid #ccc;
+  margin-top: 10%;
+  padding: 30px;
+  background-color: #f9f9f9;
+  text-align: justify;
+}
+
+.container h2 {
+  color: #007bff;
 }
 
 a {
@@ -35,7 +42,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* Optional: Add styles for specific sections or elements if needed */
-/* For example, to style the section with class "section" */
-
+h1
+{
+  text-align: center;
+}

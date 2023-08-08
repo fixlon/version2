@@ -30,7 +30,6 @@ import { PaymentComponent } from './payment/payment.component';
 import { GaddComponent } from './gadd/gadd.component';
 import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './filter/filter.component';
-import { BookingPageComponent } from './booking-page/booking-page.component';
 import { DetailsComponent } from './details/details.component';
 import { CanDeactivateGuardService } from './canDeactivate-gaurd.service';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
@@ -38,6 +37,9 @@ import { TermsComponent } from './terms/terms.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PaymentserviceComponent } from './paymentservice/paymentservice.component';
+import { MembershipComponent } from './membership/membership.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -59,13 +61,15 @@ import { FooterComponent } from './footer/footer.component';
       GaddComponent,
       SearchComponent,
       FilterComponent,
-      BookingPageComponent,
       DetailsComponent,
       BookinghistoryComponent,
       TermsComponent,
       ProfileComponent,
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      PaymentserviceComponent,
+      MembershipComponent,
+      PrivacyPolicyComponent
    ],
   imports: [
     BrowserModule,

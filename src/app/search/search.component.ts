@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit{
   @Output() searchedValue:EventEmitter<string>=new EventEmitter<string>();
 
   onSearchedValue(){
-this.searchedValue.emit(this.searchValue);
+    this.searchedValue.emit(this.searchValue);
   }
 
 }

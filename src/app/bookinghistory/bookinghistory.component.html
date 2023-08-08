@@ -7,6 +7,7 @@
         <th>ServiceName</th>
         <th>Stylist</th>
         <th>TimeSlot</th>
+        <th>Booking date</th>
         <th>TotalAmount</th>
       </thead>
       <ng-container *ngIf="bookingHistoryList?.length > 0; else noDataMessage">
@@ -17,6 +18,7 @@
             <td>{{ history.serviceType }}</td>
             <td>{{ history.stylist }}</td>
             <td>{{ history.time }}</td>
+            <td>{{history.bookingdate}}</td>
             <td>{{ history.servicePrice }}</td>
           </tr>
         </tbody>

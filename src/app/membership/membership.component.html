@@ -1,0 +1,32 @@
+<div class="section container">
+  <h1>{{userName}}</h1>
+    <table>
+      <thead>
+        <th>s.no</th>
+        <th>packageName</th>
+        <th>packagePrice</th>
+        <th>purchased Date</th>
+      </thead>
+      <ng-container *ngIf="membership?.length > 0; else noDataMessage" >
+      <tbody >
+        <tr *ngFor="let item of membership; index as i">
+          <td>{{i+1}}</td>
+          <td>{{item.packageName}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.date}}</td>
+        </tr>
+      </tbody>
+    </ng-container>
+    </table>
+
+</div>
+
+<ng-template #noDataMessage>
+  <tbody>
+    <tr>
+      <td colspan="4">
+        <h1 style="color: red;text-align: center;">No Purchased history</h1>
+      </td>
+    </tr>
+  </tbody>
+</ng-template>

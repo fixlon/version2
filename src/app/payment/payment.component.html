@@ -2,28 +2,27 @@
 
   <div class="container">
 
-      <form action="" [formGroup]="loginform1" target="_parent" (submit)=" adduser()">
+      <form action="" [formGroup]="paymentForm" >
           <div class="row">
-
               <div class="col">
-
-                  <h3 class="title">billing Details</h3>
-
+                  <h3 class="title">billing Details</h3><br>
+                  <h3>packageName: <span style="color: chocolate;">{{packageName}}</span></h3><br>
+                  <h3>package Amount <span style="color: green;">{{packageprice}}</span></h3>
                   <div class="inputBox" >
                     <label for="uname">Username</label>
                     <input type="text" id="uname"name="username" formControlName="username" placeholder="Enter Username here" >
-                    <div *ngIf="loginform1.controls['username'].invalid&&loginform1.controls['username'].touched" style="color: red;font-size: 16px;">
-                      <small *ngIf="loginform1.controls['username'].errors?.['required']" style="margin-left: 3px;">please enter username</small>
-                      <small *ngIf="loginform1.controls['username'].errors?.['minlength']" style="margin-left: 3px;">please enter username with atleast 3 char</small>
-                     </div>
+                    <div *ngIf="paymentForm.controls['username'].invalid&&paymentForm.controls['username'].touched" style="color: red;font-size: 16px;">
+                      <small *ngIf="paymentForm.controls['username'].errors?.['required']" style="margin-left: 3px;">please enter username</small>
+                      <small *ngIf="paymentForm.controls['username'].errors?.['pattern']" style="margin-left: 3px;">please enter valid username with atleast 3 char </small>
+                    </div>
                 </div>
                 <div class="inputBox">
                   <label for="phone">Phone Number</label>
                   <input type="phone" id="phone" name="phone" placeholder="Enter your Phone number" formControlName="phone" >
 
-                  <div *ngIf="loginform1.controls['phone'].invalid&&loginform1.controls['phone'].touched" style="color: red;font-size: 16px; ">
-                    <small *ngIf="loginform1.controls['phone'].errors?.['required']" style="margin-left: 3px;">please enter Phone Number</small>
-                    <small *ngIf="loginform1.controls['phone'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid Phone Number</small>
+                  <div *ngIf="paymentForm.controls['phone'].invalid&&paymentForm.controls['phone'].touched" style="color: red;font-size: 16px; ">
+                    <small *ngIf="paymentForm.controls['phone'].errors?.['required']" style="margin-left: 3px;">please enter Phone Number</small>
+                    <small *ngIf="paymentForm.controls['phone'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid Phone Number</small>
                    </div>
               </div>
 
@@ -32,34 +31,19 @@
                     <label for="email">Email ID</label>
                     <input type="email" id="email" name="email" placeholder="Your email here" formControlName="email" >
 
-                    <div *ngIf="loginform1.controls['email'].invalid&&loginform1.controls['email'].touched" style="color: red;font-size: 16px;">
-                      <small *ngIf="loginform1.controls['email'].errors?.['required']" style="margin-left: 3px;">please enter email ID</small>
-                      <small *ngIf="loginform1.controls['email'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid email ID</small>
+                    <div *ngIf="paymentForm.controls['email'].invalid&&paymentForm.controls['email'].touched" style="color: red;font-size: 16px;">
+                      <small *ngIf="paymentForm.controls['email'].errors?.['required']" style="margin-left: 3px;">please enter email ID</small>
+                      <small *ngIf="paymentForm.controls['email'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid email ID</small>
                      </div>
                   </div>
 
                   <div class="flex">
                       <div class="inputBox">
-                          <span>Date:</span>
-                          <input type="date" id="date" name="date" placeholder formControlName="date">
-                          <div *ngIf="loginform1.controls['date'].invalid&&loginform1.controls['date'].touched" style="color: red;font-size: 16px;">
-                            <small *ngIf="loginform1.controls['date'].errors?.['required']" style="margin-left: 3px;">please enter date</small>
-                            <small *ngIf="loginform1.controls['date'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid date</small>
-                           </div>
-                      </div>
-                      <div class="inputBox">
-                          <span>Time :</span>
-                          <input type="time" id="time" name="time" placeholder formControlName="time">
-                          <div *ngIf="loginform1.controls['time'].invalid&&loginform1.controls['time'].touched" style="color: red;font-size: 16px;">
-                            <small *ngIf="loginform1.controls['time'].errors?.['required']" style="margin-left: 3px;">please enter time</small>
-                            <small *ngIf="loginform1.controls['time'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid time</small>
-                           </div>
+                          <span>Date: {{now}}</span>
+                          <p></p>
                       </div>
                   </div>
-                   <div class="inputBox">
-                      <span>Note :</span>
-                     <P>Please Select Time Between 9.00am to 8.00pm</P>
-                  </div>
+
 
               </div>
 
@@ -72,50 +56,40 @@
                       <img src="/assets/card_img.png" alt="">
                   </div>
                   <div class="inputBox">
-                      <span>name on card :</span>
-                      <input type="text" id="nameoncard" name="nameoncard" placeholder="mr/mrs.jhon" formControlName="nameoncard">
-                      <div *ngIf="loginform1.controls['nameoncard'].invalid&&loginform1.controls['nameoncard'].touched" style="color: red;font-size: 16px;">
-                        <small *ngIf="loginform1.controls['nameoncard'].errors?.['required']" style="margin-left: 3px;">please enter card name</small>
-                        <!-- <small *ngIf="loginform1.controls['nameoncard'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid email ID</small> -->
-                       </div>
+                    <label for="cardHolder">Card Holder Name:</label>
+                    <input type="text" id="cardHolder" name="cardHolder" formControlName="cardHolder" required>
+                    <div class="errors" *ngIf="paymentForm.controls['cardHolder'].invalid&&paymentForm.controls['cardHolder'].touched" >
+                      <small *ngIf="paymentForm.controls['cardHolder'].errors?.['required']" style="margin-left: 3px;">please enter cardHolder Name</small>
+                      <small *ngIf="paymentForm.controls['cardHolder'].errors?.['pattern']" style="margin-left: 3px;">please enter valid cardHolder Name</small>
+                     </div>
                   </div>
                   <div class="inputBox">
                       <span>credit card number :</span>
-                      <input type="text" id="cardnumber" name="cardnumber" placeholder="1111-2222-3333-4444" formControlName="cardnumber" >
-                      <div *ngIf="loginform1.controls['cardnumber'].invalid&&loginform1.controls['cardnumber'].touched" style="color: red;font-size: 16px;">
-                        <small *ngIf="loginform1.controls['cardnumber'].errors?.['required']" style="margin-left: 3px;">please enter card number</small>
-                        <small *ngIf="loginform1.controls['cardnumber'].errors?.['minlength']" style="margin-left: 3px;">please enter Valid expyear</small>
-
+                      <input type="text" id="cardnumber" name="cardnumber" placeholder="1111-2222-3333-4444" maxlength="19" formControlName="cardnumber"  required>
+                      <div *ngIf="paymentForm.controls['cardnumber'].invalid&&paymentForm.controls['cardnumber'].touched" style="color: red;font-size: 16px;">
+                        <small *ngIf="paymentForm.controls['cardnumber'].errors?.['required']">Please enter cardnumber</small>
+                        <small *ngIf="paymentForm.controls['cardnumber'].errors?.['pattern']">Please Enter Numbers only</small>
+                        <small *ngIf="paymentForm.controls['cardnumber'].errors?.['minlength'] && !paymentForm.controls['cardnumber'].errors?.['pattern'] ">Please enter 12-19 digit card number</small>
                        </div>
                   </div>
                   <div class="inputBox">
-                      <span>exp month :</span>
-                      <input type="text" id="expmonth" name="expmonth" placeholder="january" formControlName="expmonth">
-                      <div *ngIf="loginform1.controls['expmonth'].invalid&&loginform1.controls['expmonth'].touched" style="color: red;font-size: 16px;">
-                        <small *ngIf="loginform1.controls['expmonth'].errors?.['required']" style="margin-left: 3px;">please enter expiry month</small>
-                        <small *ngIf="loginform1.controls['expmonth'].errors?.['pattern']" style="margin-left: 3px;">please enter Valid expmonth</small>
-                        <small *ngIf="loginform1.controls['expmonth'].errors?.['maxlength']" style="margin-left: 3px;">please enter Valid expmonth</small>
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" formControlName="expiryDate"  placeholder="mm/yy" required>
+                      <div class="errors" *ngIf="paymentForm.controls['expiryDate'].invalid&&paymentForm.controls['expiryDate'].touched" >
+                        <small *ngIf="paymentForm.controls['expiryDate'].errors?.['required']" style="margin-left: 3px;">please enter expiryDate</small>
+                        <small *ngIf="paymentForm.controls['expiryDate'].errors?.['pattern']">Please enter a valid expiry date (mm/yy) in the future</small>
                       </div>
                   </div>
 
                   <div class="flex">
                       <div class="inputBox">
-                          <span>exp year :</span>
-                          <input type="text" id="expyear" name="expyear" placeholder="20XX" formControlName="expyear" >
-                          <div *ngIf="loginform1.controls['expyear'].invalid&&loginform1.controls['expyear'].touched" style="color: red;font-size: 16px;">
-                            <small *ngIf="loginform1.controls['expyear'].errors?.['required']" style="margin-left: 3px;">please enter expiry year</small>
-                            <small *ngIf="loginform1.controls['expyear'].errors?.['minlength']" style="margin-left: 3px;">please enter Valid expyear</small>
-                            <small *ngIf="loginform1.controls['expyear'].errors?.['maxlength']" style="margin-left: 3px;">please enter Valid expyear</small>
-                          </div>
-                      </div>
-                      <div class="inputBox">
-                          <span>CVV :</span>
-                          <input type="text" id="cvv" name="cvv" placeholder="1234" formControlName="cvv" >
-                          <div *ngIf="loginform1.controls['cvv'].invalid&&loginform1.controls['cvv'].touched" style="color: red;font-size: 16px;">
-                            <small *ngIf="loginform1.controls['cvv'].errors?.['required']" style="margin-left: 3px;">please enter cvv </small>
-                            <small *ngIf="loginform1.controls['cvv'].errors?.['minlength']" style="margin-left: 3px;">please enter Valid cvv</small>
-                            <small *ngIf="loginform1.controls['cvv'].errors?.['maxlength']" style="margin-left: 3px;">please enter Valid cvv</small>
-                          </div>
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" formControlName="cvv"  maxlength="4" required>
+                        <div class="errors" *ngIf="paymentForm.controls['cvv'].invalid&&paymentForm.controls['cvv'].touched">
+                          <small *ngIf="paymentForm.controls['cvv'].errors?.['required']">please enter CVV</small>
+                          <small *ngIf="paymentForm.controls['cvv'].errors?.['pattern']"> please enter numbers only</small>
+                          <small *ngIf="paymentForm.controls['cvv'].errors?.['minlength']">Please enter '3' or '4' digit Cvv</small>
+                        </div>
                       </div>
                   </div>
 
@@ -123,7 +97,7 @@
 
           </div>
             <div class="button">
-              <button [disabled]="!loginform1.valid" class="submit-btn"  onclick="">proceed to Confirm</button>
+              <button class="submit-btn" [disabled]="paymentForm.invalid"  name="submit" (click)="adduser()">proceed to Confirm</button>
             </div>
         </form>
     </div>

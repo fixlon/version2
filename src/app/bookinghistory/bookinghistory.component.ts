@@ -12,7 +12,7 @@ bookingHistoryList:any;
 url="http://localhost:3000/payment";
 useremail:any;
 
-constructor(public service:BserviceService,private http:HttpClient){}
+constructor(public service:BserviceService){}
 
   ngOnInit(){
     if(sessionStorage.getItem('admin')){

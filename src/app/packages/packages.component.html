@@ -9,7 +9,7 @@
       <div class="package__cards row">
           <div class="card">
               <div class="card__title">
-                  <h1>Bronze</h1>
+                  <h1 #bronze>Bronze</h1>
               </div>
               <div class="card__items">
                   <div class="item">
@@ -44,14 +44,14 @@
                       <i class='bx bx-message-square-x x__icon' ></i>
                       <p class="not">Table of fruits</p>
                   </div>
-                  <h3 style="color: green;text-align: center;">Rs.3000/month</h3>
-                 <a  routerLink="payment"> <a  routerLink="payment"><button class="btn">Purchase</button></a> </a>
+                  <h3 style="color: green;text-align: center;" > <span #bronzeprice>Rs.3000</span> /month</h3>
+                <button (click)="save(bronze.textContent, bronzeprice.textContent)" class="btn">Purchase</button>
               </div>
           </div>
 
           <div class="card">
               <div class="card__title">
-                  <h1>Silver</h1>
+                  <h1 #silver>Silver</h1>
               </div>
               <div class="card__items">
                   <div class="item">
@@ -86,14 +86,14 @@
                       <i class='bx bx-message-square-x x__icon' ></i>
                       <p class="not">Table of fruits</p>
                   </div>
-                  <h3 style="color: green;text-align: center;">Rs.5000/month</h3>
-                   <a  routerLink="payment"><button class="btn">Purchase</button></a>
+                  <h3 style="color: green;text-align: center;"> <span  #silverprice>Rs.5000</span>/month</h3>
+                   <button (click)="save(silver.textContent,silverprice.textContent)" class="btn">Purchase</button>
               </div>
           </div>
 
           <div class="card">
               <div class="card__title">
-                  <h1>Gold</h1>
+                  <h1 #gold>Gold</h1>
               </div>
               <div class="card__items">
                   <div class="item">
@@ -129,14 +129,14 @@
 
                       <p >Table of fruits</p>
                   </div>
-                  <h3 style="color: green;text-align: center;">Rs.7000/month</h3>
-                   <a  routerLink="payment"><button class="btn">Purchase</button></a>
+                  <h3 style="color: green;text-align: center;" > <span #goldprice>Rs.7000</span> /month</h3>
+                   <button (click)="save(gold.textContent,goldprice.textContent)" class="btn">Purchase</button>
               </div>
           </div>
 
           <div class="card">
               <div class="card__title">
-                  <h1>Diamond</h1>
+                  <h1 #diamond>Diamond</h1>
               </div>
               <div class="card__items">
                   <div class="item">
@@ -171,8 +171,8 @@
                       <i class='bx bx-message-square-check check__icon' ></i>
                       <p>Table of fruits</p>
                   </div>
-                  <h3 style="color: green;text-align: center;">Rs.10000/month</h3>
-                   <a  routerLink="payment"><button class="btn">Purchase</button></a>
+                  <h3 style="color: green;text-align: center;" > <span #diamondprice>Rs.10000</span>/month</h3>
+                   <button (click)="save(diamond.textContent,diamondprice.textContent)" class="btn">Purchase</button>
               </div>
           </div>
       </div>

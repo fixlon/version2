@@ -1,5 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 *{
   font-family: 'Poppins', sans-serif;
@@ -16,7 +15,6 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;
-  background: url('/assests/payment.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -95,4 +93,17 @@
 .container form .submit-btn:hover{
   background: #2ecc71;
 }
+.container form .button button:disabled{
+  background-color:rgb(234, 209, 163) ;
+  color: black;
+  cursor: not-allowed;
+}
+.container form .button button:disabled:hover{
+  background-color:rgb(234, 209, 163) ;
+  color: black;
+  cursor: not-allowed;
+}
 
+#cardHolder{
+  text-transform: uppercase;
+}

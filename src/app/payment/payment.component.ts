@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder ,Validators, FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder ,Validators, FormControl, FormGroup, ValidatorFn} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
+import { BserviceService } from '../bservice.service';
 
 @Component({
   selector: 'app-payment',
@@ -11,61 +12,99 @@ import { LoginService } from '../login.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  url1:any="http://localhost:3000/payment";
+  url1:any="http://localhost:3000/package";
   returl:any;
+  packageName;
+  packageprice;
+  customeremail;
+  username;
+  email;
+  phone;
+  cardnumber;
+  cardHolder;
+  expiryDate;
+  cvv;
+  submit:boolean=true;
 
-
-
-
-  constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
+date=new Date();
+now=this.date.toLocaleDateString();
+paymentForm: FormGroup;
+  constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService,private service1:BserviceService) {
     activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
+         this.packageName=sessionStorage.getItem('packageName');
+         this.packageprice=sessionStorage.getItem('packagePrice');
+         this.customeremail=sessionStorage.getItem('email')
   }
-  url:any="http://localhost:3000/usersprofile";
-
-  loginform1=this.fb.group({
-    username:["",[Validators.required,Validators.minLength(3)]],
-    email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-    phone:["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-    date:["",[Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-    time:["",[Validators.required]],
-    nameoncard:["",[Validators.required]],
-    cardnumber:["",[Validators.required,Validators.minLength(12)]],
-    expmonth:["",[Validators.required,,Validators.maxLength(2)]],
-    expyear:["",[Validators.required,Validators.minLength(2),Validators.maxLength(4)]],
-    cvv:["",[Validators.required,Validators.minLength(3),Validators.maxLength(4)]],
-
-
-  })
 
 
 
   ngOnInit() {
+   this.paymentForm=this.fb.group({
+      username:["",[Validators.required,Validators.pattern("^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{2,15}$"),Validators.minLength(3)]],
+      email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      phone:["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      cardnumber: ["", [Validators.required, Validators.minLength(12), Validators.pattern("^[0-9]+$")]],
+      cardHolder:["",[Validators.required,Validators.pattern(/^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{2,15}$/)]],
+      expiryDate: ["",[Validators.required,Validators.pattern(/^(0[1-9]|1[0-2])\/[0-9]{2}$/),this.futureDateValidator]],
+      cvv:["",[Validators.pattern("^[0-9]*$"),Validators.minLength(3)]]
+    })
 
   }
-  get confirmpassword(){
-    return this.loginform1.get('confirmpassword');
-  }
+
   adduser(){
+
     var body={
-      name:this.loginform1.controls['username'].value,
-      phone:this.loginform1.controls['phone'].value,
-      email:this.loginform1.controls['email'].value,
-      date:this.loginform1.controls['date'].value,
-      time:this.loginform1.controls['time'].value,
+      name:this.paymentForm.controls['username'].value,
+      phone:this.paymentForm.controls['phone'].value,
+      email:this.paymentForm.controls['email'].value,
+      date:this.date.toLocaleDateString(),
+      packageName:this.packageName,
+      price:this.packageprice,
+      cemail:this.customeremail
     }
-    this.http.get<any>(this.url1).subscribe(res => {
-        this.service.addservice1(this.loginform1.value).subscribe(data=>{
+        this.service.addservice1(body).subscribe(data=>{
           alert('Payment Succsess \n kindly check your email');
-          this.loginform1.reset();
+          this.paymentForm.reset();
           this.router.navigate(['services']);
+          console.log(body);
         })
-
-
-  });
   this.login.sendemail("http://localhost:1999/sendEmail",body).subscribe(data=>{
     console.log(data);
   })
+  this.submit=false;
   }
+
+  futureDateValidator :ValidatorFn = (control) => {// here it take parameters from Abstractcontrol
+    const value = control.value;
+    if (!value) {
+      return { required: true };
+    }
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear() % 100;
+    const currentMonth = currentDate.getMonth()+1;
+
+    const [inputMonth, inputYear] = value.split('/');
+    const expiryMonth = parseInt(inputMonth);
+    const expiryYear = parseInt(inputYear);
+
+    if (
+      expiryYear < currentYear ||
+      (expiryYear === currentYear && expiryMonth < currentMonth)
+    ) {
+      return { pattern: true };
+    }
+
+    return null; // Validation passed
+  }
+
+  canExit() {
+    if (this.paymentForm.dirty && this.submit) {
+      return confirm('You have unsaved changes. Do you really want to discard these changes?');
+    }
+    return true;
+  }
+
 }

@@ -25,6 +25,7 @@ adminButton;
   }
   searchedValue:string=''
 searchingValue(searchText:string){
-this.searchedValue=searchText;
+  this.searchedValue=searchText;
+
 }
 }

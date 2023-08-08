@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit, IDeactivateComponent{
   email;
   phone;
   password;
-
+  submit:boolean=true;
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
     activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit, IDeactivateComponent{
 
   loginform1=this.fb.group({
     username:["",[Validators.required,Validators.pattern("^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{3,15}$")]],
-    // email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,5}$")]],
 email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*\\.[^.]{1,4}\\.$)(?:[a-z0-9._%+-]+@(?:[a-z0-9-]+\\.)+(?:com|in|outlook\\.com|yahoo\\.com))$")]],
     phone:["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     password:["",[Validators.required,Validators.pattern(
@@ -70,16 +69,15 @@ email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*
         })
         }
   });
-  this.login.sendemail("http://localhost:1999/sendEmail",body).subscribe(data=>{
-    console.log(data);
-  })
+  this.submit = false;
   }
 
-  canExit(){
-    if(this.name||this.email||this.phone||this.password){
-      return confirm('you have unsaved changes. Do you really want to discard these changes?');
+  canExit() {
+    if ((this.name || this.email || this.phone || this.password) && this.submit) {
+      return confirm('You have unsaved changes. Do you really want to discard these changes?');
     }
     return true;
   }
+
 
 }
