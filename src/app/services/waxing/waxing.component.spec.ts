@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { WaxingComponent } from './waxing.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('WaxingComponent', () => {
   let component: WaxingComponent;
@@ -11,7 +12,8 @@ describe('WaxingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WaxingComponent ]
+      declarations: [ WaxingComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

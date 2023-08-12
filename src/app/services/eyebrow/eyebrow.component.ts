@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { BserviceService } from 'src/app/bservice.service';
 
 @Component({
@@ -8,40 +7,38 @@ import { BserviceService } from 'src/app/bservice.service';
   styleUrls: ['./eyebrow.component.css']
 })
 export class EyebrowComponent implements OnInit {
-eyebrowlist:any;
-adminButton;
-  constructor(private service:BserviceService,private activatedRoute:ActivatedRoute) {
-    if(sessionStorage.getItem('admin')){
+  eyebrowlist: any[] = []; // Initialize with an empty array
+  adminButton;
+
+  constructor(private service: BserviceService) {
+    if (sessionStorage.getItem('admin')) {
       this.adminButton = true;
-    }
-     else {
+    } else {
       this.adminButton = false;
     }
   }
 
   ngOnInit() {
-
-    this.service.eyebrowservice().subscribe((data=>{
-      this.eyebrowlist=data;
-    }))
-
-
+    this.service.eyebrowservice().subscribe((data: any[]) => {
+      this.eyebrowlist = data;
+    });
   }
 
-  getTotal(){
+  getTotal() {
     return this.eyebrowlist.length;
   }
-  getStandard(){
-    return this.eyebrowlist.filter(item => item.type==='standard').length;
-  }
-  getPremium(){
-    return this.eyebrowlist.filter(item => item.type==='premium').length;
+
+  getStandard() {
+    return this.eyebrowlist.filter((item) => item.type === 'standard').length;
   }
 
-  eyebrowValueChanged:string='all'
+  getPremium() {
+    return this.eyebrowlist.filter((item) => item.type === 'premium').length;
+  }
 
-  filterEybrow(data:string){
-    this.eyebrowValueChanged=data;
-    // console.log(this.eyebrowValueChanged);
+  eyebrowValueChanged: string = 'all';
+
+  filterEyebrow(data: string) {
+    this.eyebrowValueChanged = data;
   }
 }

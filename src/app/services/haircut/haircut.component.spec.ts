@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HaircutComponent } from './haircut.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SearchComponent } from 'src/app/search/search.component';
+import { FormsModule } from '@angular/forms';
 
 describe('HaircutComponent', () => {
   let component: HaircutComponent;
@@ -11,7 +14,8 @@ describe('HaircutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HaircutComponent ]
+      declarations: [ HaircutComponent ,SearchComponent],
+      imports: [HttpClientTestingModule,FormsModule],
     })
     .compileComponents();
   }));

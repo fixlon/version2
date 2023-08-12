@@ -24,12 +24,13 @@ adminName:any;
   returl:any;
   phone: any;
   constructor(private fB:FormBuilder,private activeroute:ActivatedRoute,private http:HttpClient,private router:Router,private loginservice:LoginService) {
-    activeroute.queryParamMap.subscribe(data=>{
-this.returl=data.get("retUrl")
-    })
+
   }
 
   ngOnInit() {
+    this.activeroute.queryParamMap.subscribe(data=>{
+      this.returl=data.get("retUrl")
+          })
 
   // this.password = 'password';
   this.loginform1 = this.fB.group({

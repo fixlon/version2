@@ -37,7 +37,7 @@
                   <div>
                     <button (click)="clearSelection()" [disabled]="!serviceType" *ngIf="!adminButton">Clear</button>
                     <button  (click)="editMode=true" [disabled]="editMode" *ngIf="adminButton">Edit</button>
-                    <button  [disabled]="!editMode" *ngIf="adminButton" >Update</button>
+                    <button  [disabled]="!editMode"(click)="editMode=false" *ngIf="adminButton" >Update</button>
                   </div>
 
                 </div>

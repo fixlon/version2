@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { GalleryfullComponent } from './galleryfull.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('GalleryfullComponent', () => {
   let component: GalleryfullComponent;
@@ -11,7 +12,8 @@ describe('GalleryfullComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GalleryfullComponent ]
+      declarations: [ GalleryfullComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

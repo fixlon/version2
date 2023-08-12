@@ -1,21 +1,21 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
-import { HttpClient } from '@angular/common/http';
+import { LoggerService } from '../logger.service';
+
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit, OnDestroy {
+export class DetailsComponent implements OnInit{
   services: any;
   serviceType: string;
   allservice:any;
   editMode: boolean=false;
   adminButton:boolean=false;
   CustomerName:String;
-  timeslot;
   cost: number = 0;
   selectedTimeSlot: string;
   bookedTimeSlots: string[] = [];
@@ -23,7 +23,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   proceed:boolean=true;
   booking:any;
 
-  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private http:HttpClient,private router:Router) {
+  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router,private logger:LoggerService) {
 
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
@@ -37,6 +37,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.serviceType = this.activatedRoute.snapshot.paramMap.get('serviceType');//getting service type by query params and acess for the current state route and name of the parameter
+
     switch (this.serviceType) {
       case 'eyebrow':
         this.service.eyebrowservice().subscribe((data) => {
@@ -98,15 +99,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
         // Handle unknown service type
         break;
     }
+//  this.activatedRoute.params.subscribe((params) => {
+//       this.serviceType = params['serviceType'];
+//     });
 
-      this.activatedRoute.params.subscribe(params => {
-        this.serviceType = params['serviceType'];
-        // Use the serviceType parameter for further processing or data retrieval
-      });
-      this.serviceType = null;
-      this.activatedRoute.queryParamMap.subscribe((param)=>{
-        this.editMode = Boolean(param.get('edit'));
-      })
+    // this.activatedRoute.queryParamMap.subscribe((param) => {
+    //   this.editMode = Boolean(param.get('edit'));
+    // });
   }
 
   //choosing the stylist by type standard or premium
@@ -125,17 +124,21 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
 //calculate total amount
-  calculateTotalCost(): number {
-  if (this.serviceType === 'premium') {
-    this.cost = parseInt(document.getElementById('servicePrice').textContent.trim()) + this.allservice.premium;
-  } else if (this.serviceType === 'standard') {
-    this.cost = parseInt(document.getElementById('servicePrice').textContent.trim()) + this.allservice.standard;
-  } else {
-    this.cost = parseInt(document.getElementById('servicePrice').textContent.trim());
+calculateTotalCost(): number {
+  if (this.allservice) { // Check if allservice is defined
+    if (this.serviceType === 'premium') {
+      this.cost =parseInt(document.getElementById('servicePrice').textContent.trim()) +
+        this.allservice.premium;
+    } else if (this.serviceType === 'standard') {
+      this.cost =parseInt(document.getElementById('servicePrice').textContent.trim()) +
+        this.allservice.standard;
+    } else {
+      this.cost = parseInt(document.getElementById('servicePrice').textContent.trim());
+    }
   }
 
   return this.cost;
-  }
+}
 
 stylist(){
   let stylist="";
@@ -177,16 +180,11 @@ stylist(){
       sessionStorage.setItem('booking1', JSON.stringify(this.booking));
       this.router.navigate(['services/'+this.activatedRoute.snapshot.paramMap.get('serviceType')+'/'+this.activatedRoute.snapshot.paramMap.get('id')+'/'+'payment']);
     } else {
-      console.log('Please fill in all fields');
+      this.logger.log('Please fill in all fields');
     }
   }
 
 
-
-
-  ngOnDestroy(): void {
-    // Clean up any subscriptions or resources here
-  }
 }
 
 

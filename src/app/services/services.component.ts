@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BserviceService } from '../bservice.service';
 import { LoginService } from '../login.service';
-import { AdminGuard } from '../admin.guard';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -12,7 +10,7 @@ import { Router } from '@angular/router';
 export class ServicesComponent implements OnInit {
 mservicelist:any;
 adminButton:boolean=false;
-  constructor(private service:BserviceService,public loginservice:LoginService,private router:Router) {
+  constructor(private service:BserviceService,public loginservice:LoginService) {
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
     }
@@ -26,7 +24,6 @@ adminButton:boolean=false;
       this.mservicelist=data;
     }))
   }
-
 
 
 }

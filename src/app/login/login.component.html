@@ -1,7 +1,7 @@
  <body>
     <div class="container">
         <h1>GET IN TOUCH</h1>
-        <form action=""  [formGroup]="loginform1" (ngSubmit)="login()">
+        <form  [formGroup]="loginform1" (ngSubmit)="login()">
             <div class="row">
                  <div class="column">
                   <label for="email">Email ID</label>
@@ -27,11 +27,11 @@
 
 
             </div>
-               <div class="column">
-                <label>
-                  <input type="checkbox" [(ngModel)]="show" (change)="onClick()" style="margin-right: 5px;">Show Password:
-                </label>
-              </div>
+            <div class="column">
+              <label>
+                <input type="checkbox" [checked]="show" (change)="onClick()" style="margin-right: 5px;">Show Password:
+              </label>
+            </div>
 
             <div class="button">
                 <button  style="font-size: 17px;letter-spacing: 2px;">Login</button>

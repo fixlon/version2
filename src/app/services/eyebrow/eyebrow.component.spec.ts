@@ -1,20 +1,20 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EyebrowComponent } from './eyebrow.component';
+import { FilterComponent } from 'src/app/filter/filter.component';
+import { FormsModule } from '@angular/forms';
+ // Adjust the path accordingly
 
 describe('EyebrowComponent', () => {
   let component: EyebrowComponent;
   let fixture: ComponentFixture<EyebrowComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ EyebrowComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [EyebrowComponent, FilterComponent], // Include the FilterComponent
+      imports: [HttpClientTestingModule,FormsModule],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EyebrowComponent);

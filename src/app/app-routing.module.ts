@@ -42,6 +42,10 @@ const routes: Routes = [
   //   component:HomeComponent,
   // },
   {
+    path: 'change-password/:id',
+    component: ChangePasswordComponent
+  },
+  {
     path:"home",
     component:HomeComponent,
   },
@@ -138,7 +142,7 @@ const routes: Routes = [
     {
       path: "services/:serviceType/:id/payment",
       canDeactivate:[CanDeactivateGuardService],
-      component: PaymentserviceComponent
+      component: PaymentserviceComponent 
     }
 
   ]

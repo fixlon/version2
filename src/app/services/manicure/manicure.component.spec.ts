@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ManicureComponent } from './manicure.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ManicureComponent', () => {
   let component: ManicureComponent;
@@ -11,7 +12,8 @@ describe('ManicureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManicureComponent ]
+      declarations: [ ManicureComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

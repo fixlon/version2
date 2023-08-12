@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit {
   adminButton:boolean=false;
 
   constructor(public activeroute:ActivatedRoute,private router:Router,public service:LoginService,private renderer: Renderer2){
-    activeroute.queryParamMap.subscribe(data=>{
-      this.returl=data.get("retUrl")
+    this.activeroute.queryParamMap.subscribe(data=>{
+      this.returl=data.get("retUrl");
           })
           if(sessionStorage.getItem('email')){
             this.loginButton=false;
@@ -28,9 +28,11 @@ export class HeaderComponent implements OnInit {
             this.logoutButton=true;
             this.adminButton=true;
           }
-          else{
-            this.loginButton=true;
-            this.logoutButton=false;
+          else {
+            this.loginButton = true;
+            this.logoutButton = false;
+            this.adminButton = false;
+            this.userName = null;
           }
   this.userName=sessionStorage.getItem('userName');
   }

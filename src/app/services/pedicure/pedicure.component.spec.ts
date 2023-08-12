@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PedicureComponent } from './pedicure.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PedicureComponent', () => {
   let component: PedicureComponent;
@@ -11,7 +12,8 @@ describe('PedicureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PedicureComponent ]
+      declarations: [ PedicureComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

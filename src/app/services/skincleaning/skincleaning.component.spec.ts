@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SkincleaningComponent } from './skincleaning.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SkincleaningComponent', () => {
   let component: SkincleaningComponent;
@@ -11,7 +12,8 @@ describe('SkincleaningComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkincleaningComponent ]
+      declarations: [ SkincleaningComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

@@ -8,7 +8,7 @@ import { environment } from 'src/environment/environment';
 })
 export class UserService {
   private apiUrl = environment.apiUrl;
-  private url: string = `${this.apiUrl}/usersprofile`;
+  private url =environment.url;
   private url1: string = `${this.apiUrl}/services`;
   private url2: string = `${this.apiUrl}/package`;
 

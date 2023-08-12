@@ -67,4 +67,5 @@ payment(){
 package(){
   return this.client.get(`${this.apiUrl}/package`)
 }
+
 }

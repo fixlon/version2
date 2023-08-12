@@ -25,12 +25,12 @@ export class PaymentComponent implements OnInit {
   expiryDate;
   cvv;
   submit:boolean=true;
-
+  today: Date = new Date(); // Example date initialization
 date=new Date();
 now=this.date.toLocaleDateString();
 paymentForm: FormGroup;
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService,private service1:BserviceService) {
-    activeroute.queryParamMap.subscribe(data=>{
+    this.activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
          this.packageName=sessionStorage.getItem('packageName');

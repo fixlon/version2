@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
-import { ViewEncapsulation } from '@angular/compiler';
 @Component({
   selector: 'app-add ',
   templateUrl: './add.component.html',
@@ -20,12 +19,12 @@ export class AddComponent implements OnInit {
   products:[];
   selectedService;
   serviceForm: FormGroup;
-
+  localurl;
 @ViewChild('serviceForm') form:NgForm;
 
 
-  constructor(private fb:FormBuilder,private service:BserviceService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,) {
-    activeroute.queryParamMap.subscribe(data=>{
+  constructor(private fb:FormBuilder,private service:BserviceService,private http:HttpClient,private activeroute:ActivatedRoute,) {
+    this.activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
 
@@ -60,24 +59,38 @@ else{
 
   }
 
-
-
 onDeleteService(id:any){
   this.http.delete(this.url1+"/"+id).subscribe();
   // alert(confirm("Are you sure want to delete"));
   window.location.reload();
 }
-onEditService(id:any){
-  this.currentServiceId=id;
-  let currentService=this.mservicelist.find((p)=>{return p.id===id; });
-// console.log(this.form);
+onEditService(id: any) {
+  this.currentServiceId = id;
+  let currentService = this.mservicelist.find((product) => product.id === id);
 
-this.form.setValue({
-  Name:currentService.Name,
-  image:currentService.image,
-  link:currentService.link
-});
-this.editMode=true;
+  if (currentService) {
+    this.form.setValue({
+      Name: currentService.Name,
+      image: currentService.image,
+      link: currentService.link,
+    });
+
+    this.editMode = true;
+  } else {
+    console.error(`Service with ID ${id} not found.`);
+  }
+}
+
+file(event:any){
+  alert('ho')
+if(event.target.files&&event.target.files[0]){
+  var reader=new FileReader();
+  reader.onload=(event:any)=>{
+    this.localurl=event.target.result;
+    console.log(this.localurl)
+  }
+  console.log(reader.readAsDataURL(event.target.files[0]));
+}
 }
 
 

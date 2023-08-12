@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ServicesComponent } from './services.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ServicesComponent', () => {
   let component: ServicesComponent;
@@ -11,7 +12,8 @@ describe('ServicesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServicesComponent ]
+      declarations: [ ServicesComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));

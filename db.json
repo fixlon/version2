@@ -74,6 +74,18 @@
       "image": "/assets/img/services/skincleaning.png",
       "link": "skincleaning",
       "id": 8
+    },
+    {
+      "Name": "haircut2",
+      "image": "C:\\fakepath\\skincleaning.png",
+      "link": "haircut2",
+      "id": 10
+    },
+    {
+      "Name": "a",
+      "image": "C:\\fakepath\\practical.jpg",
+      "link": "a",
+      "id": 11
     }
   ],
   "eyebrow": [
@@ -814,22 +826,12 @@
     {
       "name": "NANDHAGOPAL",
       "phone": "8525876050",
-      "email": "nandhavignesh5@gmail.com",
-      "date": "8/2/2023",
-      "packageName": "Silver",
-      "price": "Rs.5000",
+      "email": "nandhavignesh85@gmail.com",
+      "date": "8/10/2023",
+      "packageName": "Gold",
+      "price": "Rs.7000",
       "cemail": "nandhavignesh85@gmail.com",
       "id": 1
-    },
-    {
-      "name": "NANDHAGOPAL",
-      "phone": "8525876050",
-      "email": "nandhavignesh85@gmail.com",
-      "date": "8/2/2023",
-      "packageName": "Diamond",
-      "price": "Rs.10000",
-      "cemail": "nandhavignesh85@gmail.com",
-      "id": 2
     }
   ]
 }

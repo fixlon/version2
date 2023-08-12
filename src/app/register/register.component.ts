@@ -19,12 +19,14 @@ export class RegisterComponent implements OnInit, IDeactivateComponent{
   phone;
   password;
   submit:boolean=true;
+  url:any="http://localhost:3000/usersprofile";
+  
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
-    activeroute.queryParamMap.subscribe(data=>{
+    this.activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
           })
   }
-  url:any="http://localhost:3000/usersprofile";
+
 
   loginform1=this.fb.group({
     username:["",[Validators.required,Validators.pattern("^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{3,15}$")]],
