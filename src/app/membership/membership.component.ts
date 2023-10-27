@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { BserviceService } from '../bservice.service';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -10,11 +11,18 @@ import { BserviceService } from '../bservice.service';
 export class MembershipComponent implements OnInit {
 membership;
 userName;
-  constructor(private service:BserviceService){
+log:any={
+  msg:sessionStorage.getItem('userName')+ " visited membership"
+}
+  constructor(private service:BserviceService,private login:LoginService){
     this.userName=sessionStorage.getItem('userName');
    }
 
   ngOnInit() {
+    this.login.sendlog("http://localhost:1999/logs",this.log).subscribe(data=>{
+      console.log(data);
+    })
+
     if(sessionStorage.getItem('admin')){
       this.service.package().subscribe(data=>{
         this.membership=data;

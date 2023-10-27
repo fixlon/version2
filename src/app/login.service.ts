@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class LoginService {
 
   isloggedin:boolean=false;
   isadmin:boolean=false;
-  url:any="http://localhost:3000/usersprofile";
+  private userurl=environment.user;
   email:any="";
   password:any="";
   constructor(public http:HttpClient){}
@@ -18,10 +19,13 @@ export class LoginService {
     this.isloggedin=true;
   }
 
-  sendemail(url:any,data:any){
-    return this.http.post(url,data);
+  sendemail(userurl:any,data:any){
+    return this.http.post( userurl,data);
     }
 
+    sendlog(user:any,data:any){
+      return this.http.post(user,data);
+      }
   adminloggedin(){
     this.isadmin=true;
   }

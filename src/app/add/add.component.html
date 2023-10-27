@@ -6,7 +6,7 @@
     <div class="manage">
     <div class="container">
         <h1>GET IN TOUCH WITH US</h1>
-        <form #serviceForm="ngForm" (ngSubmit)="onServiceCreate(serviceForm.value)">
+        <form #serviceForm="ngForm" (ngSubmit)="onServiceCreate(name.value,link.value)">
           <div class="row">
             <div class="column">
               <label for="service">Service Name</label>
@@ -17,7 +17,7 @@
             <div class="column">
               <label for="image">Image</label>
               <!-- <input type="text" id="image" name="image" placeholder="Enter your image" ngModel required #image="ngModel"> -->
-              <input type="file" (change)="file($event)" id="image"  name="image" placeholder="Enter your image" ngModel required #image="ngModel"><img src="{{localurl}}" alt="">
+              <input type="file" (change)="file($event)" id="image"  name="image" placeholder="Enter your image" ngModel required #image="ngModel">
               <!-- <div *ngIf="image.invalid && image.touched" class="error-message">Image is required.</div> -->
             </div>
 

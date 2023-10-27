@@ -3,6 +3,7 @@ import { BserviceService } from '../bservice.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LoggerService } from '../logger.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-packages',
@@ -12,11 +13,17 @@ import { LoggerService } from '../logger.service';
 export class PackagesComponent implements OnInit {
   membership;
   email;
-  url:"http://localhost:3000/package";
-  constructor(private service:BserviceService,private router:Router,private http:HttpClient,private log:LoggerService) { }
+  // url:"http://localhost:3000/package";
+  log:any={
+    msg:sessionStorage.getItem('userName')+ " visited Packages"
+  }
+
+  constructor(private service:BserviceService,private router:Router,private http:HttpClient,private login:LoginService) { }
 
   ngOnInit() {
-
+    this.login.sendlog("http://localhost:1999/logs",this.log).subscribe(data=>{
+      console.log(data);
+    })
   }
 
   // save(packageName: string, packagePrice: string) {

@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
 import { IDeactivateComponent } from '../canDeactivate-gaurd.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,8 @@ export class RegisterComponent implements OnInit, IDeactivateComponent{
   phone;
   password;
   submit:boolean=true;
-  url:any="http://localhost:3000/usersprofile";
-  
+  private userurl=environment.user;
+
   constructor(private fb:FormBuilder,private service:UserService,private http:HttpClient,private router:Router,private activeroute:ActivatedRoute,public login:LoginService) {
     this.activeroute.queryParamMap.subscribe(data=>{
       this.returl=data.get("retUrl")
@@ -55,7 +56,7 @@ email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*
       phone:this.loginform1.controls['phone'].value,
       email:this.loginform1.controls['email'].value
     }
-    this.http.get<any>(this.url).subscribe(res => {
+    this.http.get<any>(this.userurl).subscribe(res => {
       const user = res.find((result: any) => {
         return result.email === this.loginform1.value.email;
       });
@@ -69,6 +70,9 @@ email:["",[Validators.required,Validators.pattern("^(?!.*@gmail\\.gmail\\.)(?!.*
           alert("Heartly Welcome "+body.name+"\nThank you for choosing us")
           this.router.navigate(['login']);
         })
+        this.login.sendemail("http://localhost:1999/sendEmail",body).subscribe(data=>{
+        console.log(data);
+      })
         }
   });
   this.submit = false;

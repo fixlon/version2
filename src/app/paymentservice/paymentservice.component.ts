@@ -3,6 +3,7 @@ import { Component ,OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidatorFn } from '@angular/forms';
+import { LoginService } from '../login.service';
 @Component({
   selector: 'app-paymentservice',
   templateUrl: './paymentservice.component.html',
@@ -19,7 +20,7 @@ cardType: string = '';
 paymentForm: FormGroup;
 submit:boolean=true;
 
-  constructor(private http: HttpClient,private router:Router,private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient,private router:Router,private formBuilder: FormBuilder,private login:LoginService) {
   }
 ngOnInit() {
   this.paymentForm = this.formBuilder.group({
@@ -35,10 +36,14 @@ ngOnInit() {
     this.booking = JSON.parse(storedBooking); // Convert the string back to an object using JSON.parse()
     this.http.post('http://localhost:3000/payment', this.booking).subscribe(() => {
         console.log('Booking saved successfully');
-        alert("Your service has been successfully booked.  ")
+        alert("Your service has been successfully booked.  ");
+        this.login.sendemail("http://localhost:1999/paymentmail",this.booking ).subscribe(data=>{
+          console.log(data);
+        })
         this.router.navigate(['services']);
         console.log(this.booking)
       });
+
   } else {
     console.log('Booking details not found in sessionStorage');
   }
@@ -52,14 +57,7 @@ ngOnInit() {
     // Add more card types and their image URLs here as needed
   };
 
-///payment ts
-processPayment() {
 
-  console.log('Card Number:', this.cardNumber);
-  console.log('Card Holder:', this.cardHolder);
-  console.log('Expiry Date:', this.expiryDate);
-  console.log('CVV:', this.cvv);
-}
 
 determineCardType() {
   if (!this.cardNumber || this.cardNumber.trim() === '') {

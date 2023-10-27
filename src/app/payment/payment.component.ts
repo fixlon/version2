@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
 import { BserviceService } from '../bservice.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-payment',
@@ -12,7 +13,7 @@ import { BserviceService } from '../bservice.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  url1:any="http://localhost:3000/package";
+  private packageurl=environment.package;
   returl:any;
   packageName;
   packageprice;
@@ -70,9 +71,7 @@ paymentForm: FormGroup;
           this.router.navigate(['services']);
           console.log(body);
         })
-  this.login.sendemail("http://localhost:1999/sendEmail",body).subscribe(data=>{
-    console.log(data);
-  })
+
   this.submit=false;
   }
 

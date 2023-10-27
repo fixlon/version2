@@ -74,18 +74,6 @@
       "image": "/assets/img/services/skincleaning.png",
       "link": "skincleaning",
       "id": 8
-    },
-    {
-      "Name": "haircut2",
-      "image": "C:\\fakepath\\skincleaning.png",
-      "link": "haircut2",
-      "id": 10
-    },
-    {
-      "Name": "a",
-      "image": "C:\\fakepath\\practical.jpg",
-      "link": "a",
-      "id": 11
     }
   ],
   "eyebrow": [
@@ -820,6 +808,56 @@
       "email": "nandhavignesh85@gmail.com",
       "bookingdate": "8/3/2023",
       "id": 3
+    },
+    {
+      "CustomerName": "Nandhagopal vignesh A",
+      "serviceType": "Purer Pores",
+      "servicePrice": 1499,
+      "stylist": "standard",
+      "time": "12:00 PM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "9/6/2023",
+      "id": 4
+    },
+    {
+      "CustomerName": "END",
+      "serviceType": "Classic Bow",
+      "servicePrice": 649,
+      "stylist": "premium",
+      "time": "12:00 PM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "9/6/2023",
+      "id": 5
+    },
+    {
+      "CustomerName": "a",
+      "serviceType": "Japanese traditional",
+      "servicePrice": 2999,
+      "stylist": "basic",
+      "time": "9:00 AM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "9/6/2023",
+      "id": 6
+    },
+    {
+      "CustomerName": "s",
+      "serviceType": "Japanese traditional",
+      "servicePrice": 2999,
+      "stylist": "basic",
+      "time": "11:00 AM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "9/6/2023",
+      "id": 7
+    },
+    {
+      "CustomerName": "jo",
+      "serviceType": "Acralic Nails",
+      "servicePrice": 599,
+      "stylist": "basic",
+      "time": "1:00 PM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "9/6/2023",
+      "id": 8
     }
   ],
   "package": [

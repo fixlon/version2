@@ -1,51 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = environment.apiUrl;
-  private url =environment.url;
-  private url1: string = `${this.apiUrl}/services`;
-  private url2: string = `${this.apiUrl}/package`;
+  private userurl =environment.user;
+  private serviceurl = environment.services;
+  private packageurl= environment.package;
 
   constructor(private http: HttpClient) { }
 
-  adduser(body: any): Observable<any> {
-    return this.http.post<any>(this.url, body);
+  adduser(body: any) {
+    return this.http.post<any>(this.userurl, body);
   }
 
-  addservice1(body: any): Observable<any> {
-    return this.http.post<any>(this.url2, body);
+  addservice1(body: any) {
+    return this.http.post<any>(this.packageurl, body);
   }
 
-  addservice(body: any): Observable<any> {
-    return this.http.post<any>(this.url1, body);
+  addservice(body: any) {
+    return this.http.post<any>(this.serviceurl, body);
   }
 
-  deleteservice(id: any): Observable<any> {
-    return this.http.delete<any>(`${this.url1}/${id}`);
+  deleteservice(id: any) {
+    return this.http.delete<any>(`${this.serviceurl}/${id}`);
   }
 
-  retriveuser(): Observable<any> {
-    return this.http.get<any>(this.url);
+  updateuser(id: any, data: any) {
+    return this.http.patch<any>(`${this.userurl}/${id}`, data);
   }
 
-  retriveoneuser(id: any): Observable<any> {
-    return this.http.get<any>(`${this.url}/${id}`);
+  updateProfile(id: any, value: any){
+    return this.http.put<any>(`${this.userurl}/${id}`, value);
   }
 
-  updateuser(id: any, data: any): Observable<any> {
-    return this.http.patch<any>(`${this.url}/${id}`, data);
-  }
-
-  updateProfile(id: any, value: any): Observable<any> {
-    return this.http.put<any>(`${this.url}/${id}`, value);
-  }
-
-  getUser(id: any): Observable<any> {
-    return this.http.get<any>(`${this.url}/${id}`);
+  getUser(id: any) {
+    return this.http.get<any>(`${this.userurl}/${id}`);
   }
 }
