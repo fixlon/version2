@@ -10,11 +10,11 @@
       "id": 1
     },
     {
-      "username": "NANDHAGOPAL",
-      "email": "2k19ece050@kiot.ac.in",
+      "username": "nandha",
+      "email": "2k193c3050@kiot.ac.in",
       "phone": "8525876050",
-      "password": "Nasa@123",
-      "confirmpassword": "Nasa@123",
+      "password": "Password@2",
+      "confirmpassword": "Password@2",
       "id": 2
     }
   ],
@@ -858,6 +858,16 @@
       "email": "nandhavignesh85@gmail.com",
       "bookingdate": "9/6/2023",
       "id": 8
+    },
+    {
+      "CustomerName": "nandha",
+      "serviceType": "Celebrity Makeup",
+      "servicePrice": 28549,
+      "stylist": "standard",
+      "time": "9:00 AM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "12/14/2023",
+      "id": 9
     }
   ],
   "package": [
