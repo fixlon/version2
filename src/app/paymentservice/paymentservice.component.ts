@@ -36,14 +36,13 @@ ngOnInit() {
     this.booking = JSON.parse(storedBooking); // Convert the string back to an object using JSON.parse()
     this.http.post('http://localhost:3000/payment', this.booking).subscribe(() => {
         console.log('Booking saved successfully');
-        alert("Your service has been successfully booked.  ");
-        this.login.sendemail("http://localhost:1999/paymentmail",this.booking ).subscribe(data=>{
-          console.log(data);
-        })
+        alert("Your service has been successfully booked.  ")
         this.router.navigate(['services']);
         console.log(this.booking)
       });
-
+      this.login.sendemail("http://localhost:1999/sendemail",this.booking ).subscribe(data=>{
+        console.log(data);
+      })
   } else {
     console.log('Booking details not found in sessionStorage');
   }

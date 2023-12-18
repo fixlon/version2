@@ -84,6 +84,11 @@ input[type=text]{
   font-size: 20px;
   margin: 0%;
 }
+.timeSlot{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap ;
+}
 .timeSlot button{
   width: 120px;
   padding: 10px;

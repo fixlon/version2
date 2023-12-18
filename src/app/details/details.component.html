@@ -10,29 +10,30 @@
   <div class="services__content" >
 
       <div class="services__content__descripion container">
-        <ng-container *ngIf="allservice">
+
+        <!-- choosing stylist  -->
           <div class="box">
             <div class="inner">
               <div class="innerimg">
-                <img src="{{ allservice.image }}" alt="{{ allservice?.Name }}" title="{{ allservice?.Name }}">
+                <img src="{{ displayhtml.image }}" alt="{{ displayhtml?.Name }}" title="{{ displayhtml?.Name }}">
               </div>
               <div class="innnerContent">
-                <h1 *ngIf="!editMode">{{ allservice?.Name }}</h1>
+                <h1 *ngIf="!editMode">{{ displayhtml?.Name }}</h1>
                 <div *ngIf="editMode">
-                  <input  style="font-size: 20px;height: 35px;" type="text" [(ngModel)]="allservice.Name">
+                  <input  style="font-size: 20px;height: 35px;" type="text" [(ngModel)]="displayhtml.Name">
                 </div>
-                  <h2 id="servicePrice" style="padding-left: 12px;"><i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{ allservice?.price }} </i></h2>
-                  <button id="stylist" (click)="selectService('basic')" [disabled]="serviceType === 'standard' || serviceType === 'premium' ||adminButton">Basic Stylist</button>
-                  Service Charge <span *ngIf="!editMode" id="basic">{{ allservice.basic }}</span>
-                  <span *ngIf="editMode"><input type="text" [(ngModel)]="allservice.basic"></span><br>
+                  <h2 id="servicePrice" style="padding-left: 12px;"><i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{ displayhtml?.price }} </i></h2>
+                  <button id="stylist" (click)="selectService('basic',displayhtml.basic)" [disabled]="serviceType === 'standard' || serviceType === 'premium' ||adminButton">Basic Stylist</button>
+                  Service Charge <span *ngIf="!editMode" id="basic">Free</span>
+                  <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.basic"></span><br>
 
-                  <button id="stylist" (click)="selectService('standard')" [disabled]="serviceType === 'basic' || serviceType === 'premium' ||adminButton">Standard Stylist</button>
-                  Service Charge Rs.<span *ngIf="!editMode"  id="standard">{{ allservice.standard }}</span>
-                  <span *ngIf="editMode"><input type="text" [(ngModel)]="allservice.standard"></span><br>
+                  <button id="stylist" (click)="selectService('standard',displayhtml.standard)" [disabled]="serviceType === 'basic' || serviceType === 'premium' ||adminButton">Standard Stylist</button>
+                  Service Charge Rs.<span *ngIf="!editMode"  id="standard">{{ displayhtml.standard }}</span>
+                  <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.standard"></span><br>
 
-                  <button id="stylist" (click)="selectService('premium')" [disabled]="serviceType === 'basic' || serviceType === 'standard' ||adminButton" >Premium Stylist</button>
-                  Service Charge Rs.<span *ngIf="!editMode" id="premium">{{ allservice.premium }}</span>
-                  <span *ngIf="editMode"><input type="text" [(ngModel)]="allservice.premium"></span>
+                  <button id="stylist" (click)="selectService('premium',displayhtml.premium)" [disabled]="serviceType === 'basic' || serviceType === 'standard' ||adminButton" >Premium Stylist</button>
+                  Service Charge Rs.<span *ngIf="!editMode" id="premium">{{ displayhtml.premium }}</span>
+                  <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.premium"></span>
 
                   <div>
                     <button (click)="clearSelection()" [disabled]="!serviceType" *ngIf="!adminButton">Clear</button>
@@ -43,13 +44,13 @@
                 </div>
             </div>
           </div>
-        </ng-container>
+
       </div>
 
 
-       <!-- booking -->
+
       <div class="services__content__descripion container" style="margin-top: 10px;">
-        <ng-container >
+        <!-- timeslot  -->
           <div class="service-type__content">
             <h1 style="padding-left: 20px;">Select a time slot:</h1>
               <div class="details">
@@ -60,28 +61,37 @@
                   </div>
 
                   <div class="form-group">
-                    <p > Service Type: <b id="serviceType">{{ allservice?.Name }}</b></p>
+                    <p > Service Type: <b id="serviceType">{{ displayhtml?.Name }}</b></p>
                   </div>
-
                   <div class="timeSlot">
-                      <button class="time"  *ngFor="let slot of timeSlots" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)"  >{{ slot }}</button>
+                  <div  *ngFor="let slot of timeSlots">
+                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)"  >{{ slot.slot }}</button>
                   </div>
-
+                </div>
                 <button class="clear-button" (click)="clearTimeSlot()">Clear</button>
               </div>
           </div>
-        </ng-container>
+
       </div>
     </div>
-  <!-- booking end  -->
+
 
   <div class="book">
     <div class="form-group">
       <h3>Total Price:</h3>
-      <h2 id="servicePrice"><i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{ calculateTotalCost() }}</i></h2>
+      <h2 id="servicePrice"><i class="fa-solid fa-indian-rupee-sign" style="color: green;">{{ priceChange }}</i></h2>
     </div>
        <button class="bookingButton" *ngIf="!adminButton" (click)="pay()" [disabled]="!selectedTimeSlot || !CustomerName|| !serviceType">Proceed Payment</button>
   </div>
+
+  <!-- <ng-container>
+    <div class="display" >
+      <img src="{{displayhtml.image}}" title="{{displayhtml.Name}}">
+      <h1>{{displayhtml.Name}}</h1>
+    </div>
+  </ng-container> -->
+
 </section>
+
 <!-- booking end -->
 

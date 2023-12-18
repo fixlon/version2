@@ -5,7 +5,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
 import { BserviceService } from '../bservice.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-payment',
@@ -13,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  private packageurl=environment.package;
+  url1:any="http://localhost:3000/package";
   returl:any;
   packageName;
   packageprice;

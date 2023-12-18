@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
 import { LoggerService } from '../logger.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -19,11 +20,41 @@ export class DetailsComponent implements OnInit{
   cost: number = 0;
   selectedTimeSlot: string;
   bookedTimeSlots: string[] = [];
-  timeSlots: string[] = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM'];
+  timeSlots:any=[];
   proceed:boolean=true;
   booking:any;
+  servicedata:any;
+  manicuredata:any;
+  displaydata:any;
+  displayhtml:any;
 
-  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router,private logger:LoggerService) {
+  filterData:any;
+
+  priceChange:any;
+  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router,private logger:LoggerService,private http:HttpClient) {
+
+    this.servicedata=sessionStorage.getItem('service');
+    this.serviceType=sessionStorage.getItem('products1');
+    this.http.get("http://localhost:3000/services").subscribe((servicedata2:any)=>{
+      // console.log(servicedata2);
+      const data=servicedata2.find((value:any)=>{
+        // console.log(value);
+        this.manicuredata=value;
+        return this.servicedata==value.Name;
+      })
+      if(data){
+        this.displaydata=this.manicuredata.products;
+        this.filterData=this.displaydata.find((data:any)=>{
+          if(data.Name==this.serviceType){
+            return data;
+          }
+        });
+        this.displayhtml=this.filterData;
+        this.priceChange=this.displayhtml.price;
+        // console.log(this.filterData);
+      }
+
+    })
 
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
@@ -35,82 +66,17 @@ export class DetailsComponent implements OnInit{
 
    //choosing service type by dynamic
   ngOnInit(): void {
+    this.service.timeservice().subscribe((data) => {
+      this.timeSlots = data;
+    });
 
-    this.serviceType = this.activatedRoute.snapshot.paramMap.get('serviceType');//getting service type by query params and acess for the current state route and name of the parameter
-
-    switch (this.serviceType) {
-      case 'eyebrow':
-        this.service.eyebrowservice().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'haircut':
-        this.service.haircutservice().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'waxing':
-        this.service.waxing().subscribe((data) => {
-          this.services = data;
-          this.allservice= this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'pedicure':
-        this.service.pedicure().subscribe((data) => {
-          this.services = data;
-          this.allservice= this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'manicure':
-        this.service.manicureservice().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'skincleaning':
-        this.service.skincleaning().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'makeup':
-        this.service.makeup().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      case 'hairstyle':
-        this.service.hairstyle().subscribe((data) => {
-          this.services = data;
-          this.allservice = this.services.find(service => service.id === +this.activatedRoute.snapshot.paramMap.get('id'));
-        });
-        break;
-
-      default:
-        // Handle unknown service type
-        break;
-    }
-//  this.activatedRoute.params.subscribe((params) => {
-//       this.serviceType = params['serviceType'];
-//     });
-
-    // this.activatedRoute.queryParamMap.subscribe((param) => {
-    //   this.editMode = Boolean(param.get('edit'));
-    // });
   }
 
   //choosing the stylist by type standard or premium
-  selectService(type: string): void {
+  selectService(type: string, priceDetails:any): void {
     this.serviceType = type;
+    // console.log(this.displayhtml);
+    this.priceChange = this.displayhtml.price+priceDetails;
   }
 
 //clear the all selection
@@ -123,37 +89,6 @@ export class DetailsComponent implements OnInit{
     this.selectedTimeSlot = slot;
   }
 
-//calculate total amount
-calculateTotalCost(): number {
-  if (this.allservice) { // Check if allservice is defined
-    if (this.serviceType === 'premium') {
-      this.cost =parseInt(document.getElementById('servicePrice').textContent.trim()) +
-        this.allservice.premium;
-    } else if (this.serviceType === 'standard') {
-      this.cost =parseInt(document.getElementById('servicePrice').textContent.trim()) +
-        this.allservice.standard;
-    } else {
-      this.cost = parseInt(document.getElementById('servicePrice').textContent.trim());
-    }
-  }
-
-  return this.cost;
-}
-
-stylist(){
-  let stylist="";
-  if(this.serviceType==='premium'){
-    stylist="premium";
-  }
-  else if(this.serviceType === "standard"){
-    stylist="standard";
-  }
-  else{
-    stylist="basic";
-  }
-  return stylist;
-}
-
   clearTimeSlot(): void {
     this.selectedTimeSlot = null;
   }
@@ -162,12 +97,12 @@ stylist(){
     // this.proceed=false;
     if (this.CustomerName && this.selectedTimeSlot) {
       const cemail= sessionStorage.getItem('email');
-      const totalCost = this.calculateTotalCost();//calling the method for storing the price  in service price
-      const stylist=this.stylist();
+      const totalCost = this.priceChange;//calling the method for storing the price  in service price
+      const stylist=this.serviceType;
       const now=new Date();
       this.booking = {
         CustomerName: this.CustomerName,
-        serviceType: document.getElementById('serviceType').textContent,//get servicename by html id
+        serviceType: this.serviceType,//get servicename by html id
         servicePrice:totalCost,
         stylist:stylist,
         time: this.selectedTimeSlot,
@@ -178,7 +113,7 @@ stylist(){
       console.log(this.booking)
 
       sessionStorage.setItem('booking1', JSON.stringify(this.booking));
-      this.router.navigate(['services/'+this.activatedRoute.snapshot.paramMap.get('serviceType')+'/'+this.activatedRoute.snapshot.paramMap.get('id')+'/'+'payment']);
+      this.router.navigate(['services/payment']);
     } else {
       this.logger.log('Please fill in all fields');
     }

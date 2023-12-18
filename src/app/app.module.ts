@@ -17,14 +17,6 @@ import { AuthGuard } from './auth.guard';
 import { LoginService } from './login.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { ManicureComponent } from './services/manicure/manicure.component';
-import { PedicureComponent } from './services/pedicure/pedicure.component';
-import { EyebrowComponent } from './services/eyebrow/eyebrow.component';
-import { MakeupComponent } from './services/makeup/makeup.component';
-import { HaircutComponent } from './services/haircut/haircut.component';
-import { HairstyleComponent } from './services/hairstyle/hairstyle.component';
-import { WaxingComponent } from './services/waxing/waxing.component';
-import { SkincleaningComponent } from './services/skincleaning/skincleaning.component';
 import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { GaddComponent } from './gadd/gadd.component';
@@ -40,6 +32,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PaymentserviceComponent } from './paymentservice/paymentservice.component';
 import { MembershipComponent } from './membership/membership.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +48,6 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
       GalleryfullComponent,
       ForgotPasswordComponent,
       ChangePasswordComponent,
-      ManicureComponent,PedicureComponent,SkincleaningComponent,EyebrowComponent,MakeupComponent,HaircutComponent,HairstyleComponent,WaxingComponent,
       AddComponent,
       PaymentComponent,
       GaddComponent,
@@ -69,7 +61,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
       FooterComponent,
       PaymentserviceComponent,
       MembershipComponent,
-      PrivacyPolicyComponent
+      PrivacyPolicyComponent,
+      ProductsComponent
    ],
   imports: [
     BrowserModule,

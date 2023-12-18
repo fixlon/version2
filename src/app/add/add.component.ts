@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { environment } from 'src/environments/environment';
+
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BserviceService } from '../bservice.service';
@@ -10,7 +10,7 @@ import { BserviceService } from '../bservice.service';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  private serviceurl=environment.services;
+  url1:any="http://localhost:3000/services";
   returl:any;
   mservicelist: any;
   editMode:boolean=false;
@@ -49,7 +49,7 @@ this.serviceForm = this.fb.group({
     console.log(imgurl)
     const Link=link;
 if(!this.editMode){
-  this.http.post(this.serviceurl,{Name:Name,image:imgurl,link:Link}).subscribe((res)=>{
+  this.http.post(this.url1,{Name:Name,image:imgurl,link:Link}).subscribe((res)=>{
     console.log(res);
     alert('New Service Created')
     window.location.reload();
@@ -65,7 +65,7 @@ else{
   }
 
 onDeleteService(id:any){
-  this.http.delete(this.serviceurl+"/"+id).subscribe();
+  this.http.delete(this.url1+"/"+id).subscribe();
   // alert(confirm("Are you sure want to delete"));
   window.location.reload();
 }

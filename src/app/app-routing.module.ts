@@ -10,14 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { ServicesComponent } from './services/services.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { PedicureComponent } from './services/pedicure/pedicure.component';
-import { EyebrowComponent } from './services/eyebrow/eyebrow.component';
-import { HaircutComponent } from './services/haircut/haircut.component';
-import { HairstyleComponent } from './services/hairstyle/hairstyle.component';
-import { MakeupComponent } from './services/makeup/makeup.component';
-import { WaxingComponent } from './services/waxing/waxing.component';
-import { SkincleaningComponent } from './services/skincleaning/skincleaning.component';
-import { ManicureComponent } from './services/manicure/manicure.component';
 import { AuthGuard } from './auth.guard';
 import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -31,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PaymentserviceComponent } from './paymentservice/paymentservice.component';
 import { MembershipComponent } from './membership/membership.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ProductsComponent } from './products/products.component';
 
 
 const routes: Routes = [
@@ -103,46 +96,18 @@ const routes: Routes = [
   canActivate:[AuthGuard],
     children:[
       {
-       path:"services/manicure",
-      component:ManicureComponent,
+       path:"services/products",
+      component:ProductsComponent,
     },
     {
-      path:"services/pedicure",
-      component:PedicureComponent,
-    },
-    {
-      path:"services/eyebrow",
-      component:EyebrowComponent
-    },
-    {
-      path:"services/haircut",
-      component:HaircutComponent
-    },
-    {
-      path:"services/hairstyle",
-      component:HairstyleComponent
-    },
-    {
-      path:"services/makeup",
-      component:MakeupComponent
-    },
-    {
-      path:"services/waxing",
-      component:WaxingComponent
-    },
-    {
-      path:"services/skincleaning",
-      component:SkincleaningComponent
-    },
-    {
-      path:"services/:serviceType/:id",
+      path:"services/details",
       component:DetailsComponent
     },
     //booking page routing
     {
-      path: "services/:serviceType/:id/payment",
+      path: "services/payment",
       canDeactivate:[CanDeactivateGuardService],
-      component: PaymentserviceComponent 
+      component: PaymentserviceComponent
     }
 
   ]

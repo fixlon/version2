@@ -1,0 +1,40 @@
+<section class="services section" id="services">
+  <div *ngIf="eyebrow">
+    <app-filter [all]="getTotal()"
+    [standard]="getStandard()"   [premium]="getPremium()" (filterRadioButtonChanged)="filterEyebrow($event)"></app-filter>
+  </div>
+
+    <div class="services__content">
+
+            <div class="row">
+
+                    <div class="section__title">
+                        <h1>Services</h1>
+                        <span>That we perform</span>
+                    </div>
+                    <div *ngIf="haircut"><app-search (searchedValue)="searchingValue($event)" ></app-search></div>
+            </div>
+
+        <div class="services__content__descripion container">
+  <ng-container  *ngFor="let item of displaydata;let ind=index;">
+                    <div class="box" *ngIf="searchedValue==='' || item.Name.toLowerCase().includes(searchedValue)" >
+<div (click)="service1(this.item.Name)">
+                        <div class="inner" >
+                          <img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}">
+                            <p>{{item.Name}}</p>
+                            <!-- <i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{item.price}}</i> -->
+                          <button class="btn1" (click)="service1(this.item.Name)" *ngIf="!adminButton">show Details</button>
+                        <button class="btn1" (click)="service1(this.item.Name)" *ngIf="adminButton">Edit Details</button>
+                        </div>
+                        </div>
+                      </div>
+                   </ng-container>
+
+        </div>
+        <!-- <div  >
+          <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
+         </div> -->
+    </div>
+
+</section>
+

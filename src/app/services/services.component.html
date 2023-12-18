@@ -1,19 +1,19 @@
 <section class="services section" id="services">
   <div class="services__content">
       <div class="row">
-          <div class="section__title">
+          <div class="section__title"> 
               <h1>Services</h1>
               <span>That we perform</span>
           </div>
       </div>
 
       <div class="services__content__descripion container">
-          <div class="box" *ngFor="let item of mservicelist">
-            <div class="inner" >
-                <a  routerLink="{{item.link}}"  title="{{item.Name}}"><img src="{{item.image}}" alt="{{item.Name}}"></a>
-                <p>{{item.Name}}</p>
+            <div class="inner" *ngFor="let item of mservicelist;let index=index">
+              <div (click)="service1(this.item.Name)" class="products">
+                <div class="image"><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}"></div>
+                <div><p>{{item.Name}}</p></div>
+              </div>
             </div>
-        </div>
       </div>
       <a routerLink="add" *ngIf="adminButton"><i class="fa-solid fa-circle-plus" style="font-size: 50px; margin-left: 46%;margin-top:50px;color:#75492b" ></i></a>
       <a routerLink="add" *ngIf="adminButton"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b" ></i></a>

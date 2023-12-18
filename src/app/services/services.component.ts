@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BserviceService } from '../bservice.service';
 import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -8,9 +9,13 @@ import { LoginService } from '../login.service';
   styleUrls: ['./services.component.css'],
 })
 export class ServicesComponent implements OnInit {
-mservicelist:any;
+mservicelist:any=[];
 adminButton:boolean=false;
-  constructor(private service:BserviceService,public loginservice:LoginService) {
+  constructor(private service:BserviceService,public loginservice:LoginService,private route:Router) {
+    this.service.mservice().subscribe((data=>{
+      this.mservicelist=data;
+      console.log(this.mservicelist);
+    }))
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;
     }
@@ -19,10 +24,14 @@ adminButton:boolean=false;
     }
   }
 
+  service1(value:any){
+    console.log(value);
+    sessionStorage.setItem('service',value);
+    this.route.navigateByUrl('services/products');
+  }
+
   ngOnInit() {
-    this.service.mservice().subscribe((data=>{
-      this.mservicelist=data;
-    }))
+
   }
 
 
