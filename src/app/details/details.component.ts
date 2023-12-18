@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit{
   adminButton:boolean=false;
   CustomerName:String;
   cost: number = 0;
-  selectedTimeSlot: string;
+  selectedTimeSlot: any;
   bookedTimeSlots: string[] = [];
   timeSlots:any=[];
   proceed:boolean=true;
@@ -27,7 +27,6 @@ export class DetailsComponent implements OnInit{
   manicuredata:any;
   displaydata:any;
   displayhtml:any;
-
   filterData:any;
 
   priceChange:any;
@@ -85,8 +84,9 @@ export class DetailsComponent implements OnInit{
   }
 
 //choosing time slot
-  selectTimeSlot(slot: string): void {
-    this.selectedTimeSlot = slot;
+  selectTimeSlot(slot: any): void {
+    this.selectedTimeSlot= slot.slot;
+    console.log(this.selectedTimeSlot);
   }
 
   clearTimeSlot(): void {

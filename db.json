@@ -20,7 +20,6 @@
   ],
   "admin": [
     {
-
       "username": "ADMIN",
       "password": "admin@fixlon",
       "email": "admin@gmail.com"
@@ -31,89 +30,79 @@
       "Name": "Manicure",
       "image": "/assets/img/services/manicure.png",
       "link": "manicure",
-      "products":[
-          {
-
-            "Name": "French traditional",
-            "image": "/assets/services/manicure1.jpg",
-            "price": 399,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          },
-          {
-
-            "Name": "Acralic Nails",
-            "image": "/assets/services/manicure2.jpg",
-            "price": 599,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          },
-          {
-
-            "Name": "Winter Tones",
-            "image": "/assets/services/manicure3.jpg",
-            "price": 899,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          },
-          {
-
-            "Name": "Custom Styles",
-            "image": "/assets/services/manicure4.jpg",
-            "price": 1899,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          },
-          {
-
-            "Name": "Mustard Matte",
-            "image": "/assets/services/manicure5.jpg",
-            "price": 399,
-            "basic": 0,
-            "standard": 150,
-            "premium": 250
-          },
-          {
-
-            "Name": "Nature Nails",
-            "image": "/assets/services/manicure6.jpg",
-            "price": 499,
-            "basic": 0,
-            "standard": 250,
-            "premium": 300
-          },
-          {
-
-            "Name": "Child bunny",
-            "image": "/assets/services/manicure7.jpg",
-            "price": 599,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          },
-          {
-
-            "Name": "Cool tone",
-            "image": "/assets/services/manicure8.jpg",
-            "price": 499,
-            "basic": 0,
-            "standard": 250,
-            "premium": 350
-          }
-
+      "products": [
+        {
+          "Name": "French traditional",
+          "image": "/assets/services/manicure1.jpg",
+          "price": 399,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        },
+        {
+          "Name": "Acralic Nails",
+          "image": "/assets/services/manicure2.jpg",
+          "price": 599,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        },
+        {
+          "Name": "Winter Tones",
+          "image": "/assets/services/manicure3.jpg",
+          "price": 899,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        },
+        {
+          "Name": "Custom Styles",
+          "image": "/assets/services/manicure4.jpg",
+          "price": 1899,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        },
+        {
+          "Name": "Mustard Matte",
+          "image": "/assets/services/manicure5.jpg",
+          "price": 399,
+          "basic": 0,
+          "standard": 150,
+          "premium": 250
+        },
+        {
+          "Name": "Nature Nails",
+          "image": "/assets/services/manicure6.jpg",
+          "price": 499,
+          "basic": 0,
+          "standard": 250,
+          "premium": 300
+        },
+        {
+          "Name": "Child bunny",
+          "image": "/assets/services/manicure7.jpg",
+          "price": 599,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        },
+        {
+          "Name": "Cool tone",
+          "image": "/assets/services/manicure8.jpg",
+          "price": 499,
+          "basic": 0,
+          "standard": 250,
+          "premium": 350
+        }
       ]
     },
     {
       "Name": "pedicure",
       "image": "/assets/img/services/pedicure.png",
       "link": "pedicure",
-      "products":[
+      "products": [
         {
-
           "Name": "Japanese traditional",
           "image": "/assets/services/pedicure1.jpg",
           "price": 2999,
@@ -122,7 +111,6 @@
           "premium": 550
         },
         {
-
           "Name": "Acralic Nails",
           "image": "/assets/services/pedicure2.jpg",
           "price": 599,
@@ -131,7 +119,6 @@
           "premium": 350
         },
         {
-
           "Name": "Nature Nails",
           "image": "/assets/services/pedicure3.jpg",
           "price": 899,
@@ -140,7 +127,6 @@
           "premium": 350
         },
         {
-
           "Name": "Custom Styles",
           "image": "/assets/services/pedicure4.jpg",
           "price": 1699,
@@ -149,7 +135,6 @@
           "premium": 450
         },
         {
-
           "Name": "Paraffin",
           "image": "/assets/services/pedicure5.jpg",
           "price": 2399,
@@ -158,7 +143,6 @@
           "premium": 450
         },
         {
-
           "Name": "Winter Tones",
           "image": "/assets/services/pedicure6.jpg",
           "price": 1899,
@@ -167,7 +151,6 @@
           "premium": 450
         },
         {
-
           "Name": "Child bunny",
           "image": "/assets/services/pedicure7.jpg",
           "price": 599,
@@ -176,7 +159,6 @@
           "premium": 350
         },
         {
-
           "Name": "Royal Touch",
           "image": "/assets/services/pedicure8.jpg",
           "price": 2499,
@@ -190,9 +172,8 @@
       "Name": "makeup",
       "image": "/assets/img/services/makeup.png",
       "link": "makeup",
-      "products":[
+      "products": [
         {
-
           "Name": "Bridal",
           "image": "/assets/services/makeup1.jpg",
           "price": 18999,
@@ -201,7 +182,6 @@
           "premium": 3350
         },
         {
-
           "Name": "Face Pack",
           "image": "/assets/services/makeup2.jpg",
           "price": 499,
@@ -210,7 +190,6 @@
           "premium": 300
         },
         {
-
           "Name": "Celebrity Makeup",
           "image": "/assets/services/makeup3.jpg",
           "price": 25299,
@@ -219,7 +198,6 @@
           "premium": 5350
         },
         {
-
           "Name": "Matte Makeup",
           "image": "/assets/services/makeup4.jpg",
           "price": 28999,
@@ -228,7 +206,6 @@
           "premium": 4350
         },
         {
-
           "Name": "North Indian",
           "image": "/assets/services/makeup5.jpg",
           "price": 21199,
@@ -237,7 +214,6 @@
           "premium": 4350
         },
         {
-
           "Name": "Chinese",
           "image": "/assets/services/makeup6.jpg",
           "price": 10599,
@@ -246,7 +222,6 @@
           "premium": 3500
         },
         {
-
           "Name": "Dewy Makeup",
           "image": "/assets/services/makeup7.jpg",
           "price": 8599,
@@ -255,7 +230,6 @@
           "premium": 1950
         },
         {
-
           "Name": "Cool tones",
           "image": "/assets/services/makeup8.jpg",
           "price": 5499,
@@ -269,9 +243,8 @@
       "Name": "hairstyle",
       "image": "/assets/img/services/hairstyle.png",
       "link": "hairstyle",
-      "products":[
+      "products": [
         {
-
           "Name": "Straighten",
           "image": "/assets/services/hairstyle1.jpg",
           "price": 7599,
@@ -280,7 +253,6 @@
           "premium": 1350
         },
         {
-
           "Name": "Chignon",
           "image": "/assets/services/hairstyle2.jpg",
           "price": 2299,
@@ -289,7 +261,6 @@
           "premium": 6350
         },
         {
-
           "Name": "Braid",
           "image": "/assets/services/hairstyle3.jpg",
           "price": 2299,
@@ -298,7 +269,6 @@
           "premium": 650
         },
         {
-
           "Name": "Custom Styles",
           "image": "/assets/services/hairstyle4.jpg",
           "price": 3699,
@@ -307,7 +277,6 @@
           "premium": 850
         },
         {
-
           "Name": "Retro Hairstyles",
           "image": "/assets/services/hairstyle5.jpg",
           "price": 3399,
@@ -316,7 +285,6 @@
           "premium": 1350
         },
         {
-
           "Name": "French Twist",
           "image": "/assets/services/hairstyle6.jpg",
           "price": 1899,
@@ -325,7 +293,6 @@
           "premium": 350
         },
         {
-
           "Name": "Korean",
           "image": "/assets/services/hairstyle7.jpg",
           "price": 599,
@@ -334,7 +301,6 @@
           "premium": 300
         },
         {
-
           "Name": "Unicorn",
           "image": "/assets/services/hairstyle8.jpeg",
           "price": 5499,
@@ -348,9 +314,8 @@
       "Name": "hair cut",
       "image": "/assets/img/services/haircut.png",
       "link": "haircut",
-      "products":[
+      "products": [
         {
-
           "Name": "Taper Cut",
           "image": "/assets/services/haircut1.jpg",
           "price": 1199,
@@ -359,7 +324,6 @@
           "premium": 350
         },
         {
-
           "Name": "Bowl Cut",
           "image": "/assets/services/haircut2.jpg",
           "price": 2299,
@@ -368,7 +332,6 @@
           "premium": 350
         },
         {
-
           "Name": "Box Cut",
           "image": "/assets/services/haircut3.jpg",
           "price": 1299,
@@ -377,7 +340,6 @@
           "premium": 350
         },
         {
-
           "Name": "Quiff",
           "image": "/assets/services/haircut4.jpg",
           "price": 1699,
@@ -386,7 +348,6 @@
           "premium": 350
         },
         {
-
           "Name": "Under Cut",
           "image": "/assets/services/haircut5.jpg",
           "price": 2399,
@@ -395,7 +356,6 @@
           "premium": 850
         },
         {
-
           "Name": "Mullet Cut",
           "image": "/assets/services/haircut6.jpg",
           "price": 1499,
@@ -404,7 +364,6 @@
           "premium": 350
         },
         {
-
           "Name": "Custom Style",
           "image": "/assets/services/haircut7.jpg",
           "price": 2999,
@@ -413,7 +372,6 @@
           "premium": 850
         },
         {
-
           "Name": "One Side Under Cut",
           "image": "/assets/services/haircut8.jpg",
           "price": 2499,
@@ -422,7 +380,6 @@
           "premium": 850
         },
         {
-
           "Name": "Fire Cut",
           "image": "/assets/services/haircut9.jpg",
           "price": 2499,
@@ -431,7 +388,6 @@
           "premium": 850
         },
         {
-
           "Name": "One Side Box",
           "image": "/assets/services/haircut10.jpg",
           "price": 1499,
@@ -440,8 +396,6 @@
           "premium": 350
         },
         {
-
-
           "Name": "Caesar Cut",
           "image": "/assets/services/haircut11.jpg",
           "price": 1499,
@@ -450,7 +404,6 @@
           "premium": 350
         },
         {
-
           "Name": "Mohawk Style",
           "image": "/assets/services/haircut12.jpg",
           "price": 3499,
@@ -464,9 +417,8 @@
       "Name": "eyebrow",
       "image": "/assets/img/services/eyebrow.png",
       "link": "eyebrow",
-      "products":[
+      "products": [
         {
-
           "Name": "Simple",
           "image": "/assets/services/eye-brow1.jpg",
           "type": "standard",
@@ -476,7 +428,6 @@
           "premium": 350
         },
         {
-
           "Name": "Classic Bow",
           "image": "/assets/services/eye-brow2.jpg",
           "type": "all",
@@ -486,7 +437,6 @@
           "premium": 350
         },
         {
-
           "Name": "Winter Tones",
           "image": "/assets/services/eye-brow3.jpg",
           "type": "all",
@@ -496,7 +446,6 @@
           "premium": 350
         },
         {
-
           "Name": "Scissor Styles",
           "image": "/assets/services/eye-brow4.jpg",
           "type": "premium",
@@ -506,7 +455,6 @@
           "premium": 350
         },
         {
-
           "Name": "Elegant Seed",
           "image": "/assets/services/eye-brow5.jpg",
           "type": "standard",
@@ -516,7 +464,6 @@
           "premium": 350
         },
         {
-
           "Name": "Custom Styles",
           "image": "/assets/services/eye-brow1.jpg",
           "type": "all",
@@ -526,7 +473,6 @@
           "premium": 350
         },
         {
-
           "Name": "Classic Threading",
           "image": "/assets/services/eye-brow7.jpg",
           "type": "standard",
@@ -536,7 +482,6 @@
           "premium": 350
         },
         {
-
           "Name": "Cool tone",
           "image": "/assets/services/eye-brow8.jpg",
           "type": "premium",
@@ -551,9 +496,8 @@
       "Name": "waxing",
       "image": "/assets/img/services/waxing.png",
       "link": "waxing",
-      "products":[
+      "products": [
         {
-
           "Name": "Strip Waxing",
           "image": "/assets/services/waxing1.jpg",
           "price": 1299,
@@ -562,7 +506,6 @@
           "premium": 350
         },
         {
-
           "Name": "Cream Waxing",
           "image": "/assets/services/waxing2.jpg",
           "price": 1199,
@@ -576,9 +519,8 @@
       "Name": "skin cleaning",
       "image": "/assets/img/services/skincleaning.png",
       "link": "skincleaning",
-      "products":[
+      "products": [
         {
-
           "Name": "Purer Pores",
           "image": "/assets/services/skincleaning1.jpeg",
           "price": 1199,
@@ -587,7 +529,6 @@
           "premium": 350
         },
         {
-
           "Name": "Blissful Skin",
           "image": "/assets/services/skincleaning2.jpeg",
           "price": 1299,
@@ -596,7 +537,6 @@
           "premium": 350
         },
         {
-
           "Name": "Botanic Beauty",
           "image": "/assets/services/skincleaning3.jpg",
           "price": 2199,
@@ -605,7 +545,6 @@
           "premium": 350
         },
         {
-
           "Name": "Gold Skin Studio",
           "image": "/assets/services/skincleaning4.jpg",
           "price": 2899,
@@ -616,10 +555,8 @@
       ]
     }
   ],
-
   "stylist": [
     {
-
       "Name": "Nandhagopal",
       "image": "/assets/img/about/about-img9.jpg",
       "expirence": "15 years",
@@ -627,7 +564,6 @@
       "Ratings": "5 Star"
     },
     {
-
       "Name": "Gopal",
       "image": "/assets/img/about/about-img8.jpg",
       "expirence": "15 years",
@@ -635,7 +571,6 @@
       "Ratings": "4 Star"
     },
     {
-
       "Name": "Selva varshini",
       "image": "/assets/img/about-img.jpg",
       "role": "Skin Care Specialist",
@@ -643,7 +578,6 @@
       "Ratings": "4.5 Star"
     },
     {
-
       "Name": "Suvetha",
       "image": "/assets/img/about/about-img2.jpg",
       "role": "Head Ladies Specialist",
@@ -651,7 +585,6 @@
       "Ratings": "4 Star"
     },
     {
-
       "Name": "Gowsalya",
       "image": "/assets/img/about/about-img4.jpg",
       "role": "Head Ladies Specialist",
@@ -661,41 +594,32 @@
   ],
   "gallery": [
     {
-
       "image": "/assets/img/img-insta/photo1.png"
     },
     {
-
       "image": "/assets/img/img-insta/img1.jpeg"
     },
     {
-
       "image": "/assets/img/img-insta/photo3.png"
     },
     {
-
       "image": "/assets/img/img-insta/img2.jpeg"
     },
     {
-
       "image": "/assets/img/img-insta/photo5.png"
     },
     {
-
       "image": "/assets/img/img-insta/photo6.png"
     },
     {
-
       "image": "/assets/img/img-insta/img3.jpeg"
     },
     {
-
       "image": "/assets/img/img-insta/photo8.png"
     }
   ],
   "review": [
     {
-
       "name": "Catrina are",
       "image": "/assets/img/Testimonials/test1.png",
       "star": "fa-solid fa-star",
@@ -706,7 +630,6 @@
       "description": "It was relaxing experience for us when we visited this place.Staff is good and well trained. Overall good"
     },
     {
-
       "name": "Samantha",
       "image": "/assets/img/Testimonials/test2.png",
       "star": "fa-solid fa-star",
@@ -717,7 +640,6 @@
       "description": "Place is good for those who love natural spa. The rates are not expensive.Ambience was full of energetic."
     },
     {
-
       "name": "Rosy",
       "image": "/assets/img/Testimonials/test3.jpeg",
       "star": "fa-solid fa-star",
@@ -728,7 +650,6 @@
       "description": "Nice and good experience also I would recommend for everyone Who is looking for something new with hair"
     },
     {
-
       "name": "Nandha",
       "image": "/assets/img/Testimonials/test4.jfif",
       "star": "fa-solid fa-star",
@@ -741,35 +662,27 @@
   ],
   "video": [
     {
-
       "videoclip": "/assets/gallery/v1.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v2.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v3.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v4.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v5.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v6.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v7.mp4"
     },
     {
-
       "videoclip": "/assets/gallery/v8.mp4"
     }
   ],
@@ -783,26 +696,6 @@
       "email": "nandhavignesh85@gmail.com",
       "bookingdate": "8/3/2023",
       "id": 1
-    },
-    {
-      "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Celebrity Makeup",
-      "servicePrice": 30649,
-      "stylist": "premium",
-      "time": "9:00 AM",
-      "email": "nandhavignesh85@gmail.com",
-      "bookingdate": "8/3/2023",
-      "id": 2
-    },
-    {
-      "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Celebrity Makeup",
-      "servicePrice": 28549,
-      "stylist": "standard",
-      "time": "10:00 AM",
-      "email": "nandhavignesh85@gmail.com",
-      "bookingdate": "8/3/2023",
-      "id": 3
     }
   ],
   "package": [
@@ -817,23 +710,21 @@
       "id": 1
     }
   ],
-    "bookings": [
-      {
-        "slot":"9.00 AM"
-      },
-      {
-        "slot":"10.00 AM"
-      },
-      {
-        "slot":"11.00 AM"
-      },
-      {
-        "slot":"12.00 PM"
-      },
-      {
-        "slot":"1.00 PM"
-      }
-    ]
-
-
+  "bookings": [
+    {
+      "slot": "9.00 AM"
+    },
+    {
+      "slot": "10.00 AM"
+    },
+    {
+      "slot": "11.00 AM"
+    },
+    {
+      "slot": "12.00 PM"
+    },
+    {
+      "slot": "1.00 PM"
+    }
+  ]
 }

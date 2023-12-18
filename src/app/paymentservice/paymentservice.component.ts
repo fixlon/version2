@@ -65,8 +65,8 @@ determineCardType() {
     return;
   }
   const cardNumberPattern = [
-    { type: 'Visa', pattern: /^4[0-9]{12}(?:[0-9]{3})?$/ },
-    { type: 'MasterCard', pattern: /^5[1-5][0-9]{14}$/ },
+    { type: 'Visa',   pattern: /^4[0-9](?!.*(.)\1{2})\d{0,15}$/ },
+    { type: 'MasterCard', pattern: /^5[0-5](?!.*(.)\1{2})\d{0,14}$/  }
   ];
 
   for (const cardPattern of cardNumberPattern) {
@@ -75,9 +75,15 @@ determineCardType() {
       return;
     }
   }
+  if (this.cardNumber.match(/(\d)\1{2}/)) {
+    this.paymentForm.controls['cardNumber'].setErrors({ consecutiveNumbers: true });
+  } else {
+    this.paymentForm.controls['cardNumber'].setErrors(null);
+  }
   // If no card type pattern is matched, reset the cardType to an empty string
   this.cardType = '';
 }
+
 
 back(){
 this.router.navigate([''])

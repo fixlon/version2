@@ -65,10 +65,10 @@
                   </div>
                   <div class="timeSlot">
                   <div  *ngFor="let slot of timeSlots">
-                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)"  >{{ slot.slot }}</button>
+                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ this.slot.slot }}</button>
                   </div>
                 </div>
-                <button class="clear-button" (click)="clearTimeSlot()">Clear</button>
+                <button class="clear-button" [disabled]="!selectedTimeSlot" (click)="clearTimeSlot()">Clear</button>
               </div>
           </div>
 
