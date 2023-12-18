@@ -696,6 +696,16 @@
       "email": "nandhavignesh85@gmail.com",
       "bookingdate": "8/3/2023",
       "id": 1
+    },
+    {
+      "CustomerName": "kk",
+      "serviceType": "premium",
+      "servicePrice": 2949,
+      "stylist": "premium",
+      "time": "1.00 PM",
+      "email": "nandhavignesh85@gmail.com",
+      "bookingdate": "12/18/2023",
+      "id": 2
     }
   ],
   "package": [

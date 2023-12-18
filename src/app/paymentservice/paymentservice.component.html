@@ -23,7 +23,7 @@
             <small *ngIf="paymentForm.controls['cardNumber'].errors?.['required']">Please enter cardNumber</small>
             <small *ngIf="paymentForm.controls['cardNumber'].errors?.['pattern']">Please Enter Numbers only</small>
             <small *ngIf="paymentForm.controls['cardNumber'].errors?.['minlength'] && !paymentForm.controls['cardNumber'].errors?.['pattern'] ">Please enter 12-19 digit card number</small>
-            <small *ngIf="paymentForm.controls['cardNumber'].errors?.['consecutiveNumbers']">Please avoid three consecutive identical digits</small>
+            <small *ngIf="paymentForm.controls['cardNumber'].errors?.['consecutiveNumbers']">Please avoid four consecutive identical digits</small>
           </div>
         </div>
         <div class="form-group">

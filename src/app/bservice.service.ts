@@ -12,9 +12,7 @@ constructor(private client:HttpClient) { }
 mservice(){
   return this.client.get(`${this.apiUrl}/services`)
 }
-manicureservice(){
-  return this.client.get(`${this.apiUrl}/manicure`)
-}
+
 sservice(){
   return this.client.get(`${this.apiUrl}/gallery`)
 }
@@ -25,27 +23,7 @@ return this.client.get(`${this.apiUrl}/video`);
 review(){
   return this.client.get(`${this.apiUrl}/review`)
 }
-eyebrowservice(){
-  return  this.client.get(`${this.apiUrl}/eyebrow`)
-}
-haircutservice(){
-  return this.client.get(`${this.apiUrl}/haircut`)
-}
-hairstyle(){
-  return this.client.get(`${this.apiUrl}/hairstyle`)
-}
-makeup(){
-  return this.client.get(`${this.apiUrl}/makeup`)
-}
-pedicure(){
-  return this.client.get(`${this.apiUrl}/pedicure`)
-}
-skincleaning(){
-  return this.client.get(`${this.apiUrl}/skincleaning`)
-}
-waxing(){
-  return this.client.get(`${this.apiUrl}/waxing`)
-}
+
 stylist(){
   return  this.client.get(`${this.apiUrl}/stylist`)
 }
