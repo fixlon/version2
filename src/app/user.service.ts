@@ -8,44 +8,42 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   private apiUrl = environment.apiUrl;
   private url =environment.url;
-  private url1: string = `${this.apiUrl}/services`;
-  private url2: string = `${this.apiUrl}/package`;
+  private url1: string = environment.services;
+  private url2: string = environment.package;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log(environment.url);
+  }
 
   adduser(body: any): Observable<any> {
     return this.http.post<any>(this.url, body);
   }
 
-  addservice1(body: any): Observable<any> {
+  addPackage(body: any): Observable<any> {
     return this.http.post<any>(this.url2, body);
   }
 
   addservice(body: any): Observable<any> {
-    return this.http.post<any>(this.url1, body);
+    return this.http.post<any>(environment.services, body);
   }
 
-  deleteservice(id: any): Observable<any> {
-    return this.http.delete<any>(`${this.url1}/${id}`);
-  }
-
-  retriveuser(): Observable<any> {
-    return this.http.get<any>(this.url);
-  }
-
-  retriveoneuser(id: any): Observable<any> {
-    return this.http.get<any>(`${this.url}/${id}`);
+  addProduct(body: any,email:any): Observable<any> {
+    return this.http.patch<any>(environment.products+email, {products:body});
   }
 
   updateuser(id: any, data: any): Observable<any> {
-    return this.http.patch<any>(`${this.url}/${id}`, data);
+    return this.http.patch<any>(environment.user+id, data);
   }
 
-  updateProfile(id: any, value: any): Observable<any> {
-    return this.http.put<any>(`${this.url}/${id}`, value);
+  updateService(body:any){
+   return this.http.patch(environment.products+body.email,body);
   }
 
-  getUser(id: any): Observable<any> {
-    return this.http.get<any>(`${this.url}/${id}`);
+  updateProduct(body:any,email:any){
+    return this.http.patch(environment.products+email+'/'+body.email,{products:body});
+  }
+
+  deleteProduct(body:any){
+    this.http.delete(environment.products, body);
   }
 }

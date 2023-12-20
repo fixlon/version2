@@ -22,17 +22,14 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   login(){
-
     //  user login
       this.http.get(this.url)
       .subscribe((data: any)=>{
        const user = data.find((a:any)=>{
         return a.email === this.loginform1.value.email });
        if(user){
-        localStorage.setItem('email',this.loginform1.value.email);
-        this.loginform1.reset();
+        sessionStorage.setItem('email',this.loginform1.value.email);
         this.router.navigate(['change-password']);
-
        }
 
       //  user not found

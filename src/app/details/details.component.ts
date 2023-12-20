@@ -85,7 +85,7 @@ export class DetailsComponent implements OnInit{
 
 //choosing time slot
   selectTimeSlot(slot: any): void {
-    this.selectedTimeSlot= slot.slot;
+    this.selectedTimeSlot= slot.slot; 
     console.log(this.selectedTimeSlot);
   }
 

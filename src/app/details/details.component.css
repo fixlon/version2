@@ -26,9 +26,11 @@ img{
 .services__content__descripion{
   margin: 0%;
 }
+
 .inner{
   margin:0px 40px;
   display: flex;
+
 }
 .innnerContent{
   padding: 10px;

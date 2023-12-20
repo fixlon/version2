@@ -15,6 +15,7 @@ export class ProductsComponent {
   displaydata:any;
   eyebrow:any;
   haircut:any;
+  data:any;
     constructor(private service:BserviceService,private http:HttpClient,private route:Router) {
       // alert('service');
       this.servicedata=sessionStorage.getItem('service');
@@ -26,7 +27,7 @@ export class ProductsComponent {
           return this.servicedata==value.Name;
         })
         if(data){
-          console.log(this.manicuredata.Name);
+          // console.log(this.manicuredata.Name);
           this.displaydata=this.manicuredata.products;
         }
 
@@ -63,7 +64,13 @@ export class ProductsComponent {
   sessionStorage.setItem('products1',value);
   this.route.navigateByUrl('/services/details');
     }
-    
+
+    changeProduct(){
+      this.data=true;
+      sessionStorage.setItem('value1',this.data);
+      sessionStorage.removeItem('value');
+      this.route.navigateByUrl('/add');
+    }
     ngOnInit() {
   if(this.servicedata==='eyebrow'){
     this.eyebrow=this.servicedata;

@@ -1,5 +1,6 @@
 import { Component , OnInit} from '@angular/core';
 import { UserService } from '../user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -14,14 +15,22 @@ export class ProfileComponent implements OnInit{
   userName:any;
   phone:any;
   userDetails: any;
+  userimage:any;
+  localurl:any;
+  url:any="http://localhost:3000/usersprofile";
 
-  constructor(public service:UserService){
+  constructor(public service:UserService,private http:HttpClient){
     this.userName=sessionStorage.getItem('userName');
     this.email=sessionStorage.getItem('email');
     this.phone=sessionStorage.getItem('phone');
   }
   ngOnInit(): void {
+    this.userimage=sessionStorage.getItem('image');
     this.profileImage = localStorage.getItem('profileImage');
+    this.http.get(this.url).subscribe((data=>{
+      this.userimage=data;
+      console.log(data);
+    }))
   }
 
   onDrop(event: any) {
@@ -34,7 +43,14 @@ export class ProfileComponent implements OnInit{
   }
 
   onFileChange(event: any) {
-    this.handleFileUpload(event.target.files);
+    if(event.target.files&&event.target.files[0]){
+      var reader=new FileReader();
+      reader.onload=(event:any)=>{
+        this.localurl=event.target.result;
+        console.log(this.localurl)
+      }
+      console.log(reader.readAsDataURL(event.target.files[0]));
+    }
   }
 
   private handleFileUpload(files: FileList) {
@@ -49,11 +65,13 @@ export class ProfileComponent implements OnInit{
     }
   }
 
-  updateProfile(user:{name:any,phone:any,email:any}){
-    this.userDetails.setValue({
-
+  update(name:any,email:any,phone:any,profile:any){
+console.log(name,email,phone,profile);
+    const imgurl=this.localurl;
+    this.http.post(this.url,{image:imgurl}).subscribe((res)=>{
+      console.log(res);
+      alert("profile updated")
     })
-// this.service.updateProfile(id,user);
-
   }
+
 }

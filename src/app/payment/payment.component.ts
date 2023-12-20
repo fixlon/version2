@@ -54,7 +54,6 @@ paymentForm: FormGroup;
   }
 
   adduser(){
-
     var body={
       name:this.paymentForm.controls['username'].value,
       phone:this.paymentForm.controls['phone'].value,
@@ -64,7 +63,7 @@ paymentForm: FormGroup;
       price:this.packageprice,
       cemail:this.customeremail
     }
-        this.service.addservice1(body).subscribe(data=>{
+        this.service.addPackage(body).subscribe(data=>{
           alert('Payment Succsess \n kindly check your email');
           this.paymentForm.reset();
           this.router.navigate(['services']);

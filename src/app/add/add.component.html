@@ -6,38 +6,55 @@
     <div class="manage">
     <div class="container">
         <h1>GET IN TOUCH WITH US</h1>
-        <form #serviceForm="ngForm" (ngSubmit)="onServiceCreate(name.value,link.value)">
+        <form *ngIf="allservice" #serviceForm="ngForm" (ngSubmit)="onServiceCreate(serviceForm.value)">
           <div class="row">
             <div class="column">
               <label for="service">Service Name</label>
-              <input type="text" id="service" name="Name" placeholder="Your service here" ngModel required #name="ngModel">
+              <input type="text" id="service" name="Name" placeholder="Your service here" ngModel  #name="ngModel">
               <div *ngIf="name.invalid && name.touched" class="error-message">Service Name is required.</div>
             </div>
 
             <div class="column">
               <label for="image">Image</label>
-              <!-- <input type="text" id="image" name="image" placeholder="Enter your image" ngModel required #image="ngModel"> -->
-              <input type="file" (change)="file($event)" id="image"  name="image" placeholder="Enter your image" ngModel required #image="ngModel">
-              <!-- <div *ngIf="image.invalid && image.touched" class="error-message">Image is required.</div> -->
-            </div>
-
-            <div class="column">
-              <label for="link">Link</label>
-              <input type="text" id="link" name="link" placeholder="Enter your link" ngModel required #link="ngModel">
-              <div *ngIf="link.invalid && link.touched" class="error-message">Link is required.</div>
+              <input type="file" (change)="file($event)" id="image"  name="image" placeholder="Enter your image" >
             </div>
           </div>
 
           <div class="button1">
             <button style="margin-right: 2px;" *ngIf="!editMode" [disabled]="serviceForm.invalid">Add</button>
-            <button *ngIf="editMode" [disabled]="serviceForm.invalid">Update</button>
+            <button *ngIf="editMode" (click)="updateServices()">Update</button>
             <a routerLink="/services" style="margin-left: 2px;"><button>Back</button></a>
           </div>
         </form>
 
+        <form *ngIf="value" #serviceForm="ngForm" (ngSubmit)="onProductCreate(serviceForm.value)">
+          <div class="row">
+            <div class="column">
+              <label for="service">Service Name</label>
+              <input type="text" id="service" name="Name" placeholder="Your service here" ngModel  #name="ngModel">
+              <div *ngIf="name.invalid && name.touched" class="error-message">Service Name is required.</div>
+            </div>
+            <div class="column" *ngIf="value">
+              <label for="price">Price</label>
+              <input type="text" id="price" name="price" placeholder="Your price" ngModel #price="ngModel">
+              <div *ngIf="price.invalid && price.touched" class="error-message">Service Name is required.</div>
+            </div>
 
+            <div class="column">
+              <label for="image">Image</label>
+              <input type="file" (change)="file($event)" id="image"  name="image" placeholder="Enter your image" >
+            </div>
+          </div>
+
+          <div class="button1">
+            <button style="margin-right: 2px;" *ngIf="!editMode" [disabled]="serviceForm.invalid">Add</button>
+            <button *ngIf="editMode" (click)="updateServices()">Update</button>
+            <a routerLink="/services" style="margin-left: 2px;"><button>Back</button></a>
+          </div>
+        </form>
     </div>
-    <div class="productDisplay">
+
+    <div class="productDisplay"  *ngIf="allservice">
       <table id="products">
         <thead >
           <th>#</th>
@@ -47,13 +64,38 @@
           <th>Edit</th>
 
         </thead>
-        <tbody>
+        <tbody >
         <tr *ngFor="let prod of mservicelist;index as i" class="tr" >
           <td style="width: 10%;">{{i+1}}</td>
           <td >{{prod.Name}}</td>
           <td><img src="{{prod.image}}" alt=""></td>
-          <td ><i (click)="onDeleteService(prod.id)" class="fa-solid fa-trash"></i></td>
-          <td ><i (click)="onEditService(prod.id)" class="fa-solid fa-pen-to-square"></i> </td>
+          <td ><i (click)="onDeleteService(prod.email)" class="fa-solid fa-trash"></i></td>
+          <td ><i (click)="onEditService(prod.Name,prod.email)" class="fa-solid fa-pen-to-square"></i> </td>
+        </tr>
+      </tbody>
+      </table>
+      <hr>
+    </div>
+
+    <div class="productDisplay" *ngIf="value">
+      <table id="products" >
+        <thead >
+          <th>#</th>
+          <th>ProductName</th>
+          <th>image</th>
+          <th>Price</th>
+          <th>clear</th>
+          <th>Edit</th>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let prod of displaydata;index as i" class="tr" >
+          <td style="width: 10%;">{{i+1}}</td>
+          <td >{{prod.Name}}</td>
+          <td><img src="{{prod.image}}" alt=""></td>
+          <td>{{prod.price}}</td>
+          <td ><i (click)="onDeleteProduct(prod.email)" class="fa-solid fa-trash"></i></td>
+          <td ><i (click)="onEditProduct(prod.Name)" class="fa-solid fa-pen-to-square"></i> </td>
         </tr>
       </tbody>
       </table>

@@ -28,12 +28,15 @@
                         </div>
                         </div>
                       </div>
+
                    </ng-container>
 
         </div>
-        <!-- <div  >
-          <a routerLink="booking" *ngIf="!adminButton"> <button class="btn" >BOOK NOW</button></a>
-         </div> -->
+          <a *ngIf="adminButton" (click)="changeProduct()"><i class="fa-solid fa-circle-plus" style="font-size: 50px; margin-left: 46%;margin-top:50px;color:#75492b" ></i></a>
+          <a *ngIf="adminButton" (click)="changeProduct()"><i class="fa-solid fa-circle-minus" style="font-size: 50px; margin-left: 5px;margin-top:50px;color:#75492b" ></i></a>
+
+
+
     </div>
 
 </section>

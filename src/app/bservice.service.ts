@@ -7,46 +7,42 @@ import { environment } from 'src/environments/environment';
 })
 export class BserviceService {
   private apiUrl = environment.apiUrl;
-constructor(private client:HttpClient) { }
+constructor(private client:HttpClient) {
+  console.log(environment.apiUrl);
+ }
 
 mservice(){
-  return this.client.get(`${this.apiUrl}/services`)
+  return this.client.get(environment.services)
 }
 
 sservice(){
-  return this.client.get(`${this.apiUrl}/gallery`)
+  return this.client.get(environment.gallery)
 }
 galleryvideo(){
-return this.client.get(`${this.apiUrl}/video`);
+return this.client.get(environment.Video);
 
 }
 review(){
-  return this.client.get(`${this.apiUrl}/review`)
+  return this.client.get(environment.review);
 }
 
 stylist(){
-  return  this.client.get(`${this.apiUrl}/stylist`)
+  return  this.client.get(environment.stylist)
 }
 userService(){
-  return this.client.get(`${this.apiUrl}/usersprofile`);
+  return this.client.get(environment.user);
 }
-updateService(id:string,value:any){
- return this.client.put(`${this.apiUrl}/services/`+id,value).subscribe();
- }
-
-
-updateServiceData(serviceType: string, id: number, updatedData: any): Observable<any> {
-  return this.client.put(`${this.apiUrl}/services/`+serviceType, updatedData);
+updateService(){
+  
 }
-
 payment(){
-  return this.client.get(`${this.apiUrl}/payment`)
+  return this.client.get(environment.payment);
 }
 package(){
-  return this.client.get(`${this.apiUrl}/package`)
+  return this.client.get(environment.package);
 }
 
 timeservice(){
-  return this.client.get(`${this.apiUrl}/bookings`)
+  return this.client.get(environment.bookings);
 }
 }

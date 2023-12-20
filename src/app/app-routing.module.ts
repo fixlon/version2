@@ -24,16 +24,17 @@ import { PaymentserviceComponent } from './paymentservice/paymentservice.compone
 import { MembershipComponent } from './membership/membership.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProductsComponent } from './products/products.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 const routes: Routes = [
-  {
-    path: '', redirectTo: 'home', pathMatch: 'full'
-  },
   // {
-  //   path:'',
-  //   component:HomeComponent,
+  //   path: '', redirectTo: 'home', pathMatch: 'full'
   // },
+  {
+    path:'',
+    component:HomeComponent,
+  },
   {
     path: 'change-password/:id',
     component: ChangePasswordComponent
@@ -53,13 +54,10 @@ const routes: Routes = [
 
   },
   {
-    path:'',
-    children:[{
-      path:"services/add",
+
+      path:"add",
       canActivate:[AdminGuard],
       component:AddComponent,
-    }
-  ]
 
   },
   {
@@ -178,7 +176,7 @@ const routes: Routes = [
   },
   {
     path:"**",
-    component:HomeComponent
+    component:ErrorpageComponent
   }
 ];
 

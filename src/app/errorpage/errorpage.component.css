@@ -1,0 +1,12 @@
+.errorimg{
+height: 100vh;
+width: 100%;
+background-image: url('../../assets/404.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.errorimg img{
+  width: 100%;
+  /* height: 100vh; */
+}

@@ -33,6 +33,7 @@ import { PaymentserviceComponent } from './paymentservice/paymentservice.compone
 import { MembershipComponent } from './membership/membership.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProductsComponent } from './products/products.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ProductsComponent } from './products/products.component';
       PaymentserviceComponent,
       MembershipComponent,
       PrivacyPolicyComponent,
-      ProductsComponent
+      ProductsComponent,
+      ErrorpageComponent
    ],
   imports: [
     BrowserModule,

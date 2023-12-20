@@ -17,7 +17,7 @@ userEmail:any;
 userName:any;
 adminEmail:any;
 adminName:any;
-
+image:any;
   url:any="http://localhost:3000/usersprofile";
   url1:any="http://localhost:3000/admin";
   loginform1:FormGroup=new FormGroup({})
@@ -83,6 +83,7 @@ adminName:any;
                 sessionStorage.setItem('email',this.userEmail);
                 sessionStorage.setItem('userName',this.userName);
                 sessionStorage.setItem('phone',this.phone);
+                sessionStorage.setItem('image',this.image);
                 alert("Welcome Back "+this.userName);
                 this.loginservice.userloggedin(user.email, user.password);
                 this.router.navigate([this.returl || '/']).then(()=>{

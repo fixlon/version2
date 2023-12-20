@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ServicesComponent implements OnInit {
 mservicelist:any=[];
 adminButton:boolean=false;
+data:any;
   constructor(private service:BserviceService,public loginservice:LoginService,private route:Router) {
     this.service.mservice().subscribe((data=>{
       this.mservicelist=data;
@@ -29,7 +30,12 @@ adminButton:boolean=false;
     sessionStorage.setItem('service',value);
     this.route.navigateByUrl('services/products');
   }
-
+value(){
+  this.data=true;
+  // console.log(this.data);
+  sessionStorage.setItem('value',this.data);
+  sessionStorage.removeItem('value1');
+}
   ngOnInit() {
 
   }
