@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,12 +6,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-displayLoading:boolean=false;
+export class AppComponent implements OnInit, AfterViewInit{
+displayLoading:boolean=true;
 title: string = 'fixlon';
   constructor() {}
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit(): void {
+    window.onload=()=>{
+      this.displayLoading=false;
+    }
   }
 }
 

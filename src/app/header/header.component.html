@@ -21,7 +21,7 @@
                   <span style="cursor: pointer;"><i class="fa-solid fa-user" ></i><b> {{userName}}</b></span>
                   <div class="dropdown-content">
                     <a (click)="logoutuser()"><li>Logout</li></a>
-                  <li><a routerLink="profile">profile</a></li>
+                    <a routerLink="profile"><li>profile</li></a>
                   <a routerLink="bookingHistory"><li>{{adminButton?'Transaction History':'Booking History'}}</li></a>
                   <!-- <li></li> -->
                   <a routerLink="packages/membership"><li>{{adminButton?'Packages Booked':'Membership'}}</li></a>

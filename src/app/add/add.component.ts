@@ -29,6 +29,7 @@ export class AddComponent implements OnInit {
   filterData:any;
   displayhtml:any;
   value:any;
+  deleteProduct:any;
 
 @ViewChild('serviceForm') form:NgForm;
 
@@ -132,7 +133,6 @@ else{
       image:this.localurl,
   }
   this.displaydata.push(datas);
-  // console.log();
   this.user.addProduct(this.displaydata,this.productdata.email).subscribe((res)=>{
     console.log(res);
     alert('New Service Created')
@@ -142,8 +142,6 @@ else{
 else{
   console.log(this.currentServiceId);
   const imgurl=this.localurl;
-  // console.log(name);
-  // console.log(this.currentServiceId);
   var data1={
     email:this.currentServiceId.email,
     Name:name.Name,
@@ -166,11 +164,12 @@ onDeleteService(id:any){
 }
 
 onDeleteProduct(email:any){
-  console.log(email);
-  // console.log("http://localhost:3000/services/"+this.productdata.email+'/'+email);
-  this.http.delete("http://localhost:3000/services/"+this.productdata.email+'/products/'+email);
-  // // alert(confirm("Are you sure want to delete"));
-  // // window.location.reload();
+  this.deleteProduct=this.displaydata.splice(email-1,1)
+  this.user.deleteProduct(this.displaydata,this.productdata.email).subscribe(res=>{
+    console.log(res);
+  })
+  alert(confirm("Are you sure want to delete"));
+  window.location.reload();
 }
 
 onEditService(Name:any,id: any) {
@@ -182,16 +181,13 @@ onEditService(Name:any,id: any) {
       Name: currentService.Name,
     });
     this.currentServiceId = id;
-    // console.log(currentService);
   } else {
     console.error("Service not found.");
   }
 }
 
 onEditProduct(Name:any) {
-  // console.log(Name);
   var currentService = this.displaydata.find((product:any) => product.Name ===Name );
-  // console.log(currentService);
   this.editMode=true;
   if (currentService) {
     this.form.setValue({
@@ -199,7 +195,6 @@ onEditProduct(Name:any) {
       price: currentService.price,
     });
     this.currentServiceId = currentService;
-    // console.log(this.currentServiceId);
   } else {
     console.error("Service not found.");
   }

@@ -16,52 +16,53 @@
   gap: 10px;
 }
 
-.services__content__descripion  .inner img {
+.services__content__descripion .box{
+  padding: 20px;
+  cursor: pointer;
+}
+
+.services__content__descripion .box .inner img {
   width: 100px;
   margin-bottom: 1rem;
 }
 
-.services__content__descripion  .inner {
+.services__content__descripion .box .inner {
   font-size: var(--h3-font-size);
   font-weight: var(--font-semi-bold);
   text-transform: capitalize;
   color: var(--first-color);
   padding: 15px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
-.services__content__descripion .inner .products .image ::before,
-.services__content__descripion .inner .products .image ::after{
+.services__content__descripion .box .inner .a::before,
+.services__content__descripion .box .inner .a::after{
   content: "";
-  width: 50;
-  height: 50;
+  width: 0;
+  height: 0;
   position: absolute;
   transition: all 0.8s ease;
 }
 
-.services__content__descripion .inner .products .image img::before{
+.services__content__descripion .box .inner .a::before{
   bottom: 0;
   left: 0;
   border-bottom: 3px solid transparent;
   border-left: 3px solid transparent;
 }
 
-.services__content__descripion .inner .products .image img::after{
+.services__content__descripion .box .inner .a::after{
   top: 0;
   right: 0;
   border-top: 3px solid transparent;
   border-right: 3px solid transparent;
 }
 
-.services__content__descripion.inner .products .image img::before :hover,
-.services__content__descripion.inner .products .image img::after :hover{
+.services__content__descripion .box:hover  .inner .a::before,
+.services__content__descripion .box:hover  .inner .a::after{
   border-color: var(--first-color);
   width: 100%;
   height: 100%;
-}
-.inner:hover{
-  cursor: pointer;
 }
 /* SERVICES END */
 @media (min-width: 860px){

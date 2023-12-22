@@ -1,5 +1,5 @@
 /* Existing CSS styles here */
-.profile-container {
+.profile-container .displayProfile{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,8 +23,10 @@
   height: 100%;
   object-fit: cover;
 }
-
-.drag-text {
+#name{
+  text-transform: uppercase;
+}
+/* .drag-text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,19 +39,19 @@
   z-index: 1;
   cursor: pointer;
   padding: 10px;
-}
+} */
 
-.drag-text span {
+/* .drag-text span {
   font-size: 16px;
   margin-bottom: 5px;
-}
+} */
 
-.upload-label {
+/* .upload-label {
   font-size: 14px;
   margin: 0;
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 .profile-info{
   text-align: center;
   margin-top: 20px;

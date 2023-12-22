@@ -1,10 +1,9 @@
 {
   "usersprofile": [
     {
-      "username": "NANDHAGOPAL",
+      "username": "NANDHAGOPAL ",
       "email": "nandhavignesh85@gmail.com",
-      "phone": "8525876050",
-      "gender": "male",
+      "phone": 8525876060,
       "password": "Nandha@123",
       "confirmpassword": "Nasa@123",
       "id": 1
@@ -585,6 +584,78 @@
       ]
     },
     {
+      "0": {
+        "email": 1,
+        "Name": "Japanese traditional",
+        "image": "/assets/services/pedicure1.jpg",
+        "price": 2999,
+        "basic": 0,
+        "standard": 350,
+        "premium": 550
+      },
+      "1": {
+        "email": 2,
+        "Name": "Acralic Nails",
+        "image": "/assets/services/pedicure2.jpg",
+        "price": 599,
+        "basic": 0,
+        "standard": 250,
+        "premium": 350
+      },
+      "2": {
+        "email": 3,
+        "Name": "Nature Nails",
+        "image": "/assets/services/pedicure3.jpg",
+        "price": 899,
+        "basic": 0,
+        "standard": 250,
+        "premium": 350
+      },
+      "3": {
+        "email": 4,
+        "Name": "Custom Styles",
+        "image": "/assets/services/pedicure4.jpg",
+        "price": 1699,
+        "basic": 0,
+        "standard": 350,
+        "premium": 450
+      },
+      "4": {
+        "email": 5,
+        "Name": "Paraffin",
+        "image": "/assets/services/pedicure5.jpg",
+        "price": 2399,
+        "basic": 0,
+        "standard": 350,
+        "premium": 450
+      },
+      "5": {
+        "email": 6,
+        "Name": "Winter Tones",
+        "image": "/assets/services/pedicure6.jpg",
+        "price": 1899,
+        "basic": 0,
+        "standard": 350,
+        "premium": 450
+      },
+      "6": {
+        "email": 7,
+        "Name": "Child bunny",
+        "image": "/assets/services/pedicure7.jpg",
+        "price": 599,
+        "basic": 0,
+        "standard": 250,
+        "premium": 350
+      },
+      "7": {
+        "email": 8,
+        "Name": "Royal Touch",
+        "image": "/assets/services/pedicure8.jpg",
+        "price": 2499,
+        "basic": 0,
+        "standard": 300,
+        "premium": 450
+      },
       "email": 8,
       "Name": "skin cleaning",
       "image": "/assets/img/services/skincleaning.png",
@@ -850,6 +921,18 @@
     },
     {
       "slot": "1.00 PM"
+    },
+    {
+      "slot": "3.00 PM"
+    },
+    {
+      "slot": "4.00 PM"
+    },
+    {
+      "slot": "6.00 PM"
+    },
+    {
+      "slot": "7.00 PM"
     }
   ]
 }

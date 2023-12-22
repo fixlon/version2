@@ -43,7 +43,7 @@ export class UserService {
     return this.http.patch(environment.products+email+'/'+body.email,{products:body});
   }
 
-  deleteProduct(body:any){
-    this.http.delete(environment.products, body);
+  deleteProduct(body:any,email:any){
+    return this.http.patch<any>(environment.products+email,{products:body});
   }
 }

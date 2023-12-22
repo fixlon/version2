@@ -15,7 +15,7 @@
           <div class="box">
             <div class="inner">
               <div class="innerimg">
-                <img src="{{ displayhtml.image }}" alt="{{ displayhtml?.Name }}" title="{{ displayhtml?.Name }}">
+                <img src="{{ displayhtml?.image }}" alt="{{ displayhtml?.Name }}" title="{{ displayhtml?.Name }}">
               </div>
               <div class="innnerContent">
                 <h1 *ngIf="!editMode">{{ displayhtml?.Name }}</h1>
@@ -28,11 +28,11 @@
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.basic"></span><br>
 
                   <button id="stylist" (click)="selectService('standard',displayhtml.standard)" [disabled]="serviceType === 'basic' || serviceType === 'premium' ||adminButton">Standard Stylist</button>
-                  Service Charge Rs.<span *ngIf="!editMode"  id="standard">{{ displayhtml.standard }}</span>
+                  Service Charge Rs.<span *ngIf="!editMode"  id="standard">{{ displayhtml?.standard }}</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.standard"></span><br>
 
                   <button id="stylist" (click)="selectService('premium',displayhtml.premium)" [disabled]="serviceType === 'basic' || serviceType === 'standard' ||adminButton" >Premium Stylist</button>
-                  Service Charge Rs.<span *ngIf="!editMode" id="premium">{{ displayhtml.premium }}</span>
+                  Service Charge Rs.<span *ngIf="!editMode" id="premium">{{ displayhtml?.premium }}</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.premium"></span>
 
                   <div>
@@ -64,11 +64,12 @@
                     <p > Service Type: <b id="serviceType">{{ displayhtml?.Name }}</b></p>
                   </div>
                   <div class="timeSlot">
-                  <div  *ngFor="let slot of timeSlots">
-                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ this.slot.slot }}</button>
-                  </div>
+                  <div  *ngFor="let slot of array">
+                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ slot }}</button>
+                    </div>
+                    <h2 *ngIf="notime">NO slots available</h2>
                 </div>
-                <button class="clear-button" [disabled]="!selectedTimeSlot" (click)="clearTimeSlot()">Clear</button>
+                <button *ngIf="!notime" class="clear-button" [disabled]="!selectedTimeSlot" (click)="clearTimeSlot()">Clear</button>
               </div>
           </div>
 

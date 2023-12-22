@@ -1,7 +1,17 @@
-  <body>
-    <app-header></app-header>
+<!--
+
+  title: FIXLON
+  Author Name: Nandhagopal Vignesh A
+  DAte: 11 Apr 2023
+  
+   -->
+<body>
+    <div class="preloader" *ngIf="displayLoading">
+      <img src="../assets/preloader1.gif" alt="">
+    </div>
+    <app-header ></app-header>
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <app-footer ></app-footer>
   </body>
 
 

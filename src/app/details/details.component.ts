@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit{
   editMode: boolean=false;
   adminButton:boolean=false;
   CustomerName:String;
-  cost: number = 0;
   selectedTimeSlot: any;
   bookedTimeSlots: string[] = [];
   timeSlots:any=[];
@@ -28,16 +27,51 @@ export class DetailsComponent implements OnInit{
   displaydata:any;
   displayhtml:any;
   filterData:any;
-
   priceChange:any;
-  constructor(private service: BserviceService, private activatedRoute: ActivatedRoute,private router:Router,private logger:LoggerService,private http:HttpClient) {
+  displayTime:any;
+  date=new Date();
+  time:any;
+  array:any=[];
+  notime:boolean=false;
+  constructor(private service: BserviceService,private router:Router,private logger:LoggerService,private http:HttpClient) {
 
+    // choosing timeSlots
+    this.service.timeservice().subscribe((data) => {
+      this.timeSlots = data;
+      var length=this.timeSlots.length
+      for(var i=0;i<length;i++){
+          const dateString = this.timeSlots[i].slot;
+      const [hoursStr, minutesStr, medium] = dateString.split(/[.: ]/);
+      let hours = parseInt(hoursStr, 10);
+      const minutes = parseInt(minutesStr, 10);
+      // Adjust hours for 12-hour format
+      if (medium.toLowerCase() === 'pm' && hours !== 12) {
+        hours += 12;
+      } else if (medium.toLowerCase() === 'am' && hours === 12) {
+        hours = 0;
+      }
+      const dateObject = new Date();
+      dateObject.setHours(hours, minutes);
+      const currentTime = new Date();
+      if (dateObject > currentTime) {
+        this.time=this.timeSlots[i].slot
+        this.array.push(this.time);
+      }
+      else{
+        if(i==length-1){
+          this.notime=true;
+          console.log(this.notime)
+        }
+
+      }
+      }
+    });
+
+    // choosing products
     this.servicedata=sessionStorage.getItem('service');
     this.serviceType=sessionStorage.getItem('products1');
     this.http.get("http://localhost:3000/services").subscribe((servicedata2:any)=>{
-      // console.log(servicedata2);
       const data=servicedata2.find((value:any)=>{
-        // console.log(value);
         this.manicuredata=value;
         return this.servicedata==value.Name;
       })
@@ -50,9 +84,7 @@ export class DetailsComponent implements OnInit{
         });
         this.displayhtml=this.filterData;
         this.priceChange=this.displayhtml.price;
-        // console.log(this.filterData);
       }
-
     })
 
     if(sessionStorage.getItem('admin')){
@@ -63,13 +95,10 @@ export class DetailsComponent implements OnInit{
     }
    }
 
-   //choosing service type by dynamic
-  ngOnInit(): void {
-    this.service.timeservice().subscribe((data) => {
-      this.timeSlots = data;
-    });
 
+  ngOnInit(){
   }
+
 
   //choosing the stylist by type standard or premium
   selectService(type: string, priceDetails:any): void {
@@ -85,7 +114,10 @@ export class DetailsComponent implements OnInit{
 
 //choosing time slot
   selectTimeSlot(slot: any): void {
-    this.selectedTimeSlot= slot.slot; 
+    const currentDate = new Date();
+    const hours= currentDate.getHours();
+    console.log(hours);
+    this.selectedTimeSlot= slot.slot;
     console.log(this.selectedTimeSlot);
   }
 

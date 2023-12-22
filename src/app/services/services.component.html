@@ -8,10 +8,10 @@
       </div>
 
       <div class="services__content__descripion container">
-            <div class="inner" *ngFor="let item of mservicelist;let index=index">
-              <div (click)="service1(this.item.Name)" class="products">
-                <div class="image"><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}"></div>
-                <div><p>{{item.Name}}</p></div>
+            <div class="box" *ngFor="let item of mservicelist;let index=index">
+              <div class="inner" (click)="service1(this.item.Name)">
+                 <div class="a"><img src="{{item.image}}" alt="{{item.Name}}" title="{{item.Name}}"></div>
+                  <p>{{item.Name}}</p>
               </div>
             </div>
       </div>
