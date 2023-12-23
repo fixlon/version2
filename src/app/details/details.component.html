@@ -47,8 +47,6 @@
 
       </div>
 
-
-
       <div class="services__content__descripion container" style="margin-top: 10px;">
         <!-- timeslot  -->
           <div class="service-type__content">
@@ -84,13 +82,6 @@
     </div>
        <button class="bookingButton" *ngIf="!adminButton" (click)="pay()" [disabled]="!selectedTimeSlot || !CustomerName|| !serviceType">Proceed Payment</button>
   </div>
-
-  <!-- <ng-container>
-    <div class="display" >
-      <img src="{{displayhtml.image}}" title="{{displayhtml.Name}}">
-      <h1>{{displayhtml.Name}}</h1>
-    </div>
-  </ng-container> -->
 
 </section>
 

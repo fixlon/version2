@@ -53,7 +53,7 @@ export class DetailsComponent implements OnInit{
       const dateObject = new Date();
       dateObject.setHours(hours, minutes);
       const currentTime = new Date();
-      if (dateObject > currentTime) {
+      if (dateObject > currentTime) { //checking current time and timeslots
         this.time=this.timeSlots[i].slot
         this.array.push(this.time);
       }
@@ -125,8 +125,8 @@ export class DetailsComponent implements OnInit{
     this.selectedTimeSlot = null;
   }
 
+  // booking service data to payment page
   pay(){
-    // this.proceed=false;
     if (this.CustomerName && this.selectedTimeSlot) {
       const cemail= sessionStorage.getItem('email');
       const totalCost = this.priceChange;//calling the method for storing the price  in service price

@@ -16,18 +16,14 @@ export class ProductsComponent {
   eyebrow:any;
   haircut:any;
   data:any;
-    constructor(private service:BserviceService,private http:HttpClient,private route:Router) {
-      // alert('service');
+    constructor(private http:HttpClient,private route:Router) {
       this.servicedata=sessionStorage.getItem('service');
       this.http.get("http://localhost:3000/services").subscribe((servicedata2:any)=>{
-        // console.log(servicedata2);
         const data=servicedata2.find((value:any)=>{
-          // console.log(value);
           this.manicuredata=value;
           return this.servicedata==value.Name;
         })
         if(data){
-          // console.log(this.manicuredata.Name);
           this.displaydata=this.manicuredata.products;
         }
 
@@ -41,6 +37,7 @@ export class ProductsComponent {
       }
      }
 
+     // filter data
      getTotal() {
       return this.displaydata.length;
     }
@@ -53,16 +50,21 @@ export class ProductsComponent {
       return this.displaydata.filter((item) => item.type === 'premium').length;
     }
 
+    //search  data
     eyebrowValueChanged: string = 'all';
-
     filterEyebrow(data: string) {
       this.eyebrowValueChanged = data;
     }
+
 
     service1(value:any){
   console.log(value);
   sessionStorage.setItem('products1',value);
   this.route.navigateByUrl('/services/details');
+    }
+
+    service2(){
+      this.route.navigateByUrl('/add');
     }
 
     changeProduct(){
@@ -75,6 +77,7 @@ export class ProductsComponent {
   if(this.servicedata==='eyebrow'){
     this.eyebrow=this.servicedata;
   }
+  
   else{
     if(this.servicedata==='hair cut'){
       this.haircut=this.servicedata;
