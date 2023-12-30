@@ -15,7 +15,7 @@ data:any;
   constructor(private service:BserviceService,public loginservice:LoginService,private route:Router) {
     this.service.mservice().subscribe((data=>{
       this.mservicelist=data;
-      console.log(this.mservicelist);
+      // console.log(this.mservicelist);
     }))
     if(sessionStorage.getItem('admin')){
       this.adminButton = true;

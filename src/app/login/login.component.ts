@@ -66,7 +66,7 @@ image:any;
           alert("Admin login success");
           this.loginservice.adminloggedin();
           // Navigate to the desired route
-                this.router.navigate([this.returl || '/']).then(()=>{
+                this.router.navigate([this.returl || 'services']).then(()=>{
                   window.location.reload()
                 });
         } else {

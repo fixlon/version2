@@ -17,9 +17,4 @@ export class AuthGuard  {
       return false;
     }
   }
-  // canActivatechild(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): boolean {
-  //     return this.canActivate(route,state);
-  //   }
 }

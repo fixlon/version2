@@ -32,6 +32,7 @@ ngOnInit() {
 }
   saveBooking(){
   const storedBooking = sessionStorage.getItem('booking1');
+  console.log(storedBooking);
   if (storedBooking) {
     this.booking = JSON.parse(storedBooking); // Convert the string back to an object using JSON.parse()
     this.http.post('http://localhost:3000/payment', this.booking).subscribe(() => {

@@ -747,35 +747,40 @@
       "image": "/assets/img/about/about-img9.jpg",
       "expirence": "15 years",
       "role": "Assistent Chief Stylist",
-      "Ratings": "5 Star"
+      "Ratings": "5 Star",
+      "about":"Nandhagopal is a seasoned professional in the art of hairstyling.Trained in the latest techniques and trends, he channels his creativity into crafting personalized styles that enhance the unique features of each client. His dedication to perfection is evident in every cut, color, and style he creates"
     },
     {
       "Name": "Gopal",
       "image": "/assets/img/about/about-img8.jpg",
       "expirence": "15 years",
       "role": "Fire Cut Specialist",
-      "Ratings": "4 Star"
+      "Ratings": "4 Star",
+      "about":"Gopal doesn't just follow trends; he sets them on fire. His innovative approach to hairstyling and commitment to staying ahead of the curve make him a trailblazer in the industry. When you're in Gopal's chair, you're not just getting a haircut - you're getting a transformative experience."
     },
     {
       "Name": "Selva varshini",
       "image": "/assets/img/about-img.jpg",
       "role": "Skin Care Specialist",
       "expirence": "15 years",
-      "Ratings": "4.5 Star"
+      "Ratings": "4.5 Star",
+      "about":"Selvavarshini is dedicated to helping you embrace and enhance your natural beauty. Through a combination of advanced skincare techniques and a personalized approach, she strives to reveal the glow within, leaving you with skin that radiates health and vitality."
     },
     {
       "Name": "Suvetha",
       "image": "/assets/img/about/about-img2.jpg",
       "role": "Head Ladies Specialist",
       "expirence": "15 years",
-      "Ratings": "4 Star"
+      "Ratings": "4 Star",
+      "about":"Suvetha understands that every client is unique, and she thrives on creating looks that enhance individual beauty. Whether you're seeking a chic haircut, a vibrant color, or a sophisticated updo, Suvetha's dedication to personalized elegance ensures you leave the salon with a style that suits your personality and lifestyle."
     },
     {
       "Name": "Gowsalya",
       "image": "/assets/img/about/about-img4.jpg",
-      "role": "Head Ladies Specialist",
+      "role": "Massage Therapist",
       "expirence": "15 years",
-      "Ratings": "fa-solid fa-star"
+      "Ratings": "fa-solid fa-star",
+      "about":"As an experienced Massage Therapist, Gowslya possesses a deep understanding of various massage techniques designed to alleviate stress, tension, and promote overall wellness. Her intuitive touch and commitment to client comfort create an environment where relaxation and rejuvenation flourish."
     }
   ],
   "gallery": [
@@ -874,24 +879,13 @@
   ],
   "payment": [
     {
-      "CustomerName": "Nandhagopal vignesh A",
-      "serviceType": "Blissful Skin",
-      "servicePrice": 1649,
-      "stylist": "premium",
-      "time": "12:00 PM",
-      "email": "nandhavignesh85@gmail.com",
-      "bookingdate": "8/3/2023",
-      "id": 1
-    },
-    {
-      "CustomerName": "kk",
+      "CustomerName": "Mani",
       "serviceType": "premium",
-      "servicePrice": 2949,
+      "servicePrice": 30649,
       "stylist": "premium",
-      "time": "1.00 PM",
+      "time": "12.00 PM",
       "email": "nandhavignesh85@gmail.com",
-      "bookingdate": "12/18/2023",
-      "id": 2
+      "bookingdate": "12/30/2023"
     }
   ],
   "package": [
@@ -899,11 +893,10 @@
       "name": "NANDHAGOPAL",
       "phone": "8525876050",
       "email": "nandhavignesh85@gmail.com",
-      "date": "8/10/2023",
+      "date": "12/30/2023",
       "packageName": "Gold",
       "price": "Rs.7000",
-      "cemail": "nandhavignesh85@gmail.com",
-      "id": 1
+      "cemail": "nandhavignesh85@gmail.com"
     }
   ],
   "bookings": [

@@ -117,7 +117,7 @@ export class DetailsComponent implements OnInit{
     const currentDate = new Date();
     const hours= currentDate.getHours();
     console.log(hours);
-    this.selectedTimeSlot= slot.slot;
+    this.selectedTimeSlot= slot;
     console.log(this.selectedTimeSlot);
   }
 
