@@ -24,7 +24,7 @@ submit:boolean=true;
   }
 ngOnInit() {
   this.paymentForm = this.formBuilder.group({
-    cardNumber: ["", [Validators.required, Validators.minLength(12), Validators.pattern("^[0-9]+$")]],
+    cardNumber: ["", [Validators.required, Validators.minLength(12), Validators.pattern("^[0-9]*$")]],
     cardHolder:["",[Validators.required,Validators.pattern(/^(?!.*(.).*\\1{3})[a-zA-Z][a-zA-Z0-9_-]{2,15}$/)]],
     expiryDate: ["",[Validators.required,Validators.pattern(/^(0[1-9]|1[0-2])\/[0-9]{2}$/),this.futureDateValidator,]],
     cvv:["",[Validators.pattern("^[0-9]*$"),Validators.minLength(3)]]

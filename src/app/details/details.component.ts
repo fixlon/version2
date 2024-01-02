@@ -11,14 +11,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit{
-  services: any;
   serviceType: string;
-  allservice:any;
   editMode: boolean=false;
   adminButton:boolean=false;
   CustomerName:String;
   selectedTimeSlot: any;
-  bookedTimeSlots: string[] = [];
   timeSlots:any=[];
   proceed:boolean=true;
   booking:any;
@@ -28,22 +25,24 @@ export class DetailsComponent implements OnInit{
   displayhtml:any;
   filterData:any;
   priceChange:any;
-  displayTime:any;
   date=new Date();
   time:any;
   array:any=[];
   notime:boolean=false;
+  serviceName:any;
+  serviceddata:any;
+  book:boolean=false;
   constructor(private service: BserviceService,private router:Router,private logger:LoggerService,private http:HttpClient) {
+
 
     // choosing timeSlots
     this.service.timeservice().subscribe((data) => {
       this.timeSlots = data;
-      var length=this.timeSlots.length
-      for(var i=0;i<length;i++){
+      for(var i=0;i<this.timeSlots.length;i++){
           const dateString = this.timeSlots[i].slot;
-      const [hoursStr, minutesStr, medium] = dateString.split(/[.: ]/);
-      let hours = parseInt(hoursStr, 10);
-      const minutes = parseInt(minutesStr, 10);
+          const [hoursStr, minutesStr, medium] = dateString.split(/[.: ]/);
+          let hours = parseInt(hoursStr, 10);
+          const minutes = parseInt(minutesStr, 10);
       // Adjust hours for 12-hour format
       if (medium.toLowerCase() === 'pm' && hours !== 12) {
         hours += 12;
@@ -69,7 +68,7 @@ export class DetailsComponent implements OnInit{
 
     // choosing products
     this.servicedata=sessionStorage.getItem('service');
-    this.serviceType=sessionStorage.getItem('products1');
+    this.serviceName=sessionStorage.getItem('products1');
     this.http.get("http://localhost:3000/services").subscribe((servicedata2:any)=>{
       const data=servicedata2.find((value:any)=>{
         this.manicuredata=value;
@@ -78,7 +77,7 @@ export class DetailsComponent implements OnInit{
       if(data){
         this.displaydata=this.manicuredata.products;
         this.filterData=this.displaydata.find((data:any)=>{
-          if(data.Name==this.serviceType){
+          if(data.Name==this.serviceName){
             return data;
           }
         });
@@ -99,11 +98,23 @@ export class DetailsComponent implements OnInit{
   ngOnInit(){
   }
 
-
+checktime:any;
   //choosing the stylist by type standard or premium
   selectService(type: string, priceDetails:any): void {
-    this.serviceType = type;
-    // console.log(this.displayhtml);
+      this.serviceType = type;
+      this.http.get("http://localhost:3000/checking").subscribe((data)=>{
+        this.checktime=data;
+        for(var j=0;j<this.checktime.length;j++){
+          for(var i=0;i<this.array.length;i++){
+            if(this.checktime[j].time==this.array[i] && this.serviceType==this.checktime[j].stylist && this.checktime[j].serviceType==this.serviceName){
+              console.log(this.checktime[j].time,this.serviceType,this.serviceName);
+              this.book=false;
+              this.array.splice(i,1);
+            }
+          }
+        }
+      })
+    // console.log(this.serviceType,this.displayhtml.Name);
     this.priceChange = this.displayhtml.price+priceDetails;
   }
 
@@ -134,11 +145,11 @@ export class DetailsComponent implements OnInit{
       const now=new Date();
       this.booking = {
         CustomerName: this.CustomerName,
-        serviceType: this.serviceType,//get servicename by html id
+        serviceType: this.displayhtml.Name,//get servicename by html id
         servicePrice:totalCost,
         stylist:stylist,
         time: this.selectedTimeSlot,
-        email:cemail,
+        cemail:cemail,
         bookingdate:now.toLocaleDateString(),
 
       };

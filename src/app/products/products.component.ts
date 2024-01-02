@@ -77,7 +77,7 @@ export class ProductsComponent {
   if(this.servicedata==='eyebrow'){
     this.eyebrow=this.servicedata;
   }
-  
+
   else{
     if(this.servicedata==='hair cut'){
       this.haircut=this.servicedata;

@@ -23,15 +23,15 @@
                   <input  style="font-size: 20px;height: 35px;" type="text" [(ngModel)]="displayhtml.Name">
                 </div>
                   <h2 id="servicePrice" style="padding-left: 12px;"><i class="fa-solid fa-indian-rupee-sign" style="color: green;"> {{ displayhtml?.price }} </i></h2>
-                  <button id="stylist" (click)="selectService('basic',displayhtml.basic)" [disabled]="serviceType === 'standard' || serviceType === 'premium' ||adminButton">Basic Stylist</button>
+                  <button  id="stylist" (click)="selectService('basic',displayhtml.basic)" [disabled]="serviceType === 'standard' || serviceType === 'premium' ||adminButton">Basic Stylist</button>
                   Service Charge <span *ngIf="!editMode" id="basic">Free</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.basic"></span><br>
 
-                  <button id="stylist" (click)="selectService('standard',displayhtml.standard)" [disabled]="serviceType === 'basic' || serviceType === 'premium' ||adminButton">Standard Stylist</button>
+                  <button  id="stylist" (click)="selectService('standard',displayhtml.standard)" [disabled]="serviceType === 'basic' || serviceType === 'premium' ||adminButton">Standard Stylist</button>
                   Service Charge Rs.<span *ngIf="!editMode"  id="standard">{{ displayhtml?.standard }}</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.standard"></span><br>
 
-                  <button id="stylist" (click)="selectService('premium',displayhtml.premium)" [disabled]="serviceType === 'basic' || serviceType === 'standard' ||adminButton" >Premium Stylist</button>
+                  <button  id="stylist" (click)="selectService('premium',displayhtml.premium)" [disabled]="serviceType === 'basic' || serviceType === 'standard' ||adminButton" >Premium Stylist</button>
                   Service Charge Rs.<span *ngIf="!editMode" id="premium">{{ displayhtml?.premium }}</span>
                   <span *ngIf="editMode"><input type="text" [(ngModel)]="displayhtml.premium"></span>
 
@@ -63,7 +63,7 @@
                   </div>
                   <div class="timeSlot">
                   <div  *ngFor="let slot of array">
-                      <button class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ slot }}</button>
+                      <button *ngIf="!book" class="time" [disabled]="selectedTimeSlot && selectedTimeSlot !== slot" (click)="selectTimeSlot(slot)">{{ slot }}</button>
                     </div>
                     <h2 *ngIf="notime">NO slots available</h2>
                 </div>
